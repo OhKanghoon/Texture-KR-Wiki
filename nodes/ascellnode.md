@@ -58,6 +58,8 @@ func pagerNode(_ pagerNode: ASPagerNode, nodeAt index: Int) -> ASCellNode {
 보다시피, 위의 viewController 를 사용하는 것과 같은 방식이다.  
 `UIView` 서브 클래스를 `ASCellNode` 로 변환하면 비동기적으로 뷰를 보여주는 이점을 얻을 수 있다.
 
+### 
+
 ### Placeholder 보여주지 않기
 
 일반적으로 Cell 이 화면에 도달하기 전에 Display Pass 를 완료하지 못하면 컨텐츠를 다 그리기 전까지 placeholder 를 보여준다.
@@ -72,6 +74,8 @@ node.neverShowPlaceholders = true
 이것은 UIKit 과 유사하지만, Texture 는 Scroll 을 훨씬 빠르게 만들어 준다.
 
 > 이 옵션을 사용한다고 해서 Texture 의 성능상 이점이 모두 사라지는 것은 아니다. 일반적으로 Cell  preloading 중이기 때문에 block 되는 시간은 매우 짧다. `rangeTuningParameters` 가 0으로 설정되어 있더라 이 옵션은 UIKit 보다 월등하다. Main thread 가 대기 중일 때 , SubNode 의 display 가 동시에 실행된다.
+
+### 
 
 ### UITableViewCell 의 특정 프로퍼티
 
