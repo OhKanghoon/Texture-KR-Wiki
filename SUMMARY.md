@@ -12,6 +12,7 @@
 
 * [Node?](newbie-guide/node.md)
 * [LayoutSpec?](newbie-guide/layoutspec.md)
+* [Quick Example](newbie-guide/quick-example.md)
 
 ## Optimizations
 
