@@ -41,5 +41,5 @@ let node = ASDisplayNode(viewBlock: { () -> UIView in
 })
 ```
 
-위의 예시처럼 UIView subclass 를 ASDisplayNode subclass 로 쉽게 변환할 수 있다.
+위의 예시처럼 UIView 서브 클래스를 ASDisplayNode 서브 클래로 쉽게 변환할 수 있다.
 
