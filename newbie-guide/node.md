@@ -43,6 +43,13 @@ UIKit의 다양한 View Component에서 제공해주는 가장 기본적인 attr
 | UINavigationController | ASNavigationController |
 | UITabBarController | ASTabBarController |
 
+####  Node Container 를 사용하여 얻는 점
+
+Node Container 는 Node 의 Intelligent Preloading 을 자동으로 관리한다.  
+Intelligent Preloading 은 모든 Node 의 Layout Measurement, Data Fetching, Decoding, Rendering 이 비동기적으로 수행됨을 의미한다. 이것이 여러가지 장점들 중에서도 Node Container 내에서 Node 를 사용하는 것을 권장하는 이유이다.
+
+> Node Container 없이 Node 를 직접 사용할 수 있지만, 추가적인 호출을 추가하지 않는 한 노드는 UIKit  같이 화면에 나타나는 경우에만 display 한다. 이로 인해 성능이 저하되고, 컨텐츠가 깜박일 수 있다.
+
 ## 사용법
 
 ### 1. Texture Node Container를 기반으로 한 ViewController 만들기
