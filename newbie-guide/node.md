@@ -1,6 +1,6 @@
 # Node?
 
-![](../.gitbook/assets/image%20%283%29.png)
+![](../.gitbook/assets/image%20%287%29.png)
 
 디바이스 화면상 나타나는 모든 객체는 CALayer로 표현되며, CALayer에 대한 터치 이벤트와 각종 편의용 기능들을 객체로 감싼 형태가 여러분들이 알고 계시는 UIView입니다.
 
@@ -8,7 +8,7 @@
 
 Texture는 이러한 모든 로직들과 Frame Drop을 개선하기 위해서 View 객체를 감싼 Node라는 객체를 만들어서 디바이스 화면상 나타날 수 있는 모든 구성요소를 스레드로 부터 안전을 유지하면서 유연하고 신속하게 처리합니다.
 
-![ASDisplayNode &#xC11C;&#xBE0C;&#xB178;&#xB4DC; &#xAD6C;&#xC870;&#xB3C4;](../.gitbook/assets/image%20%285%29.png)
+![ASDisplayNode &#xC11C;&#xBE0C;&#xB178;&#xB4DC; &#xAD6C;&#xC870;&#xB3C4;](../.gitbook/assets/image%20%289%29.png)
 
 UIKit와 마찬가지로 UIView를 기준으로 다양한 SubClass\(UIImageView, UIButton etc.\) 가 있듯이, Texture도 마찬가지로 ASDisplayNode를 기준으로 UIKit와 마찬가지로 다양한 SubClass를 제공합니다. 
 
@@ -99,7 +99,7 @@ class ViewController: ASViewController<ASTableNode> {
 
 ### 2. Texture Node를 기반으로 한  Subclass 만들기
 
-![Lego&#xCC98;&#xB7FC; &#xC870;&#xB9BD;&#xD574;&#xC11C; UI&#xB97C; &#xB9CC;&#xB4E4;&#xC5B4;&#xAC00;&#xB294; Texture ](../.gitbook/assets/image%20%284%29.png)
+![Lego&#xCC98;&#xB7FC; &#xC870;&#xB9BD;&#xD574;&#xC11C; UI&#xB97C; &#xB9CC;&#xB4E4;&#xC5B4;&#xAC00;&#xB294; Texture ](../.gitbook/assets/image%20%288%29.png)
 
 Texture는 여러분들이 일반적으로 생각하시는 Storyboard 및 Xib를 기반으로 UI를 만들지 않습니다. 그렇기 때문에 UI의 각 컴포넌트를 재사용할 수 있게 개발이 가능하며 여러 컴포넌트들을 어셈블리하여 레고조합하듯이 개발합니다.
 

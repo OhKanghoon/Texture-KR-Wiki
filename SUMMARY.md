@@ -17,6 +17,7 @@
 ## Optimizations
 
 * [Layer Backing](optimizations/layer-backing.md)
+* [Corner Rounding](optimizations/corner-rounding.md)
 
 ## Nodes
 
