@@ -27,6 +27,8 @@ print("Backing layer: \(node.layer)")
 
 Node Container 와 함께 사용하면 node 의 프로퍼티는 background thread 에서 설정되고, node 에 캐시된 프로퍼티로 뷰와 레이어는 lazy 하게 구성된다.
 
+
+
 ### View Wrapping
 
 Node 를 생성할 때 UIView 도 사용할 수 있다. \( 생성자의 viewBlock 에 반환 \)  

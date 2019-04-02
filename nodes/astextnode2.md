@@ -8,46 +8,33 @@ ASTextNode와 비교했을 때 **truncation 처리하는데 상대적으로 특�
 
 ### 사용법
 
-#### 
-
 #### 1. attributedText
 
 NSAttributedString을 받습니다. 
 
 ```swift
-
 let textNode = ASTextNode2()
 textNode.attributedText = NSAttributedString(string: "test", attributes: [:])
-
 ```
-
-####  
 
 #### 2. truncationAttributedText
 
 Truncate될 때 attributedText뒤에 붙는 attributedText입니다.
 
 ```swift
-
 let textNode = ASTextNode2()
 textNode.truncationAttributedText = NSAttributedString(string: "More see", attributes: [:])
-
 ```
-
-#### 
 
 #### 3. additionalTruncationMessage
 
 Truncate될 때 truncationAttributedText다음에 붙는 truncationAttributedText입니다. 쉽게 말해서 두번째 truncationAttributedText라고 이해하시면 됩니다.
 
 ```swift
-
 let textNode = ASTextNode2()
 textNode.truncationAttributedText = NSAttributedString(string: "More see", attributes: [:])
 textNode.additionalTruncationMesssage = NSAttributedString(string: "About", attributes: [:])
 ```
-
-#### 
 
 #### 4. maximumNumberOfLines
 
@@ -58,8 +45,6 @@ let textNode = ASTextNode2()
 textNode.maximumNumberOfLines = 1
 ```
 
-#### 
-
 #### 5. truncationMode
 
 NSLineBreakMode를 받으며, 기본값은 NSLineBreakByWordWrapping입니다.
@@ -68,8 +53,6 @@ NSLineBreakMode를 받으며, 기본값은 NSLineBreakByWordWrapping입니다.
 let textNode = ASTextNode2()
 textNode.truncationMode = .byTruncatingTail
 ```
-
-#### 
 
 #### 6. isTruncated \(get-only\) 
 
