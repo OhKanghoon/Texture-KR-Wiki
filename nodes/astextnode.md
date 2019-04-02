@@ -40,5 +40,66 @@ textNode.truncationAttributedText = NSAttributedString(string: "¶¶¶")
 
 ### Link Attributes
 
+👷‍♀️ 공사중 👷
 
+
+
+### ASTextNodeDelegate
+
+ASTextNodeDelegate 를 따르면 Class 가 TextNode 와 관련된 다양한 이벤트에 반응할 수 있다.  
+예를 들면, 아래 처럼 link 를 tap 하는 이벤트에 반응할 수 있다.
+
+```swift
+func textNode(_ textNode: ASTextNode, tappedLinkAttribute attribute: String, value: Any, at point: CGPoint, textRange: NSRange) {
+    guard let url = value as? URL else { return }
+
+    // Tap 됐을 때 URL Handling
+    UIApplication.shared.openURL(url)
+}
+```
+
+이와 유사한 방법으로 LongPress 와 Highlighting 에 대해 다음과 같이 반응할 수 있다.
+
+* textNode\(\_ , shouldHighlightLinkAttribute: value: point:\)
+* textNode\(\_ , shouldLongPressLinkAttribute: value: point:\)
+* textNode\(\_ , longPressedLinkAttribute: value: point: textRange:\)
+
+
+
+### 잘못된 줄 간격과 최대 라인 수
+
+`NSParattumStyle` 의 `lineSpacing` 을 사용하면 최대 라인 수를 가진 멀티라인 텍스트에서 문제가 발생할 수 있다.
+
+예를 들어 다음 코드를 참조하세요.
+
+```swift
+let someLongString = "..."
+        
+let paragraphStyle = NSMutableParagraphStyle()
+paragraphStyle.lineSpacing = 10.0
+
+let font = UIFont(name: "SomeFontName", size: 15.0)
+        
+let attributes = [
+    NSAttributedString.Key.font: font,
+    NSAttributedString.Key.paragraphStyle: paragraphStyle
+]
+        
+let textNode = ASTextNode()
+textNode.maximumNumberOfLines = 4
+textNode.attributedText = NSAttributedString(string: someLongString, attributes: attributes)
+```
+
+`ASTextNode` 는 내부적으로  TextKit 을 사용하여 지정된 최대 라인 수를 산출하는 데 필요한 shrink 를 계산한다.   
+불행하게도, 위의 예에서는 텍스트가 너무 많이 줄어들게 될 것이다. 4줄의 텍스트 대신에, 3줄의 텍스트와 하단의 이상한 간격이 나타날 것이다.   
+이 문제를 해결하려면 TextNode 에서 `truncationMode` 를 `.byTruncatingTail` 로 설정해야 한다.
+
+```swift
+// ...
+let textNode = ASTextNode()
+textNode.maximumNumberOfLines = 4
+textNode.truncationMode = .byTruncatingTail
+textNode.attributedText = NSAttributedString(string: someLongString, attributes: attributes)
+//...
+```
 
