@@ -16,5 +16,5 @@ Texture의 UI Components\(ASDisplayNode subclasses\) RxCocoa에서 제공해주�
 
 {% embed url="https://github.com/OhKanghoon/RxDataSources-Texture" %}
 
-RxSwiftCommunity에 RxASDataSource라는 라이브러리가 현존하고 있으며 메인 컨트리뷰터의 버그에 대한 관리가 이루어지지 않을 뿐더러 DEPRECATED된 상태여서 Rx와 Texture에 능숙하신 국내 개발 OhKanghoon 님께서 Texture를 위한 최신화된 RxDataSources 를 만드셨습니다. 
+RxSwiftCommunity에 RxASDataSource라는 라이브러리가 현존하고 있으며 메인 컨트리뷰터의 버그에 대한 관리가 이루어지지 않을 뿐더러 DEPRECATED된 상태여서 Rx와 Texture에 능숙하신 국내 개발자 OhKanghoon 님께서 Texture를 위한 최신화된 RxDataSources 를 만드셨습니다. 
 
