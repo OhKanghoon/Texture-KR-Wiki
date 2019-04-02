@@ -43,8 +43,10 @@ Texture의 이전 이름은 AsyncDisplayKit라 불렸었습니다. Facebook의 �
 기여자 리스트:
 
 * Vingle.inc iOS
-* [https://github.com/GeekTree0101](https://github.com/GeekTree0101) 
-* [https://github.com/OhKanghoon](https://github.com/OhKanghoon)
+  * [https://github.com/GeekTree0101](https://github.com/GeekTree0101) 
+  * [https://github.com/OhKanghoon](https://github.com/OhKanghoon)
+
+오픈 카카오톡 : [https://open.kakao.com/o/gwLzjpkb](https://open.kakao.com/o/gwLzjpkb)
 
 
 
