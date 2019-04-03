@@ -60,3 +60,15 @@ networkImageNode.shouldRenderProgressImages = true
 
 `ASNetworkImageNode` 는 `PINRemoteImage` 의 베타 `PINAnimatedImage` 를 통해 GIF 를 지원합니다. 주의 하세요! 이러한 지원은 `shouldCacheImage` 가 `NO`로 설정되어 있지 않는 한 local 파일들에는 지원되지 않습니다.
 
+## Image Downloader 에 URLSessionConfiguration 추가하기
+
+`ASNetworkImageNode` 는 기본적으로 이미지를 다운로드를 할 때 `ASPinRemoteImageDownloader` 를 사용한다. 만약 이미지 요청에 추가로 configuration 이 필요한 경우 아래의 코드로 대응 가능하다.
+
+```swift
+var config = URLSessionConfiguration.ephemeral
+config.httpAdditionalHeaders = [
+    "User-Agent": userAgent
+]
+ASPINRemoteImageDownloader.setSharedImageManagerWith(config)
+```
+
