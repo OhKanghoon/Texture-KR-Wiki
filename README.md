@@ -38,7 +38,7 @@ Texture의 이전 이름은 AsyncDisplayKit라 불렸었습니다. Facebook의 �
 
 ## [https://texture-kr.gitbook.io](https://texture-kr.gitbook.io) 에 오신것을 환영합니다.
 
-국내 iOS개발자 및 Texture\(AsyncDisplayKit\) 팬여러분들 Texture-kr gitbook에 오신것을 환영합니다. 컨트리뷰트는 언제든지 환영합니다. 
+국내 iOS개발자 및 Texture\(AsyncDisplayKit\) 팬여러분들 Texture-kr gitbook에 오신것을 환영합니다. [컨트리뷰트](https://github.com/OhKanghoon/Texture-KR-Wiki)는 언제든지 환영합니다. 
 
 기여자 리스트:
 
@@ -47,6 +47,8 @@ Texture의 이전 이름은 AsyncDisplayKit라 불렸었습니다. Facebook의 �
   * [https://github.com/OhKanghoon](https://github.com/OhKanghoon)
 
 오픈 카카오톡 : [https://open.kakao.com/o/gwLzjpkb](https://open.kakao.com/o/gwLzjpkb)
+
+Repository: [https://github.com/OhKanghoon/Texture-KR-Wiki](https://github.com/OhKanghoon/Texture-KR-Wiki)
 
 
 
