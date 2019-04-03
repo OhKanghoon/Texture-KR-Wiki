@@ -21,7 +21,7 @@ imageNode.contentMode = .scaleAspectFill
 
 이것에 대해 더 알고싶다면, [Image Modification Blocks](http://texturegroup.org/docs/image-modification-block.html) 를 참고하세요.
 
-## Image Crop
+## 이미지 자르기
 
 `imageNode` 의 `contentMode` 프로퍼티가 `UIViewContentModeScaleAspectFill` 로 되어있다면, 이것은 자동적으로 이미지를 `imageNode` 의 전체 영역을 채우도록 확대시킬 것이고, 이미지의 확대로 인해 bounds 를 벗어나는 부분들은 크롭될 것입니다.
 
