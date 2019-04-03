@@ -15,7 +15,7 @@ imageNode.image = UIImage(named: "someImage")
 imageNode.contentMode = .scaleAspectFill
 ```
 
-## 이미디 변환과 효과
+## 이미지 변환과 효과
 
 대부분 노출하고 있는 이미지의 appearance 에 영향을 미치는 작업들은 메인 스레드의 큰 리소르르 차지하는 작업이었습니다. 자연스럽게도, 당신은 이러한 작업들을 background 스레드로 옮기고 싶을 것입니다.
 
