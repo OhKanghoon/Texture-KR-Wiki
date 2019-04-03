@@ -61,7 +61,7 @@ photoImageNode.cornerRadius = 20.0
 
 #### Clipping
 
-![Appleguy &#xC774;&#xBBF8;&#xC9C0; &#xC608;&#xC2DC;](../.gitbook/assets/image%20%282%29.png)
+![Appleguy &#xC774;&#xBBF8;&#xC9C0; &#xC608;&#xC2DC;](../.gitbook/assets/image%20%283%29.png)
 
 Corner값에 대해서 반올림이 필요한 부분에 대해서 각 4개의 모서리 영역에 불투명한 모서리를 배치하는 방식입니다. 
 
@@ -83,7 +83,7 @@ photoImageNode.cornerRadius = 20.0
 
 ### CornerRoundingType 사용 결정 흐름도 
 
-![&#xD30C;&#xB780;&#xC0C9;&#xC73C;&#xB85C; &#xAC15;&#xC870; &#xD45C;&#xC2DC;&#xB41C; &#xBAA8;&#xC11C;&#xB9AC; &#xC544;&#xB798;&#xC758; &#xC6C0;&#xC9C1;&#xC784;&#xACFC; &#xC8FC;&#xD669;&#xC0C9;&#xC73C;&#xB85C; &#xAC15;&#xC870; &#xD45C;&#xC2DC;&#xB41C; &#xBAA8;&#xC11C;&#xB9AC;&#xB97C; &#xD1B5;&#xACFC;&#xD558;&#xB294; &#xB3D9;&#xC791;&#xC744; &#xBCF4;&#xC5EC;&#xC90D;&#xB2C8;&#xB2E4;.](../.gitbook/assets/image%20%285%29.png)
+![&#xD30C;&#xB780;&#xC0C9;&#xC73C;&#xB85C; &#xAC15;&#xC870; &#xD45C;&#xC2DC;&#xB41C; &#xBAA8;&#xC11C;&#xB9AC; &#xC544;&#xB798;&#xC758; &#xC6C0;&#xC9C1;&#xC784;&#xACFC; &#xC8FC;&#xD669;&#xC0C9;&#xC73C;&#xB85C; &#xAC15;&#xC870; &#xD45C;&#xC2DC;&#xB41C; &#xBAA8;&#xC11C;&#xB9AC;&#xB97C; &#xD1B5;&#xACFC;&#xD558;&#xB294; &#xB3D9;&#xC791;&#xC744; &#xBCF4;&#xC5EC;&#xC90D;&#xB2C8;&#xB2E4;.](../.gitbook/assets/image%20%286%29.png)
 
 Corner Rounding할 때 전략을 세울 때 고려해야하는 사항은 다음과 같습니다.
 
@@ -107,7 +107,7 @@ Corner Rounding할 때 전략을 세울 때 고려해야하는 사항은 다음�
 
 #### 3. 네 모서리가 같은 대상의 Node를 대상으로 하며 다른 Node가 모서리에 겹쳐지지 않는가? 
 
-![](../.gitbook/assets/image%20%287%29.png)
+![](../.gitbook/assets/image%20%288%29.png)
 
 아주 쉽게 위의 그림으로 설명할 수 있습니다. 1, 2사분면의 UI는 겹쳐지는 UI가 없지만, 3, 4 사분면은 겹쳐지는 UI가 있는 걸을 확인 하 실수가 있습니다. 
 
@@ -117,7 +117,7 @@ Corner Rounding할 때 전략을 세울 때 고려해야하는 사항은 다음�
 
 
 
-![TODO: &#xD55C;&#xAE00; &#xD750;&#xB984;&#xB3C4;&#xB85C; &#xADF8;&#xB9AC;&#xAE30;](../.gitbook/assets/image%20%283%29.png)
+![TODO: &#xD55C;&#xAE00; &#xD750;&#xB984;&#xB3C4;&#xB85C; &#xADF8;&#xB9AC;&#xAE30;](../.gitbook/assets/image%20%284%29.png)
 
 
 

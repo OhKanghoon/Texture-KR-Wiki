@@ -210,7 +210,7 @@ class RepositoryNode: ASDisplayNode {
 
 ## 퍼포먼스 
 
-![&#xCD9C;&#xCC98;: http://pilky.me/36/](../.gitbook/assets/image%20%286%29.png)
+![&#xCD9C;&#xCC98;: http://pilky.me/36/](../.gitbook/assets/image%20%287%29.png)
 
 Texture랑 auto-layout의 퍼포먼스에 대한 수치적으로 비교한 자료는 없습니다. 
 
