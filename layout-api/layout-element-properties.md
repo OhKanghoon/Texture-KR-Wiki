@@ -195,8 +195,8 @@ let relativeSize2 = ASLayoutSize(width: width, height: height)
 | **flexShrink** | CGFloat | 0.0 | 레이아웃의 감소 너비 비율을 지정합니다. |
 | **flexBasis** | ASDimension | ASDimensionAuto | 레이아웃이 Stack상 공간이 배분되기전 기본 너비를 지정합니다.  |
 | **alignSelf** | ASStackLayoutAlignSelf | auto | 교차 축상에서 레이아웃의 정렬 방법을 지정합니다.  |
-| **spacingBefore** | CGFloat | 0.0 | Stack방향을 기준으로 동등한 위치 상에서 이전 레이아웃간의 간격을 지정합니다.  |
-| **spacingAfter** | CGFloat | 0.0 | Stack방향을 기준으로 동등한 위치 상에서 다 레이아웃간의 간격을 지정합니다.  |
+| **spacingBefore** | CGFloat | 0.0 | Stack방향을 기준으로 동등한 위치 상에서 이전 레이아웃과의 간격을 지정합니다.  |
+| **spacingAfter** | CGFloat | 0.0 | Stack방향을 기준으로 동등한 위치 상에서 다음 레이아웃과의 간격을 지정합니다.  |
 | **ascender** | CGFloat | 0.0 | 기준선 정렬에 사용됩니다. 레이아웃의 맨 위에서 기준선까지의 거리를 의미합니다. |
 | **descender** | CGFloat | 0.0 | 기준선 정렬에 사용됩니다. 레이아웃의 기준선에서 맨 아래까지의 거리를 의미합니다.  |
 
