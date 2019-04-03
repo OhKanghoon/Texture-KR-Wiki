@@ -1,29 +1,27 @@
 # ASImageNode
 
-* [http://texturegroup.org/docs/image-node.html](http://texturegroup.org/docs/image-node.html)
-
-`ASImageNode` 는 Texture 의 `UIImageView` 입니다. 가장 기본적인 차이점은 이미지들이 default 로 비동기 디코딩 된다는 점입니다. 물론 이것 말고도 GIF 지원이나 `imageModificationBlock` 과 같이 강화된 개선 기능들이 있습니다.
+`ASImageNode` 는 Texture 의 `UIImageView` 입니다. 가장 기본적인 차이점은 이미지들이 기본적으로 비동기 디코딩 된다는 점입니다. 물론 이것 말고도 GIF 지원이나 `imageModificationBlock` 과 같이 강화된 개선 기능들이 있습니다.
 
 ## 기본 사용법
 
-image node 를 사용하는 것은 image view 를 사용하는 것과 똑같이 작동합니다.
+ASImageNode 를 사용하는 것은 UIImageView 를 사용하는 것과 똑같습니다.
 
-```text
+```swift
 let imageNode = ASImageNode()
 
 imageNode.image = UIImage(named: "someImage")
 imageNode.contentMode = .scaleAspectFill
 ```
 
-## 이미디 변환과 효과
+## 이미지 변환과 효과
 
-대부분 노출하고 있는 이미지의 appearance 에 영향을 미치는 작업들은 메인 스레드의 큰 리소르르 차지하는 작업이었습니다. 자연스럽게도, 당신은 이러한 작업들을 background 스레드로 옮기고 싶을 것입니다.
+대부분, 보여지고 있는 이미지 모양에 영향을 주는 작업들은 Main Thread 의 큰 리소스를 차지하는 작업이었습니다. 당연히 당신은 이러한 작업들을 Background Thread 로 옮기고 싶을 것입니다.
 
-당신의 `imageNode` 에 `imageModificationBlock` 을 할당함으로써, 디스플레이를 위한 별도의 call 없이 `imageNode` 의 이미지들에 비동기적으로 일어나야 하는 transformation\(rounding, boder 넣기, 또는 패턴 overlay 등과 같은 이미지 효과\) 의 집합을 정의할 수 있습니다.
+`imageNode` 에 `imageModificationBlock` 을 할당함으로써, display 를 위한 별도의 call 없이 `imageNode` 의 이미지들에 비동기적으로 일어나야 하는 transformation\(rounding, boder 넣기, 또는 패턴 overlay 등과 같은 이미지 효과\) 의 집합을 정의할 수 있습니다.
 
 이것에 대해 더 알고싶다면, [Image Modification Blocks](http://texturegroup.org/docs/image-modification-block.html) 를 참고하세요.
 
-## 이미지 크롭
+## Image Crop
 
 `imageNode` 의 `contentMode` 프로퍼티가 `UIViewContentModeScaleAspectFill` 로 되어있다면, 이것은 자동적으로 이미지를 `imageNode` 의 전체 영역을 채우도록 확대시킬 것이고, 이미지의 확대로 인해 bounds 를 벗어나는 부분들은 크롭될 것입니다.
 
@@ -41,7 +39,7 @@ rectangle 은 소스가 되는 이미지의 가로와 세로값의 백분율을 
 animalImageNode.cropRect = CGRect(x: 0, y: 0, width: 0.0, height: 0.0)
 ```
 
-가로와 세로값을 0으로 두는 것의 의미는 이미지가 스트레치 되지 않는다는 뜻입니다.
+가로와 세로값을 0으로 두는 것의 의미는 이미지가 stretch 되지 않는다는 뜻입니다.
 
 ![Truncation Example](../.gitbook/assets/catsface.png)
 
@@ -51,9 +49,10 @@ animalImageNode.cropRect = CGRect(x: 0, y: 0, width: 0.0, height: 0.0)
 
 ## 강제로 Upscaling 하기
 
-default로 이미지가 `imageNode`의 바운즈에 fit 되기에 너무 작을 때 CPU에서 upscale 되지는 않을 것입니다.
+기본적으로 이미지가 너무 작아서 설정된 `imageNode` 의 bounds 에 맞지 않을 때 CPU에서 upscale 되지 않는다.
 
-이 때 `forceUpscaling` 값을 `YES` 로 설정할 수 있습니다. 이것은 타겟 이미지뷰보다 이미지가 작을 때 당신의 앱이 더 많은 메모리를 잡아먹게됨을 의미합니다.
+이 때 `forceUpscaling` 값을 `true` 로 설정할 수 있습니다.   
+이것은 타겟 이미지뷰보다 이미지가 작을 때 당신의 앱이 더 많은 메모리를 잡아먹게됨을 의미합니다.
 
 ## Image Scaling 을 감지하기
 
