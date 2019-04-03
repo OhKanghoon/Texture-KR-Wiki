@@ -40,7 +40,32 @@ textNode.truncationAttributedText = NSAttributedString(string: "¶¶¶")
 
 ### Link Attributes
 
-👷‍♀️ 공사중 👷
+텍스트 덩어리를 링크로 지정하고 싶다면, 먼저 텍스트노드에 `string` 의 배열인 `linkAttributes` 배열을 set 해야 한다. 이것은 `attributed string` 에서 link 들의 키로 사용이 될 것이다. 
+
+그리고 나면, 너의 `string` 에 `attribute` 를 설정할 때, 이 key 들이 알맞은 NSURL을 가리키도록 할 수 있다.
+
+```swift
+textNode.linkAttributeNames = [kLinkAttributeName]
+
+let blurb: NSString = "kittens courtesy placekitten.com 😸"
+let attributedString = NSMutableAttributedString(string: blurb as String)
+
+attributedString.addAttribute(NSFontAttributeName, value: UIFont(name: "HelveticaNeue-Light", size: 16.0)!, range: NSRange(location: 0, length: blurb.length))
+
+attributedString.addAttributes([kLinkAttributeName: NSURL(string: "http://placekitten.com/")!,
+                      NSForegroundColorAttributeName: UIColor.gray,
+                      NSUnderlineStyleAttributeName: (NSUnderlineStyle.styleSingle.rawValue | NSUnderlineStyle.patternDashDot.rawValue)],
+                     range: blurb.range(of: "placekitten.com"))
+textNode.attributedText = attributedString
+textNode.isUserInteractionEnabled = true
+```
+
+이것은 대시 스타일의 밑줄이 그어진 연회색 링크를 만들어낼 것이다!
+
+![Link Attributes Example](../.gitbook/assets/kittenLink.png)
+
+여기서 볼 수 있듯이, 이것은 attributed string 의 range 에 따라서, 여러가지 스타일을 각각의 링크에 적용하기에 꾀 편리하다.
+
 
 
 
