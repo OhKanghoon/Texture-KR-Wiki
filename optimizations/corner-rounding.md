@@ -6,9 +6,7 @@ CALayer에서 기본적으로 UI를 원으로 또는 모퉁이를 둥글게 만�
 
 _구형 디바이스 \(iPhone 4, 4S, 5/5C\) 와 같은 기종에서는 성능이 크게 저하되지만 상위 디바이스의 경우 위의 문제점들에 대한 헤드룸이 줄어들어 영향을 직접적으로 볼 수 없을 뿐더러 프레임 드롭은 거의 발생하진 않습니다._  
 
-
-
-### CornerRoundingType 과 종류   
+## CornerRoundingType 과 종류   
 
 Texture는 CornerRounding 에 대해서 좀 더 효율적인 방식을 고려해서 3가지 cornerRoundingType 을 제시합니다. 
 
@@ -17,8 +15,6 @@ Texture는 CornerRounding 에 대해서 좀 더 효율적인 방식을 고려해
 * clipping \(ASCornerRoundingTypeClipping\) 
 
 기본값은 defaultSlowCALayer 를 사용합니다.
-
-
 
 
 
@@ -79,9 +75,7 @@ photoImageNode.backgroundColor = UIColor.white
 photoImageNode.cornerRadius = 20.0
 ```
 
-
-
-### CornerRoundingType 사용 결정 흐름도 
+## CornerRoundingType 사용 결정 흐름도 
 
 ![&#xD30C;&#xB780;&#xC0C9;&#xC73C;&#xB85C; &#xAC15;&#xC870; &#xD45C;&#xC2DC;&#xB41C; &#xBAA8;&#xC11C;&#xB9AC; &#xC544;&#xB798;&#xC758; &#xC6C0;&#xC9C1;&#xC784;&#xACFC; &#xC8FC;&#xD669;&#xC0C9;&#xC73C;&#xB85C; &#xAC15;&#xC870; &#xD45C;&#xC2DC;&#xB41C; &#xBAA8;&#xC11C;&#xB9AC;&#xB97C; &#xD1B5;&#xACFC;&#xD558;&#xB294; &#xB3D9;&#xC791;&#xC744; &#xBCF4;&#xC5EC;&#xC90D;&#xB2C8;&#xB2E4;.](../.gitbook/assets/image%20%286%29.png)
 
