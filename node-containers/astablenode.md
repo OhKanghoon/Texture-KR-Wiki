@@ -27,8 +27,8 @@ func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath)
 두 메서드는 `ASCellNode` 또는 `ASCellNodeBlock` 을 반환해야 한다.  
 `ASCellNodeBlock` 은 백그라운드 쓰레드에서 `ASCellNode` 를 생성할 수 있는 블록이다.
 
-> ASCellNode 는 ASTableNode, ASCollectionNode, ASPagerNode에서 사용 된다.  
-> 두 메서드 모두 ReUse 메커니즘을 필요로 하지 않는다.
+> NOTE : ASCellNode 는 ASTableNode, ASCollectionNode, ASPagerNode에서 사용 된다.  
+> NOTE : 두 메서드 모두 ReUse 메커니즘을 필요로 하지 않는다.
 
 ## UITableViewController 를 ASViewController 로 대체하기
 
