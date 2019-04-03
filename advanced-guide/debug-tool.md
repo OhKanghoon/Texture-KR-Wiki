@@ -55,7 +55,7 @@ let displayParams: ASRangeTuningParameters =
 ASRangeTuningParameters(leadingBufferScreenfuls: 1, trailingBufferScreenfuls: 1)
 
 collectionNode.setTuningParameters(preloadParams, for: .full, rangeType: .preload)
-collectionNode.setTuningParameters(preloadParams, for: .full, rangeType: .display)
+collectionNode.setTuningParameters(displayParams, for: .full, rangeType: .display)
 ```
 
 
