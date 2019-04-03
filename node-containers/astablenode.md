@@ -30,9 +30,7 @@ func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath)
 > ASCellNode 는 ASTableNode, ASCollectionNode, ASPagerNode에서 사용 된다.  
 > 두 메서드 모두 ReUse 메커니즘을 필요로 하지 않는다.
 
-### 
-
-### UITableViewController 를 ASViewController 로 대체하기
+## UITableViewController 를 ASViewController 로 대체하기
 
 Texture 는 `UITableViewController` 와 같은 기능을 제공하지 않는다.  
 대신 `ASTableNode` 로 생성한 `ASViewController` 를 사용하세요.
@@ -49,9 +47,7 @@ class ViewController: ASViewController<ASTableNode> {
 }
 ```
 
-
-
-### NodeBlock Thread Safety Warning
+## NodeBlock Thread Safety Warning
 
 NodeBlock 이 Thread-Safe 하다는건 굉장히 중요하다.  
 그 방법 중 하나는 데이터 모델이 NodeBlock 외부에서 접근가능한지 확인하는 것이다.  
@@ -76,9 +72,7 @@ func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath)
 
 위의 예시에서 Node Block 을 만들기 전에 인덱스를 사용하여 사진 모델에 접근하는 방법을 확인할 수 있습니다.
 
-
-
-### ASTableView 에 접근하기
+## ASTableView 에 접근하기
 
 이전 버전의 Texture 를 사용한 경우 `ASTableView` 가 `ASTableNode` 를 위해 제거되었음을 알게 될 것이다.
 
@@ -96,9 +90,7 @@ override func viewDidLoad() {
 }
 ```
 
-
-
-### Table Row Height
+## Table Row Height
 
 중요한 `ASTableNode` 가 `UITableView` 의 `tableView(:heightForRowAt:)` 와 같은 기능을 제공하지 않는다는 것이다.
 

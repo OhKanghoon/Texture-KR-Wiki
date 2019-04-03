@@ -3,7 +3,7 @@
 `ASCellNode` 는 Texture 에서 쓰이는 Cell 다.   
 UIKit 의 다양한 Cell \(UITableViewCell, UICollectionViewCell\) 과 다르게 `ASCellNode` 는 `ASTableNode`, `ASCollectionNode`, `ASPagerNode` 에서 공통적으로 사용할 수 있다.
 
-### 구현 방법 3가지
+## 구현 방법 3가지
 
 #### Subclassing
 
@@ -58,9 +58,7 @@ func pagerNode(_ pagerNode: ASPagerNode, nodeAt index: Int) -> ASCellNode {
 보다시피, 위의 viewController 를 사용하는 것과 같은 방식이다.  
 `UIView` 서브 클래스를 `ASCellNode` 로 변환하면 비동기적으로 뷰를 보여주는 이점을 얻을 수 있다.
 
-### 
-
-### Placeholder 보여주지 않기
+## Placeholder 보여주지 않기
 
 일반적으로 Cell 이 화면에 도달하기 전에 Display Pass 를 완료하지 못하면 컨텐츠를 다 그리기 전까지 placeholder 를 보여준다.
 
@@ -77,7 +75,9 @@ node.neverShowPlaceholders = true
 
 ### 
 
-### UITableViewCell 의 특정 프로퍼티
+
+
+## UITableViewCell 의 특정 프로퍼티
 
 `UITableViewCell` 은 `selectionStyle`, `accessoryType`, `seperatorInset` 등의 프로퍼티를 가지고 있다.  
 이 경우 `ASCellNode` 또한 동일한 프로퍼티들을 가지고 있다.
