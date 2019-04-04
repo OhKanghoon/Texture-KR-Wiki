@@ -1,6 +1,6 @@
 # ASDisplayNode
 
-### Basic Node
+## Basic Node
 
 `ASDisplayNode` 는 `UIView` 와 `CALayer` 를 추상화 한 메인 뷰이다.   
 `UIView` 가 `CALayer` 를 만들고 소유하는 것과 같은 방식으로 `UIView` 를 생성하고 소유한다.
@@ -27,9 +27,7 @@ print("Backing layer: \(node.layer)")
 
 Node Container 와 함께 사용하면 node 의 프로퍼티는 background thread 에서 설정되고, node 에 캐시된 프로퍼티로 뷰와 레이어는 lazy 하게 구성된다.
 
-
-
-### View Wrapping
+## View Wrapping
 
 Node 를 생성할 때 UIView 도 사용할 수 있다. \( 생성자의 viewBlock 에 반환 \)  
 이 경우 Node 의  Display 단계가 동시에 발생한다. 왜냐하면 Node 가 UIView 가 아닌 \_ASDisplayView 를 Wrapping 하고 있을 때만 비동기 적으로 Display 되기 때문이다.
@@ -43,7 +41,7 @@ let node = ASDisplayNode(viewBlock: { () -> UIView in
 
 위의 예시처럼 UIView 서브 클래스를 ASDisplayNode 서브 클래로 쉽게 변환할 수 있다.
 
-### SafeArea Insets
+## SafeArea Insets
 
 `Texture 2.7`부터 safeAreaInsets을 지원합니다. **\#available\(iOS 11.0, \*\)** 로 safeAreaInsets사용에 대해서 분기하실 필요가 없습니다. 
 
