@@ -15,11 +15,6 @@
 * [Flex Box 개념잡기](newbie-guide/flex-box.md)
 * [Quick Example](newbie-guide/quick-example.md)
 
-## Optimizations
-
-* [Layer Backing](optimizations/layer-backing.md)
-* [Corner Rounding](optimizations/corner-rounding.md)
-
 ## Nodes
 
 * [ASDisplayNode](nodes/asdisplaynode.md)
@@ -46,8 +41,12 @@
 * [Layout Element Properties](layout-api/layout-element-properties.md)
 * [LayoutSpecs](layout-api/layoutspecs.md)
 
+## Optimizations
+
+* [Layer Backing](optimizations/layer-backing.md)
+* [Corner Rounding](optimizations/corner-rounding.md)
+
 ## Advanced guide
 
-* [Optimizations](advanced-guide/optimizations.md)
 * [Debug Tool](advanced-guide/debug-tool.md)
 
