@@ -45,7 +45,7 @@ let node = ASDisplayNode(viewBlock: { () -> UIView in
 
 ### SafeArea Insets
 
-`Texture 2.7`부터 safeAreaInsets을 지원합니다. 
+`Texture 2.7`부터 safeAreaInsets을 지원합니다. **\#available\(iOS 11.0, \*\)** 로 safeAreaInsets사용에 대해서 분기하실 필요가 없습니다. 
 
 사용시 유의해야할 점은 
 
