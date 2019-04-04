@@ -43,3 +43,20 @@ let node = ASDisplayNode(viewBlock: { () -> UIView in
 
 위의 예시처럼 UIView 서브 클래스를 ASDisplayNode 서브 클래로 쉽게 변환할 수 있다.
 
+### SafeArea Insets
+
+`Texture 2.7`부터 safeAreaInsets을 지원합니다. 
+
+사용시 유의해야할 점은 
+
+* ViewController와 **가장 밀접한 Node**에서 접근하셔야됩니다. \(그 이외 자식노드에선 항상 UIEdgeInsets이 zero 값입니다.\) 
+* **automaticallyRelayoutOnSafeAreaChanges** flag를 활성화 시켜야합니다. 활성화시키면 safeArea 값이 변화할 때마다 layout을 다시 그려냅니다. 
+
+```swift
+let node = ASDisplayNode()
+node.automaticallyRelayoutOnSafeAreaChanges = true
+let safeAreaInsets: UIEdgeInsets = self.node.safeAreaInsets
+```
+
+
+
