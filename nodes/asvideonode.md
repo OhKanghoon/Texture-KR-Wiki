@@ -45,5 +45,5 @@ VideoNode 는 `ASNetworkImageNode` 를 상속받고 있기 때문에 `URL` 프�
 videoNode(_:willChange:to:)
 ```
 
-모든 딜리게이트 메서드는 `ASVideoNode` 헤더 파일을 참조하세요.
+딜리게이트 메서드는 `ASVideoNode` 헤더 파일을 참조하세요.
 
