@@ -165,3 +165,65 @@ _끝없이 **늘어나지 않는 모습**을 볼 수 있습니다._
 
 ## justifyContent & alignItems
 
+### 1. justifyContent
+
+justifyContent는 layout의 주축으로 부터 children elements의 배치 방법을 의미합니다.
+
+종류는 다음과 같이 총 5가지로 나눠집니다.  
+
+* start 
+* center
+* end
+* spaceBetween
+* spaceAround
+
+#### start \(ASStackLayoutJustifyContentStart\)
+
+![horizontal stack layout &#xAE30;&#xC900;](../.gitbook/assets/2019-04-08-1.15.54.png)
+
+layout상에서 좌측\(start\)을 기준으로 children elements를 배치합니다.
+
+
+
+#### center \(ASStackLayoutJustifyContentCenter\)
+
+![horizontal stack layout &#xAE30;&#xC900;](../.gitbook/assets/2019-04-08-1.16.05.png)
+
+가운데를 기준으로 children elements를 배치합니다. 
+
+
+
+#### end \(ASStackLayoutJustifyContentEnd\)
+
+![horizontal stack layout &#xAE30;&#xC900;](../.gitbook/assets/2019-04-08-1.16.15.png)
+
+layout상에서 start와 반대로 우측\(end\)을 기준으로 children elements를 배치합니다.
+
+
+
+#### spaceBetween \(ASStackLayoutJustifySpaceBetween\)
+
+![horizontal stack layout &#xAE30;&#xC900;](../.gitbook/assets/2019-04-08-1.16.26%20%281%29.png)
+
+children elements간에 **간격을 동일하게 유지한 상태**로 **분산 배치**합니다. 만약 children이 3개 이상일 경우엔 다음과 같이 배치됩니다. 
+
+![3&#xAC1C;&#xC77C; &#xACBD;&#xC6B0;](../.gitbook/assets/2019-04-08-1.22.46.png)
+
+_children elements간에 일정한 간격을 유지하면서 분산 배치를 하되 홀수개 이므로 2번 자식이 가운데에 배치되는 걸 확인 하실 수가 있습니다._ 
+
+
+
+![4&#xAC1C;&#xC77C; &#xACBD;&#xC6B0; ](../.gitbook/assets/2019-04-08-1.23.04.png)
+
+_앞서 말했듯이 일정한 간격을 유지하는 것을 볼 수 있습니다._ 
+
+
+
+#### spaceAround \(ASStackLayoutJustifySpaceAround\)
+
+![horizontal stack layout &#xAE30;&#xC900;](../.gitbook/assets/2019-04-08-1.16.38.png)
+
+spaceBetween이랑 유사하게 보일 수 있으나 가장 큰 차이점은 **자식의 주위에 대해서 동일한 간격**을 유지한 상태로 일정하게 배치합니다. 
+
+
+
