@@ -205,7 +205,7 @@ layout상에서 start와 반대로 우측\(end\)을 기준으로 children elemen
 
 ![horizontal stack layout &#xAE30;&#xC900;](../.gitbook/assets/2019-04-08-1.16.26%20%281%29.png)
 
-children elements간에 **간격을 동일하게 유지한 상태**로 **분산 배치**합니다. 만약 children이 3개 이상일 경우엔 다음과 같이 배치됩니다. 
+**children elements간에 간격을 동일하게 유지한 상태**로 **분산 배치**합니다. 만약 children이 3개 이상일 경우엔 다음과 같이 배치됩니다. 
 
 ![3&#xAC1C;&#xC77C; &#xACBD;&#xC6B0;](../.gitbook/assets/2019-04-08-1.22.46.png)
 
