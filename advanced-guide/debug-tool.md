@@ -85,14 +85,13 @@ class SuperNode: ASDisplayNode {
     
     let childNode1: ASButtonNode = {
         let node = ASButtonNode()
-        node.backgroundColor = ColorStyle.color1
-        node.style.preferredSize = .init(width: 100.0, height: 100.0)
+        node.backgroundColor = .red
         return node
     }()
     
     let childNode2: ASDisplayNode = {
         let node = ASDisplayNode()
-        node.backgroundColor = ColorStyle.color2
+        node.backgroundColor = .blue
         return node
     }()
     
