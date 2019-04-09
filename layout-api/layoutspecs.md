@@ -368,3 +368,13 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 * 필요에 따라 적절히 position option을 사용합니다.
 * 단순 relative position option 에서만 사용하되 추가적인 inset값이 필요한 경우 child를 **ASInsetLayoutSpec**으로 wrapping한 다음 사용하면됩니다. 
 
+
+
+## 9. ASRatioLayoutSpec
+
+### 공사중  :\)
+
+## 10. ASCornerLayoutSpec \(~&gt; 2.7\)
+
+### 공사중 :\) 
+
