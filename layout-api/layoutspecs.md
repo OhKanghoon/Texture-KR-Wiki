@@ -61,6 +61,8 @@ ASInsetLayoutSpec.init(insets: UIEdgeInsets, child: ASLayoutElement)
 
 ASInsetLayoutSpec은 constrainedSize.max size 값을 자식에게 전달해주며 전달된 값을 정의된 insets값에 따라 자식의 margin을 더해줍니다. 
 
+![](../.gitbook/assets/image%20%2811%29.png)
+
 ### 사용법
 
 ```swift
@@ -82,7 +84,7 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 }
 ```
 
-![childNode&#xC758; height&#xB97C; &#xBA85;&#xC2DC;&#xC801;&#xC73C;&#xB85C; 100.0pt&#xB85C; &#xC815;&#xC758; ](../.gitbook/assets/image%20%2813%29.png)
+![childNode&#xC758; height&#xB97C; &#xBA85;&#xC2DC;&#xC801;&#xC73C;&#xB85C; 100.0pt&#xB85C; &#xC815;&#xC758; ](../.gitbook/assets/image%20%2814%29.png)
 
 ![childNode&#xC758; &#xBA85;&#xC2DC;&#xC801;&#xC778; &#xC0AC;&#xC774;&#xC988;&#xB97C; &#xC54C; &#xC218; &#xC5C6;&#xC74C; \(unknown height\) ](../.gitbook/assets/image%20%283%29.png)
 
@@ -111,7 +113,7 @@ ASOverlayLayoutSpec.init(child: ASLayoutElement, overlay: ASLayoutElement)
 
 ### 사용법
 
-![](../.gitbook/assets/image%20%2815%29.png)
+![](../.gitbook/assets/image%20%2816%29.png)
 
 ```swift
 override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -148,7 +150,7 @@ ASBackgroundLayoutSpec은 ASOverlayLayoutSpec과 비슷해보지만 큰 차이�
 
 ### 사용법 
 
-![](../.gitbook/assets/image%20%2815%29.png)
+![](../.gitbook/assets/image%20%2816%29.png)
 
 ```swift
 override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -209,7 +211,7 @@ layoutPosition이나 size는 ASAbsoluteLayoutSpec이 아닌 children에 해당�
 
 특정 layout element를 가운데로 정렬하며 해당하는 layout element에 **constraintedSize.max**값을 전달해서 size를 계산합니다. 
 
-![](../.gitbook/assets/image%20%2817%29.png)
+![](../.gitbook/assets/image%20%2818%29.png)
 
 ```swift
 ASCenterLayoutSpec.init(centeringOptions: ..., 
@@ -281,11 +283,88 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 
 ## 8. ASRelativeLayoutSpec
 
-// 👷‍♀️ 공사중 👷
+layout을 9개의 격자로 나눠서 child element를 배치하는 LayoutSpec입니다. 
+
+* 4개의 모퉁이 \(좌측 상/하단, 우측 상/하단\)
+* 정중앙
+* 중앙기준으로 상/하/좌/우 배치 
+
+_사용하기에 따라서 매우 유용할 수는 있으나 전체적인 LayoutSpec의 복잡도에 따라서 사용하기에 굉장히 까다로운 LayoutSpec이기도 합니다._ 
+
+```swift
+ASRelativeLayoutSpec.init(horizontalPosition: ...,
+                          verticalPosition: ...,
+                          sizingOption: ...,
+                          child: ...)
+```
+
+#### horizontalPosition & verticalPosition \(ASRelativeLayoutSpecPosition\)
+
+ASRelativeLayoutSpecPosition은 총 4가지의 옵션이 제공됩니다.
+
+| Option name | description |
+| :--- | :--- |
+| none | \(기본값\) 최소 지점에 배치합니다.  |
+| start | 축의 방향\(horizontal or vertical\)을 기준으로 최소 지점에 배치합니다.  |
+| center | 축의 방향\(horizontal or vertical\)을 기준으로 가운데에 배치합니다. |
+| end | 축의 방향\(horizontal or vertical\)을 기준으로 최대 지점에 배치합니다.  |
 
 
 
+#### sizingOption \(ASRelativeLayoutSpecSizingOption\)
+
+relative layout의 사이즈 옵션을 제공합니다.
+
+| Option name | description |
+| :--- | :--- |
+| default | 기본값으로 크기를 최대한으로 지정합니다. |
+| minimumWidth | X축을 기점으로 사이즈를 최소한으로 지정합니다. |
+| minimumHeight | Y축을 기점으로 사이즈를 최소한으로 지정합니다.  |
+| minimumSize | XY축을 기점으로 사이즈를 최소한으로 지정합니다.  |
 
 
 
+#### child \(ASLayoutElement\)
+
+relative options에 따라 배치되는 대상 layout element를 의미합니다. 
+
+
+
+### 사용법
+
+```swift
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+    let rightBottomLayout = ASRelativeLayoutSpec(horizontalPosition: .end,
+                                                 verticalPosition: .end,
+                                                 sizingOption: .minimumSize,
+                                                 child: childNode1)
+    // ...
+}
+```
+
+만약 위의 코드와 같이 우측하단으로 배치하되 우측하단에 각각 20.0pt의 padding을 주고자 한다면 **ASInsetLayoutSpec**을 활용하여 처리 할 수도 있습니다. 
+
+![](../.gitbook/assets/2019-04-09-3.41.13.png)
+
+
+
+```swift
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+    let insets: UIEdgeInset = .init(top: 0.0, left: 0.0, bottom: 20.0, right: 20.0)
+    let insetLayout = ASInsetLayoutSpec(insets: insets, child: childNode1)
+
+    let rightBottomLayout = ASRelativeLayoutSpec(horizontalPosition: .end,
+                                                 verticalPosition: .end,
+                                                 sizingOption: .minimumSize,
+                                                 child: insetLayout)
+    // ...
+}
+```
+
+
+
+### 요점정리
+
+* 필요에 따라 적절히 position option을 사용합니다.
+* 단순 relative position option 에서만 사용하되 추가적인 inset값이 필요한 경우 child를 **ASInsetLayoutSpec**으로 wrapping한 다음 사용하면됩니다. 
 
