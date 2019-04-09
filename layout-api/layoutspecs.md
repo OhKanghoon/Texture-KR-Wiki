@@ -97,7 +97,57 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 
 ## 3. ASStackLayoutSpec
 
-// 👷‍♀️ 공사중 👷
+Texture에서 제공해주는 다양한 LayoutSpec중 가장 유용하고 강력한 LayoutSpec 입니다. 
+
+**Flexbox**는 다양한 화면 크기에서 **일관된 레이아웃을 제공**하도록 설계되어 있으며, Flexbox를 기반으로 child layout element의 위치와 크기를 결정합니다. 
+
+해당 레이아웃에서는 child layout element들에 대해서 세로 또는 가로 스택으로 정렬합니다.
+
+Stack Layout은 다른 Stack Layout의 child layout element가 될 수 있으므로 ASStackLayoutSpec에서 제공해주는 모든 기능을 사용하여 **거의 모든 레이아웃을 만들 수 있습니다.**
+
+ASStackLayoutSpec은 총 3가지의 convenience initialization를 제공합니다.
+
+```swift
+ASStackLayoutSpec.init(direction: ASStackLayoutDirection,
+                       spacing: CGFloat,
+                       justifyContent: ASStackLayoutJustifyContent,
+                       alignItems: ASStackLayoutAlignItems,
+                       children: [ASLayoutElement])
+                      
+// basic + flexWrap & alignContent  
+ASStackLayoutSpec.init(direction: ASStackLayoutDirection,
+                       spacing: CGFloat,
+                       justifyContent: ASStackLayoutJustifyContent,
+                       alignItems: ASStackLayoutAlignItems,
+                       flexWrap: ASStackLayoutFlexWrap,
+                       alignContent: ASStackLayoutAlignContent,
+                       children: [ASLayoutElement])   
+
+// basic + flexWrap & alignContent + lineSpacing                     
+ASStackLayoutSpec.init(direction: ASStackLayoutDirection,
+                       spacing: CGFloat,
+                       justifyContent: ASStackLayoutJustifyContent,
+                       alignItems: ASStackLayoutAlignItems,
+                       flexWrap: ASStackLayoutFlexWrap,
+                       alignContent: ASStackLayoutAlignContent,
+                       lineSpacing: CGFloat,
+                       children: [ASLayoutElement])         
+```
+
+| Parameter | Description |
+| :--- | :--- |
+| direction | child layout elements에 대해서 순차적으로 쌓는 방향을 지정합니다. horizontalAlignment 또는 verticalAlignment가 설정에 따라서 justifyContent 및 alignItems가 적절하게 갱신됩니다. |
+| spacing | child layout elements 간의 균등한 사이간격을 지정합니다.  |
+| justifyContent | 주축을 따른 정렬방법을 정의합니다. |
+| alignItems | 교차 축을 따라 정렬된 child layout elements들의 orientation을 지정합니다.  |
+| flexWrap | child layout elements가 한 줄\(noWrap\) 또는 여러 줄\(wrap\)로 쌓여야하는 지 지정합니다. \(default: .noWrap\) |
+| alignContent | 여러 개의 선이있는 경우 교차 축을 따라 선의 방향을 정합니다.  |
+| lineSpacing | 여러 선간의 간격을 지정합니다.  |
+| children | stackLayout에 쌓이는 child layout elements 의미합니다.  |
+
+// 공사중 ~
+
+
 
 ## 4. ASOverlayLayoutSpec
 
