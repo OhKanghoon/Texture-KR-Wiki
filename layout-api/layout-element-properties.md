@@ -40,125 +40,149 @@ let relativeSize2 = ASLayoutSize(width: width, height: height)
 
 ## 2. Basic Layout Element Properties
 
-| Name | Type | Defult Value | Description |
-| :--- | :--- | :--- | :--- |
-
-
 <table>
   <thead>
     <tr>
-      <th style="text-align:left"><b>width</b>
-      </th>
-      <th style="text-align:left">ASDimension</th>
-      <th style="text-align:left">ASDimensionAuto</th>
-      <th style="text-align:left">
+      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Type</th>
+      <th style="text-align:left">Defult Value</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><b>width</b>
+      </td>
+      <td style="text-align:left">ASDimension</td>
+      <td style="text-align:left">ASDimensionAuto</td>
+      <td style="text-align:left">
         <p>&#xB808;&#xC774;&#xC544;&#xC6C3;&#xC758; &#xB113;&#xC774;&#xB97C; &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</p>
         <p><em>&#xC720;&#xC758;&#xC0AC;&#xD56D;: width&#xB97C; &#xC124;&#xC815;&#xC2DC; minWidth&#xC640; maxWidth&#xAC00; width&#xB85C; &#xC7AC;&#xC124;&#xC815;&#xB429;&#xB2C8;&#xB2E4;.</em>
         </p>
-      </th>
+      </td>
     </tr>
-  </thead>
-  <tbody></tbody>
-</table><table>
-  <thead>
     <tr>
-      <th style="text-align:left"><b>height</b>
-      </th>
-      <th style="text-align:left">ASDimension</th>
-      <th style="text-align:left">ASDimensionAuto</th>
-      <th style="text-align:left">
+      <td style="text-align:left"><b>height</b>
+      </td>
+      <td style="text-align:left">ASDimension</td>
+      <td style="text-align:left">ASDimensionAuto</td>
+      <td style="text-align:left">
         <p>&#xB808;&#xC774;&#xC544;&#xC6C3;&#xC758; &#xB192;&#xC774;&#xB97C; &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</p>
         <p><em>&#xC720;&#xC758;&#xC0AC;&#xD56D;: height&#xB97C; &#xC124;&#xC815;&#xC2DC; minHeight&#xC640; maxHeight&#xAC00; height&#xB85C; &#xC7AC;&#xC124;&#xC815;&#xB429;&#xB2C8;&#xB2E4;.</em>
         </p>
-      </th>
+      </td>
     </tr>
-  </thead>
-  <tbody></tbody>
-</table>| **minWidth** | ASDimension | ASDimensionAuto | 레이아웃의 최소 넓이를 지합니다. 지정된 값보다 작아지는 것을 방지합니다. |
-| :--- | :--- | :--- | :--- |
-
-
-| **maxWidth** | ASDimension | ASDimensionAuto | 레이아웃의 최대 넓이를 지정합니다. 지정된 값보다 커지는 것을 방지합니다. |
-| :--- | :--- | :--- | :--- |
-
-
-| **minHeight** | ASDimension | ASDimensionAuto | 레이아웃의 최소 높이를 지정합니다. 지정된 값보다 작아지는 것을 방지합니다. |
-| :--- | :--- | :--- | :--- |
-
-
-| **maxHeight** | ASDimension | ASDimensionAuto | 레이아웃 최대 높이를 지정합니다. 지정된 값보다 커지는 것을 방지합니다. |
-| :--- | :--- | :--- | :--- |
-
-
-<table>
-  <thead>
     <tr>
-      <th style="text-align:left"><b>preferredSize</b>
-      </th>
-      <th style="text-align:left">CGSize</th>
-      <th style="text-align:left">
+      <td style="text-align:left"><b>minWidth</b>
+      </td>
+      <td style="text-align:left">ASDimension</td>
+      <td style="text-align:left">ASDimensionAuto</td>
+      <td style="text-align:left">&#xB808;&#xC774;&#xC544;&#xC6C3;&#xC758; &#xCD5C;&#xC18C; &#xB113;&#xC774;&#xB97C;
+        &#xC9C0;&#xD569;&#xB2C8;&#xB2E4;. &#xC9C0;&#xC815;&#xB41C; &#xAC12;&#xBCF4;&#xB2E4;
+        &#xC791;&#xC544;&#xC9C0;&#xB294; &#xAC83;&#xC744; &#xBC29;&#xC9C0;&#xD569;&#xB2C8;&#xB2E4;.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>maxWidth</b>
+      </td>
+      <td style="text-align:left">ASDimension</td>
+      <td style="text-align:left">ASDimensionAuto</td>
+      <td style="text-align:left">&#xB808;&#xC774;&#xC544;&#xC6C3;&#xC758; &#xCD5C;&#xB300; &#xB113;&#xC774;&#xB97C;
+        &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;. &#xC9C0;&#xC815;&#xB41C; &#xAC12;&#xBCF4;&#xB2E4;
+        &#xCEE4;&#xC9C0;&#xB294; &#xAC83;&#xC744; &#xBC29;&#xC9C0;&#xD569;&#xB2C8;&#xB2E4;.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>minHeight</b>
+      </td>
+      <td style="text-align:left">ASDimension</td>
+      <td style="text-align:left">ASDimensionAuto</td>
+      <td style="text-align:left">&#xB808;&#xC774;&#xC544;&#xC6C3;&#xC758; &#xCD5C;&#xC18C; &#xB192;&#xC774;&#xB97C;
+        &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;. &#xC9C0;&#xC815;&#xB41C; &#xAC12;&#xBCF4;&#xB2E4;
+        &#xC791;&#xC544;&#xC9C0;&#xB294; &#xAC83;&#xC744; &#xBC29;&#xC9C0;&#xD569;&#xB2C8;&#xB2E4;.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>maxHeight</b>
+      </td>
+      <td style="text-align:left">ASDimension</td>
+      <td style="text-align:left">ASDimensionAuto</td>
+      <td style="text-align:left">&#xB808;&#xC774;&#xC544;&#xC6C3; &#xCD5C;&#xB300; &#xB192;&#xC774;&#xB97C;
+        &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;. &#xC9C0;&#xC815;&#xB41C; &#xAC12;&#xBCF4;&#xB2E4;
+        &#xCEE4;&#xC9C0;&#xB294; &#xAC83;&#xC744; &#xBC29;&#xC9C0;&#xD569;&#xB2C8;&#xB2E4;.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>preferredSize</b>
+      </td>
+      <td style="text-align:left">CGSize</td>
+      <td style="text-align:left">
         <p>zero,</p>
         <p>&#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C;calculatedSizeThatFits: &#xC5D0;
           &#xC758;&#xD574; &#xACB0;&#xC815;&#xB429;&#xB2C8;&#xB2E4;.</p>
-      </th>
-      <th style="text-align:left">&#xB808;&#xC774;&#xC544;&#xC6C3; &#xC694;&#xC18C;&#xC5D0; &#xC81C;&#xC548;&#xD558;&#xACE0;&#xC790;
+      </td>
+      <td style="text-align:left">&#xB808;&#xC774;&#xC544;&#xC6C3; &#xC694;&#xC18C;&#xC5D0; &#xC81C;&#xC548;&#xD558;&#xACE0;&#xC790;
         &#xD558;&#xB294; &#xC0AC;&#xC774;&#xC988;&#xB97C; &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.
         &#xD558;&#xC9C0;&#xB9CC; &#xC9C0;&#xC815;&#xD55C; &#xAC12;&#xBCF4;&#xB2E4;
         &#xCEE4;&#xC9C0;&#xAC70;&#xB098; &#xC791;&#xC544;&#xC9C0;&#xBA74; &#xC0C1;&#xD669;&#xC5D0;
-        &#xB530;&#xB77C; minSize &#xB610;&#xB294; maxSize&#xAC00; &#xC801;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</th>
+        &#xB530;&#xB77C; minSize &#xB610;&#xB294; maxSize&#xAC00; &#xC801;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</td>
     </tr>
-  </thead>
-  <tbody></tbody>
-</table>| **minSize** | CGSize | **setter \(set only\)** | 레이아웃에 대한 최소 사이즈를 지정합니다. 유의사항: _만약 부모 레이아웃의 최소 크기가 자식의 최소 크기보다 작은 경우 자식의 최소 크기로 결정됩니다._ |
-| :--- | :--- | :--- | :--- |
-
-
-<table>
-  <thead>
     <tr>
-      <th style="text-align:left"><b>maxSize</b>
-      </th>
-      <th style="text-align:left">CGSize</th>
-      <th style="text-align:left"><b>setter (set only)</b>
-      </th>
-      <th style="text-align:left">
+      <td style="text-align:left"><b>minSize</b>
+      </td>
+      <td style="text-align:left">CGSize</td>
+      <td style="text-align:left"><b>setter (set only)</b>
+      </td>
+      <td style="text-align:left">&#xB808;&#xC774;&#xC544;&#xC6C3;&#xC5D0; &#xB300;&#xD55C; &#xCD5C;&#xC18C;
+        &#xC0AC;&#xC774;&#xC988;&#xB97C; &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.
+        &#xC720;&#xC758;&#xC0AC;&#xD56D;: <em>&#xB9CC;&#xC57D; &#xBD80;&#xBAA8; &#xB808;&#xC774;&#xC544;&#xC6C3;&#xC758; &#xCD5C;&#xC18C; &#xD06C;&#xAE30;&#xAC00; &#xC790;&#xC2DD;&#xC758; &#xCD5C;&#xC18C; &#xD06C;&#xAE30;&#xBCF4;&#xB2E4; &#xC791;&#xC740; &#xACBD;&#xC6B0; &#xC790;&#xC2DD;&#xC758; &#xCD5C;&#xC18C; &#xD06C;&#xAE30;&#xB85C; &#xACB0;&#xC815;&#xB429;&#xB2C8;&#xB2E4;.</em>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>maxSize</b>
+      </td>
+      <td style="text-align:left">CGSize</td>
+      <td style="text-align:left"><b>setter (set only)</b>
+      </td>
+      <td style="text-align:left">
         <p>&#xB808;&#xC774;&#xC544;&#xC6C3;&#xC5D0; &#xB300;&#xD55C; &#xCD5C;&#xB300;
           &#xC0AC;&#xC774;&#xC988;&#xB97C; &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</p>
         <p><em>&#xC720;&#xC758;&#xC0AC;&#xD56D;: &#xB9CC;&#xC57D; &#xC790;&#xC2DD; &#xB808;&#xC774;&#xC544;&#xC6C3;&#xC758; &#xCD5C;&#xB300; &#xD06C;&#xAE30;&#xAC00; &#xBD80;&#xBAA8;&#xC758; &#xCD5C;&#xB300; &#xD06C;&#xAE30;&#xBCF4;&#xB2E4; &#xC791;&#xC740; &#xACBD;&#xC6B0; &#xC790;&#xC2DD;&#xC758; &#xCD5C;&#xB300;&#xD06C;&#xAE30;&#xAC00; &#xC801;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</em>
         </p>
-      </th>
+      </td>
     </tr>
-  </thead>
-  <tbody></tbody>
-</table><table>
-  <thead>
     <tr>
-      <th style="text-align:left"><b>preferredLayoutSize</b>
-      </th>
-      <th style="text-align:left">ASLayoutSize</th>
-      <th style="text-align:left">
+      <td style="text-align:left"><b>preferredLayoutSize</b>
+      </td>
+      <td style="text-align:left">ASLayoutSize</td>
+      <td style="text-align:left">
         <p>zero,</p>
         <p>&#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C;&#xB294; calculatedSizeThatFits:
           &#xC5D0; &#xC758;&#xD574; &#xACB0;&#xC815;&#xB429;&#xB2C8;&#xB2E4;.</p>
-      </th>
-      <th style="text-align:left">
+      </td>
+      <td style="text-align:left">
         <p>&#xB808;&#xC774;&#xC544;&#xC6C3; &#xC694;&#xC18C;&#xC5D0; &#xB300;&#xD574;
           &#xC0C1;&#xB300;&#xC801; &#xD06C;&#xAE30;&#xB97C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</p>
         <p><em>&#xC720;&#xC758;&#xC0AC;&#xD56D;: ASLayoutSize&#xB294; unit&#xAC12;&#xC774; point&#xAC00; &#xC544;&#xB2C8;&#xB77C; percentage(%, 0.0 ~ 1.0) &#xC785;&#xB2C8;&#xB2E4;.</em>
         </p>
-      </th>
+      </td>
     </tr>
-  </thead>
-  <tbody></tbody>
-</table>| **minLayoutSize** | ASLayoutSize | layout spec에 따라 결정 | 레이아웃 요소에 대해 최소한의 상대크기를 제공합니다. |
-| :--- | :--- | :--- | :--- |
-
-
-| **maxLayoutSize** | ASLayoutSize | layout spec에 따라 결정 | 레이아웃 요소에 대해 최대한의 상대크기를 제공합니다. |
-| :--- | :--- | :--- | :--- |
-
-
-## 3. Stack Layout Element Properties \(ASStackLayoutElement\)
+    <tr>
+      <td style="text-align:left"><b>minLayoutSize</b>
+      </td>
+      <td style="text-align:left">ASLayoutSize</td>
+      <td style="text-align:left">layout spec&#xC5D0; &#xB530;&#xB77C; &#xACB0;&#xC815;</td>
+      <td style="text-align:left">&#xB808;&#xC774;&#xC544;&#xC6C3; &#xC694;&#xC18C;&#xC5D0; &#xB300;&#xD574;
+        &#xCD5C;&#xC18C;&#xD55C;&#xC758; &#xC0C1;&#xB300;&#xD06C;&#xAE30;&#xB97C;
+        &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><b>maxLayoutSize</b>
+      </td>
+      <td style="text-align:left">ASLayoutSize</td>
+      <td style="text-align:left">layout spec&#xC5D0; &#xB530;&#xB77C; &#xACB0;&#xC815;</td>
+      <td style="text-align:left">&#xB808;&#xC774;&#xC544;&#xC6C3; &#xC694;&#xC18C;&#xC5D0; &#xB300;&#xD574;
+        &#xCD5C;&#xB300;&#xD55C;&#xC758; &#xC0C1;&#xB300;&#xD06C;&#xAE30;&#xB97C;
+        &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</td>
+    </tr>
+  </tbody>
+</table>## 3. Stack Layout Element Properties \(ASStackLayoutElement\)
 
 | Name | Type | Default Value | Description |
 | :--- | :--- | :--- | :--- |
@@ -173,23 +197,26 @@ let relativeSize2 = ASLayoutSize(width: width, height: height)
 
 ## 4. Absolute Layout Element Properties \(ASAbsoluteLayoutElement\)
 
-| Name | Type | Default Value | Description |
-| :--- | :--- | :--- | :--- |
-
-
 <table>
   <thead>
     <tr>
-      <th style="text-align:left"><b>layoutPosition</b>
-      </th>
-      <th style="text-align:left">CGPoint</th>
-      <th style="text-align:left">
-        <p>zero</p>
-        <p>(x: 0.0, y: 0.0)</p>
-      </th>
-      <th style="text-align:left">&#xBD80;&#xBAA8; &#xB808;&#xC774;&#xC544;&#xC6C3; &#xC0C1;&#xC5D0;&#xC11C;
-        &#xACE0;&#xC815; &#xC704;&#xCE58;&#xB97C; &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</th>
+      <th style="text-align:left">Name</th>
+      <th style="text-align:left">Type</th>
+      <th style="text-align:left">Default Value</th>
+      <th style="text-align:left">Description</th>
     </tr>
   </thead>
-  <tbody></tbody>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><b>layoutPosition</b>
+      </td>
+      <td style="text-align:left">CGPoint</td>
+      <td style="text-align:left">
+        <p>zero</p>
+        <p>(x: 0.0, y: 0.0)</p>
+      </td>
+      <td style="text-align:left">&#xBD80;&#xBAA8; &#xB808;&#xC774;&#xC544;&#xC6C3; &#xC0C1;&#xC5D0;&#xC11C;
+        &#xACE0;&#xC815; &#xC704;&#xCE58;&#xB97C; &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</td>
+    </tr>
+  </tbody>
 </table>
