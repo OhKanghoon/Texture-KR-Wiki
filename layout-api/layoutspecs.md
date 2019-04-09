@@ -378,7 +378,11 @@ layout element를 비율에 따라 그려내는 LayoutSpec입니다.
 ASRatioLayoutSpec(ratio: CGFloat, child: ASLayoutElement)
 ```
 
-ASRatioLayoutSpec은 반드시 **width**값을 가지거나 또는 **constrainedSize를 통한 height** 값을 가져야합니다. 
+ASRatioLayoutSpec은 자체크기를 조절할 때 **width**값 또는 **height** 값을 **constrainedSize를 통해** 가지게 됩니다.
+
+필요에 따라 임의의 width 또는 height를 설정해서 사용할 수도 있습니다. 
+
+결론적으로는 ratio에 따라 layout을 그려내기 위해선 width 또는 height는 필수 입니다.  
 
 ![](../.gitbook/assets/image%20%287%29.png)
 
@@ -403,6 +407,13 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
     // ...
 }
 ```
+
+
+
+### 요점정리 
+
+* constrainedSize의 width or height 따라서 사이즈가 결정됌
+* 임의로 **.style.width**, **.style.height** 값을 지정하여 처리할 수 있음 
 
 ## 10. ASCornerLayoutSpec \(~&gt; 2.7\)
 
