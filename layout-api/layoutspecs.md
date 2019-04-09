@@ -44,7 +44,35 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 
 ## 2. ASInsetLayoutSpec
 
-// 👷‍♀️ 공사중 👷
+child element에 inset값을 적용 시켜주는 LayoutSpec입니다. 
+
+ASInsetLayoutSpec은 constrainedSize.max size 값을 자식에게 전달해주며 전달된 값을 정의된 insets값에 따라 자식의 margin을 더해줍니다. 
+
+```swift
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+    let insets: UIEdgeInsets = .init(top: 50.0, left: 50.0, bottom: 50.0, right: 50.0)
+    return ASInsetLayoutSpec.init(insets: insets, child: childNode1)
+}
+```
+
+insets의  top, left, bottom, right에 inifinity를 지정하게 되면 자식노드의 instrinsic size로 결정됩니다. 
+
+```swift
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+    let insets: UIEdgeInsets = .init(top: .infinity, left: 50.0, bottom: .infinity, right: 50.0)
+    childNode1.style.height = .init(unit: .points, value: 100.0)
+    let insetLayout = ASInsetLayoutSpec.init(insets: insets, child: childNode1)
+    
+    
+    // ...
+}
+```
+
+![childNode&#xC758; height&#xB97C; &#xBA85;&#xC2DC;&#xC801;&#xC73C;&#xB85C; 100.0pt&#xB85C; &#xC815;&#xC758; ](../.gitbook/assets/image%20%2813%29.png)
+
+![childNode&#xC758; &#xBA85;&#xC2DC;&#xC801;&#xC778; &#xC0AC;&#xC774;&#xC988;&#xB97C; &#xC54C; &#xC218; &#xC5C6;&#xC74C; \(unknown height\) ](../.gitbook/assets/image%20%283%29.png)
+
+즉, 다시 말하자면 child element의 크기에 따라 ASInsetLayoutSpec의 크기가 결정되기 때문에 ASInsetLayoutSpec가 사이즈를 가지기 위해서 instrinsic size나 명시적인 size를 정의 해주어야 합니다. 
 
 ## 3. ASStackLayoutSpec
 
