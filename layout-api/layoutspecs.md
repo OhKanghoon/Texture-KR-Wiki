@@ -125,14 +125,42 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 
 ### 요점 정리
 
-*  명시성: child에 해당하는 layout element는 반드시 명시적인 사이즈나 constrainedSize에 따라 사이즈가 정의 되어야합니다. 
-* 사이즈 의존성: overlay에 해당하는 layout element는 child에서 계산된 constrainedSize값을 받아서 처리합니다. _\(즉, blueNode의 사이즈가 줄어들면 redNode의 사이즈도 같이 줄어들게 됩니다. \)_
+*  크기에 대해서 임의로 조절하기 위해선 child에 해당하는 layout element는 반드시 본질적인 사이즈 또는 계산에 따른 사이즈가 설정 되어야합니다. 
+* overlay에 해당하는 layout element는 child에서 계산된 constrainedSize값을 받아서 처리합니다. _\(즉, blueNode의 사이즈가 줄어들면 redNode의 사이즈도 같이 줄어들게 됩니다. \)_
 
 
 
 ## 5. ASBackgroundLayoutSpec
 
-// 👷‍♀️ 공사중 👷
+Background를 정의해주는 LayoutSpec입니다.
+
+```swift
+ASBackgroundLayoutSpec.init(child: ASLayoutElement, background: ASLayoutElement)
+```
+
+ASBackgroundLayoutSpec은 ASOverlayLayoutSpec과 비슷해보지만 큰 차이점이라면 background에 해당하는 layout element가 child에 해당하는 layout element의 사이즈에 영향을 받습니다. 
+
+즉, background의 layout element의 사이즈는 child의 layout elements 사이즈에 의해 결정됩니다. 
+
+따라서, child에서 계산된 constrainedSize가 background layout element로 전달 되기 때문에, 크기에 대해서 임의로 조절하기 위해선 child에 해당하는 layout element는 반드시 본질적인 사이즈 또는 계산에 따른 사이즈가 설정 되어야합니다. 
+
+
+
+### 사용법 
+
+![](../.gitbook/assets/image%20%2815%29.png)
+
+```swift
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+   let layout = ASBackgroundLayoutSpec.init(child: redNode, background: blueNode)
+   
+   // ... 
+}
+```
+
+
+
+
 
 ## 6. ASAbsoluteLayoutSpec
 
