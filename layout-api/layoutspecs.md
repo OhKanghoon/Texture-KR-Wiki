@@ -10,7 +10,9 @@ ASLayoutElement를 Wrapping하며,  ASLayoutSpec중 가장 기본적이고 간�
 
 단, layout에 대한 postion\(CGPoint\) 값이 적용되어야할 경우 **ASAbsoluteLayoutSpec**사용해야합니다. 
 
-### layoutElement:
+
+
+### 사용법 
 
 ```swift
 override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -34,7 +36,7 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 }
 ```
 
-### layoutElements: 
+단일 노드 뿐만 아니라 Array형태로 elements를 받아서 처리할 수도 있습니다. 
 
 ```swift
 override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -42,11 +44,24 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 }
 ```
 
+
+
+### 요점 정리 
+
+* 단일 노드 반환에 이상적
+* position이 필요한 경우 ASAbsoluteLayoutSpec사용 할 것
+
 ## 2. ASInsetLayoutSpec
 
 child element에 inset값을 적용 시켜주는 LayoutSpec입니다. 
 
+```swift
+ASInsetLayoutSpec.init(insets: UIEdgeInsets, child: ASLayoutElement)
+```
+
 ASInsetLayoutSpec은 constrainedSize.max size 값을 자식에게 전달해주며 전달된 값을 정의된 insets값에 따라 자식의 margin을 더해줍니다. 
+
+### 사용법
 
 ```swift
 override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -63,7 +78,6 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
     childNode1.style.height = .init(unit: .points, value: 100.0)
     let insetLayout = ASInsetLayoutSpec.init(insets: insets, child: childNode1)
     
-    
     // ...
 }
 ```
@@ -74,13 +88,47 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 
 즉, 다시 말하자면 child element의 크기에 따라 ASInsetLayoutSpec의 크기가 결정되기 때문에 ASInsetLayoutSpec가 사이즈를 가지기 위해서 instrinsic size나 명시적인 size를 정의 해주어야 합니다. 
 
+### 요점 정리 
+
+* insets값은 child element의 margin값을 정의
+* ASInsetLayoutSpec가 사이즈를 가지기 위해서 instrinsic size나 명시적인 size를 정의 해야함
+
 ## 3. ASStackLayoutSpec
 
 // 👷‍♀️ 공사중 👷
 
 ## 4. ASOverlayLayoutSpec
 
-// 👷‍♀️ 공사중 👷
+명칭 그대로 Overlay 해주는 LayoutSpec으로써, 특정 Overlay 대상 노드를 특정 child 노드위에 Overlay시키는 LayoutSpec입니다. 
+
+```swift
+ASOverlayLayoutSpec.init(child: ASLayoutElement, overlay: ASLayoutElement)
+```
+
+최상단에 **overlay되는 대상은 overlay:** 에서 매개변수로 받으며 child: 에서 **overlay되는 대상을 자식으로 가지는 layout element**를 받습니다. 
+
+
+
+### 사용법
+
+![](../.gitbook/assets/image%20%2815%29.png)
+
+```swift
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+   let overlayLayout = ASOverlayLayoutSpec.init(child: blueNode, overlay: redNode)
+   
+   // ... 
+}
+```
+
+
+
+### 요점 정리
+
+*  명시성: child에 해당하는 layout element는 반드시 명시적인 사이즈나 constrainedSize에 따라 사이즈가 정의 되어야합니다. 
+* 사이즈 의존성: overlay에 해당하는 layout element는 child에서 계산된 constrainedSize값을 받아서 처리합니다. _\(즉, blueNode의 사이즈가 줄어들면 redNode의 사이즈도 같이 줄어들게 됩니다. \)_
+
+
 
 ## 5. ASBackgroundLayoutSpec
 
