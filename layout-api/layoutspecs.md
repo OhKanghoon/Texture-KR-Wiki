@@ -61,7 +61,7 @@ ASInsetLayoutSpec.init(insets: UIEdgeInsets, child: ASLayoutElement)
 
 ASInsetLayoutSpec은 constrainedSize.max size 값을 자식에게 전달해주며 전달된 값을 정의된 insets값에 따라 자식의 margin을 더해줍니다. 
 
-![](../.gitbook/assets/image%20%2811%29.png)
+![](../.gitbook/assets/image%20%2812%29.png)
 
 ### 사용법
 
@@ -84,7 +84,7 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 }
 ```
 
-![childNode&#xC758; height&#xB97C; &#xBA85;&#xC2DC;&#xC801;&#xC73C;&#xB85C; 100.0pt&#xB85C; &#xC815;&#xC758; ](../.gitbook/assets/image%20%2814%29.png)
+![childNode&#xC758; height&#xB97C; &#xBA85;&#xC2DC;&#xC801;&#xC73C;&#xB85C; 100.0pt&#xB85C; &#xC815;&#xC758; ](../.gitbook/assets/image%20%2815%29.png)
 
 ![childNode&#xC758; &#xBA85;&#xC2DC;&#xC801;&#xC778; &#xC0AC;&#xC774;&#xC988;&#xB97C; &#xC54C; &#xC218; &#xC5C6;&#xC74C; \(unknown height\) ](../.gitbook/assets/image%20%283%29.png)
 
@@ -113,7 +113,7 @@ ASOverlayLayoutSpec.init(child: ASLayoutElement, overlay: ASLayoutElement)
 
 ### 사용법
 
-![](../.gitbook/assets/image%20%2816%29.png)
+![](../.gitbook/assets/image%20%2817%29.png)
 
 ```swift
 override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -150,7 +150,7 @@ ASBackgroundLayoutSpec은 ASOverlayLayoutSpec과 비슷해보지만 큰 차이�
 
 ### 사용법 
 
-![](../.gitbook/assets/image%20%2816%29.png)
+![](../.gitbook/assets/image%20%2817%29.png)
 
 ```swift
 override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -211,7 +211,7 @@ layoutPosition이나 size는 ASAbsoluteLayoutSpec이 아닌 children에 해당�
 
 특정 layout element를 가운데로 정렬하며 해당하는 layout element에 **constraintedSize.max**값을 전달해서 size를 계산합니다. 
 
-![](../.gitbook/assets/image%20%2818%29.png)
+![](../.gitbook/assets/image%20%2819%29.png)
 
 ```swift
 ASCenterLayoutSpec.init(centeringOptions: ..., 
@@ -372,7 +372,37 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 
 ## 9. ASRatioLayoutSpec
 
-### 공사중  :\)
+layout element를 비율에 따라 그려내는 LayoutSpec입니다. 
+
+```swift
+ASRatioLayoutSpec(ratio: CGFloat, child: ASLayoutElement)
+```
+
+ASRatioLayoutSpec은 반드시 **width**값을 가지거나 또는 **constrainedSize를 통한 height** 값을 가져야합니다. 
+
+![](../.gitbook/assets/image%20%287%29.png)
+
+_ASNetworkImageNode나 ASVideoNode를 사용할 땐, 미디어 리소스에 대해서 서버측에서 ratio값을 받아와서 처리할 수 있어야합니다. 미디어 리소스의 사이즈를 알기 전까지는 고유의 사이즈를 알 수 없기 때문입니다._ 
+
+```javascript
+// example media resource json
+{
+  thumnail_url: https://mediaservice.example/0.jpg,
+  video_url: https://mediaservice.example/0.mp4,
+  width: 100.0,
+  height: 200.0,
+}
+```
+
+### 사용법 
+
+```swift
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+    let ratioLayout = ASRatioLayoutSpec.init(ratio: 0.5, child: childNode1)
+    
+    // ...
+}
+```
 
 ## 10. ASCornerLayoutSpec \(~&gt; 2.7\)
 
