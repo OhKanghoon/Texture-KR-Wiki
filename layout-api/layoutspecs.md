@@ -417,5 +417,70 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 
 ## 10. ASCornerLayoutSpec \(~&gt; 2.7\)
 
-### 공사중 :\) 
+4개의 모퉁이\(topLeft, topRight, bottomLeft, bottomRight\) 에 layout element를 배치하는 LayoutSpec입니다. 
+
+**수동적인 좌표계산 및 ASAbsoluteLayoutSpec**사용 **필요없이** 선언적으로 구석에다 Layout을 배치하는 **빠르고 편리한** LayoutSpec입니다. 
+
+```swift
+let layout = ASCornerLayoutSpec(child: ASLayoutElement,
+                                corner: ASLayoutElement,
+                                location: ASCornerLayoutLocation)
+                   
+layout.offset = CGPoint(x: 0.0, y: 0.0) // default is zero
+                   
+```
+
+#### location \(ASCornerLayoutLocation\)
+
+location종류는 모퉁이 갯수에 따라 총 4가지가 있습니다. **topLeft, topRight, bottomLeft, bottomRight** 
+
+\*\*\*\*
+
+#### **offset \(CGPoint\)** 
+
+default값은 CGPoint.zero \(zero position\) 이며 아래와 같이 corner에 해당하는 layout element가 배치 됩니다. 
+
+![location: bottomRight, offset: CGPoint.zero](../.gitbook/assets/2019-04-09-6.11.20.png)
+
+만약 corner에 해당하는 layout element를 child안으로 이동시키고자 한다면,  임의로 corner element 사이즈 절반 만큼 offset에 부여하면 됩니다. 
+
+![location: bottomRight, offset: CGPoint.init\(x: -20.0, y: -20.0\)](../.gitbook/assets/2019-04-09-6.11.53.png)
+
+정리하자면 **negative offset**을 지정하면 값의 크기에 따라 **안쪽방향**으로 position을 배치하게되고, 
+
+**positive offset**을 지정하면 값의 크기에 따라 **밖으로 이탈**하게 됩니다. 
+
+놀라운 점은 이탈하더라도 **부모와 상관없이** 랜더링하게 됩니다.
+
+![](../.gitbook/assets/2019-04-09-6.24.21.png)
+
+
+
+
+
+_단, Texture 2.7 이상부터 지원됩니다._ 
+
+\_\_
+
+### 사용법
+
+```swift
+override function layoutSpecThatFits (_ constrainedSize : ASSizeRange) -> ASLayoutSpec {
+  let cornerLayout = ASCornerLayoutSpec(child: profileNode,
+                                        corner: changePhotoNode, 
+                                        location: .bottomRight)
+  cornerLayout.offset = CGPoint (x : 3.0, y : 3.0)
+  
+  // ...
+}
+```
+
+
+
+### 요점정리
+
+* 구석기준으로 자식 레이아웃을 배치할 때 고려해봅시다. 
+* 부모와 관계없이 이탈 할 수 있는 점에 주의 
+
+
 
