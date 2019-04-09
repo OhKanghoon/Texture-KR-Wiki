@@ -78,5 +78,44 @@ func application(_ application: UIApplication,
 
 ## Layout Debugging
 
-// 👷‍♀️ 공사중 👷
+LLDB를 통해서 간단히 LayoutSpec에 대해서 asciiArtString 형태로 출력할 수 있습니다.
+
+```swift
+class SuperNode: ASDisplayNode {
+    
+    let childNode1: ASButtonNode = {
+        let node = ASButtonNode()
+        node.backgroundColor = ColorStyle.color1
+        node.style.preferredSize = .init(width: 100.0, height: 100.0)
+        return node
+    }()
+    
+    let childNode2: ASDisplayNode = {
+        let node = ASDisplayNode()
+        node.backgroundColor = ColorStyle.color2
+        return node
+    }()
+    
+    override init() {
+        super.init()
+        self.automaticallyManagesSubnodes = true
+        self.backgroundColor = .white
+    }
+    
+    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        let insets: UIEdgeInsets = .init(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+        let insetLayout = ASInsetLayoutSpec.init(insets: insets, child: childNode1)
+        return ASOverlayLayoutSpec.init(child: childNode2, overlay: insetLayout)
+    }
+}
+
+let node = SuperNode()
+let output = node.layoutSpecThatFits(ASSizeRangeZero).asciiArtString()
+print(output)
+
+```
+
+![](../.gitbook/assets/2019-04-09-4.49.56.png)
+
+따라서 내부 코드를 공개하지 않고도 어떠한 형태로 LayoutSpec를 설계했는지 공유할 수 있으며, 여러 커뮤니티를 통해서 손쉽게 개선점에 대한 피드백을 받을 수가 있습니다. 
 
