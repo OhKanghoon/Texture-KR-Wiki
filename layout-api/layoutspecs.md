@@ -207,7 +207,75 @@ layoutPosition이나 size는 ASAbsoluteLayoutSpec이 아닌 children에 해당�
 
 ## 7. ASCenterLayoutSpec
 
-// 👷‍♀️ 공사중 👷
+특정 layout element를 가운데로 정렬하며 해당하는 layout element에 **constraintedSize.max**값을 전달해서 size를 계산합니다. 
+
+```swift
+ASCenterLayoutSpec.init(centeringOptions: ..., 
+                        sizingOption: ...,
+                        child: ...)
+                        
+ASCenterLayoutSpec.init(horizontalPosition: ...,
+                        verticalPosition: ...,
+                        sizingOption: ...,
+                        child: ...)
+```
+
+#### 
+
+#### centerOptions \(ASCenterLayoutSpecCenteringOptions\)
+
+center처리에 대한 option값을 의미하며, **X, Y, XY, None** 총 4가지로 나눠집니다. \(default: none\)
+
+
+
+#### sizingOptions \(ASCenterLayoutSpecSizingOptions\)
+
+center 처리 되는 layout element의 size처리에 대한 옵션을 의미합니다.
+
+| Option name | description |
+| :--- | :--- |
+| default | 기본값으로 크기를 최대한으로 지정합니다. |
+| minimumX | X축을 기점으로 사이즈를 최소한으로 지정합니다. |
+| minimumY | Y축을 기점으로 사이즈를 최소한으로 지정합니다.  |
+| minimumXY | XY축을 기점으로 사이즈를 최소한으로 지정합니다.  |
+
+#### 
+
+#### child \(ASLayoutElement\)
+
+중앙으로 정렬되는 대상을 의미합니다. 
+
+
+
+#### horizontalPosition & verticalPosition \(ASRelativeLayoutSpecPostion\)
+
+horizontal 및 vertical 에 대한 정렬기준옵션입니다. **none, start, center, end** 4가지로 나눠지며, ASRelativeLayoutSpec에서 자세히 다뤄집니다. \(기본값: none\)
+
+
+
+### 사용법
+
+```swift
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+    let centerLayout = ASCenterLayoutSpec(centeringOptions: .XY,
+                                          sizingOptions: .minimumXY
+                                          child: childNode1)
+                                          
+    let centerLayout2 = ASCenterLayoutSpec(horizontalPosition: .start,
+                                           verticalPosition: .end,
+                                           sizingOption: [], // 기본
+                                           child: childNode2)
+                                              
+    // ...
+}
+```
+
+
+
+### 요점정리
+
+* 요구스펙에 맞게 sizingOption 및 centeringOption 또는 horizontal/vertical position을 지정해서 사용합니다.
+* 기본값으로 지시 **빈 Array \[ \]** 를 사용합니다.   
 
 ## 8. ASRelativeLayoutSpec
 
