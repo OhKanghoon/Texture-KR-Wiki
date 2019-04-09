@@ -47,11 +47,11 @@ class ViewController: ASViewController<ASTableNode> {
 }
 ```
 
-## NodeBlock Thread Safety Warning
+## Node Block Thread Safety Warning
 
-NodeBlock 이 Thread-Safe 하다는건 굉장히 중요하다.  
-그 방법 중 하나는 데이터 모델이 NodeBlock 외부에서 접근가능한지 확인하는 것이다.  
-그러므로, 블록 내부에서 인덱스를 사용해야 할 가능성은 거의 없습니다.
+Node Block 이 Thread-Safe 하다는건 굉장히 중요하다.  
+그 방법 중 하나는 데이터 모델이 Node Block 외부에서 접근가능한지 확인하는 것이다.  
+그러므로, 블록 내부에서 인덱스를 사용해야 할 가능성은 거의 없다.
 
 ```swift
 func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
@@ -74,7 +74,7 @@ func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath)
 
 ## ASTableView 에 접근하기
 
-이전 버전의 Texture 를 사용한 경우 `ASTableView` 가 `ASTableNode` 를 위해 제거되었음을 알게 될 것이다.
+ `ASTableView`  `ASTableNode` 를 위해 제거되었다.
 
 > UITableView 의 서브 클래스인 ASTableView 는 여전히 ASTableNode 에서 내부적으로 사용되고 있다. 직접 생성해서는 안 되지만 ASTableNode의 .view 프로퍼티로 직접 사용할 수 있다. 노드의 뷰 또는 레이어 프로퍼티 각각 -viewDidLoad 또는 -didLoad가 호출된 후에만 접근해야 한다는 점을 잊지 마세요.
 
@@ -107,4 +107,10 @@ override func viewDidLoad() {
 만약  `ASCellNode` 에서 `setNeedsLayout()` 를 호출하면, 그것은 자동으로 다른 레이아웃 패스를 수행하게 되고, 그것의 전체적인 원하는 크기가 바뀌면, table이 알고 스스로 업데이트 한다.
 
 이것은 일반적으로 reload row / item 을 호출해야 하는 UIKit 과 다르다. 이는 수 톤의 코드를 절약할 수 있다.
+
+## Examples
+
+* [DoggyGram](https://github.com/GeekTree0101/DoggyGram)
+* [RxMVVM-Texture](https://github.com/GeekTree0101/RxMVVM-Texture)
+* [ASDKgram-Swift](https://github.com/TextureGroup/Texture/tree/master/examples_extra/ASDKgram-Swift)
 
