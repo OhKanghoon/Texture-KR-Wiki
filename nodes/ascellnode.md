@@ -73,10 +73,6 @@ node.neverShowPlaceholders = true
 
 > 이 옵션을 사용한다고 해서 Texture 의 성능상 이점이 모두 사라지는 것은 아니다. 일반적으로 Cell  preloading 중이기 때문에 block 되는 시간은 매우 짧다. `rangeTuningParameters` 가 0으로 설정되어 있더라 이 옵션은 UIKit 보다 월등하다. Main thread 가 대기 중일 때 , SubNode 의 display 가 동시에 실행된다.
 
-### 
-
-
-
 ## UITableViewCell 의 특정 프로퍼티
 
 `UITableViewCell` 은 `selectionStyle`, `accessoryType`, `seperatorInset` 등의 프로퍼티를 가지고 있다.  
