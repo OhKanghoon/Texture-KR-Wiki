@@ -2,7 +2,7 @@
 
 ## 1. ASWrapperLayoutSpec
 
-ASLayoutElement를 Wrapping하  ASLayoutSpec중 가장 기본적이고 간단한 Subclass 입니다.
+ASLayoutElement를 Wrapping하며,  ASLayoutSpec중 가장 기본적이고 간단한 Subclass 입니다.
 
 상위 레이아웃에서 정의된 constrainedSize\(ASSizeRange\)를 기반으로 Wrapping된 사이즈를 계산합니다. 
 
