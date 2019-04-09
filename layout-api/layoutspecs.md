@@ -86,12 +86,12 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 
 ![childNode&#xC758; &#xBA85;&#xC2DC;&#xC801;&#xC778; &#xC0AC;&#xC774;&#xC988;&#xB97C; &#xC54C; &#xC218; &#xC5C6;&#xC74C; \(unknown height\) ](../.gitbook/assets/image%20%283%29.png)
 
-즉, 다시 말하자면 child element의 크기에 따라 ASInsetLayoutSpec의 크기가 결정되기 때문에 ASInsetLayoutSpec가 사이즈를 가지기 위해서 instrinsic size나 명시적인 size를 정의 해주어야 합니다. 
+즉, 다시 말하자면 child element의 크기에 따라 ASInsetLayoutSpec의 크기가 결정되기 때문에 ASInsetLayoutSpec가 사이즈를 가지기 위해서 본질적인 사이즈 또는 계산에 따른 사이즈가 설정 되어야합니다. 
 
 ### 요점 정리 
 
 * insets값은 child element의 margin값을 정의
-* ASInsetLayoutSpec가 사이즈를 가지기 위해서 instrinsic size나 명시적인 size를 정의 해야함
+* ASInsetLayoutSpec가 사이즈를 가지기 위해서 본질적인 사이즈 또는 계산에 따른 사이즈가 설정 되어야합니다. 
 
 ## 3. ASStackLayoutSpec
 
@@ -169,7 +169,41 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 
 ## 6. ASAbsoluteLayoutSpec
 
-// 👷‍♀️ 공사중 👷
+flexible하지 않으며 정의된 사이즈형태로 유지되며 layoutPosition에 따라서 움직임이 가능한 LayoutSpec입니다. 
+
+제공되는 API는 기본형태와 sizing option 형태 두가지로 나눠집니다. 
+
+```swift
+ASAbsoluteLayoutSpec.init(children: [ASLayoutElement]) // default
+ASAbsoluteLayoutSpec.init(sizing: ASAbsoluteLayoutSpecSizing, children: [ASLayoutElement])
+```
+
+여기서 눈여겨볼 점은 sizing options입니다.
+
+| OptionType | Description |
+| :--- | :--- |
+| .default | 기본값으로써 가능한 최대크기로 랜더링을 합니다. |
+| .sizeToFit | 모든 children의 frame 결합체에 대해서 사이즈를 최소화된 크기로 계산을 합니다.  |
+
+### 사용법
+
+```swift
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+    // layoutPosition 및 size를 설정합니다. 
+    childNode1.style.layoutPosition = .init(x: 100.0, y: 100.0)
+    childNode1.style.preferredSize = .init(width: 100.0, height: 100.0)   
+    return ASAbsoluteLayoutSpec.init(sizing: .default, children: [childNode1])
+}
+```
+
+layoutPosition이나 size는 ASAbsoluteLayoutSpec이 아닌 children에 해당하는 layout elements 각각에 대해서 설정되어야합니다. 
+
+
+
+### 요점정리 
+
+* position및 size는 각 child element에서 정의할 것
+* 상황에 따라 sizing option 적절히 활용할 것
 
 ## 7. ASCenterLayoutSpec
 
