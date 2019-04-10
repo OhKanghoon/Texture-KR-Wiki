@@ -165,7 +165,8 @@ ASStackLayoutSpec.init(direction: ASStackLayoutDirection,
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">justifyContent</td>
+      <td style="text-align:left"><a href="https://app.gitbook.com/@texture-kr/s/wiki/newbie-guide/flex-box#1-justifycontent">justifyContent</a>
+      </td>
       <td style="text-align:left">ASStackLayoutJustifyContent</td>
       <td style="text-align:left">
         <p>&#xC8FC;&#xCD95;&#xC744; &#xB530;&#xB978; &#xC815;&#xB82C;&#xBC29;&#xBC95;&#xC744;
