@@ -134,20 +134,92 @@ ASStackLayoutSpec.init(direction: ASStackLayoutDirection,
                        children: [ASLayoutElement])         
 ```
 
-| Parameter | Description |
-| :--- | :--- |
-| direction | child layout elements에 대해서 순차적으로 쌓는 방향을 지정합니다. horizontalAlignment 또는 verticalAlignment가 설정에 따라서 justifyContent 및 alignItems가 적절하게 갱신됩니다. |
-| spacing | child layout elements 간의 균등한 사이간격을 지정합니다.  |
-| justifyContent | 주축을 따른 정렬방법을 정의합니다. |
-| alignItems | 교차 축을 따라 정렬된 child layout elements들의 orientation을 지정합니다.  |
-| flexWrap | child layout elements가 한 줄\(noWrap\) 또는 여러 줄\(wrap\)로 쌓여야하는 지 지정합니다. \(default: .noWrap\) |
-| alignContent | 여러 개의 선이있는 경우 교차 축을 따라 선의 방향을 정합니다.  |
-| lineSpacing | 여러 선간의 간격을 지정합니다.  |
-| children | stackLayout에 쌓이는 child layout elements 의미합니다.  |
-
-// 공사중 ~
-
-
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Type</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">direction</td>
+      <td style="text-align:left">ASStackLayoutDirection</td>
+      <td style="text-align:left">
+        <p>child layout elements&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xC21C;&#xCC28;&#xC801;&#xC73C;&#xB85C;
+          &#xC313;&#xB294; &#xBC29;&#xD5A5;&#xC744; &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.
+          horizontalAlignment(<b>.horizontal</b>) &#xB610;&#xB294; verticalAlignment(<b>.vertical</b>)
+          &#xC124;&#xC815;&#xC5D0; &#xB530;&#xB77C;&#xC11C; justifyContent &#xBC0F;
+          alignItems&#xAC00; &#xC801;&#xC808;&#xD558;&#xAC8C; &#xAC31;&#xC2E0;&#xB429;&#xB2C8;&#xB2E4;.</p>
+        <p>(default: .horizontal)</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">spacing</td>
+      <td style="text-align:left">CGFloat</td>
+      <td style="text-align:left">
+        <p>child layout elements &#xAC04;&#xC758; &#xADE0;&#xB4F1;&#xD55C; &#xC0AC;&#xC774;&#xAC04;&#xACA9;&#xC744;
+          &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</p>
+        <p>(default: 0.0)</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">justifyContent</td>
+      <td style="text-align:left">ASStackLayoutJustifyContent</td>
+      <td style="text-align:left">
+        <p>&#xC8FC;&#xCD95;&#xC744; &#xB530;&#xB978; &#xC815;&#xB82C;&#xBC29;&#xBC95;&#xC744;
+          &#xC815;&#xC758;&#xD569;&#xB2C8;&#xB2E4;.</p>
+        <p>(default: .start)</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">alignItems</td>
+      <td style="text-align:left">ASStackLayoutAlignItems</td>
+      <td style="text-align:left">
+        <p>&#xAD50;&#xCC28; &#xCD95;&#xC744; &#xB530;&#xB77C; &#xC815;&#xB82C;&#xB41C;
+          child layout elements&#xB4E4;&#xC758; orientation&#xC744; &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</p>
+        <p>(default: .stretch)</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">flexWrap</td>
+      <td style="text-align:left">ASStackLayoutFlexWrap</td>
+      <td style="text-align:left">
+        <p>child layout elements&#xAC00; &#xD55C; &#xC904;(<b>noWrap</b>) &#xB610;&#xB294;
+          &#xC5EC;&#xB7EC; &#xC904;(<b>wrap</b>)&#xB85C; &#xC313;&#xC5EC;&#xC57C;&#xD558;&#xB294;
+          &#xC9C0; &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</p>
+        <p>(default: .noWrap)</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">alignContent</td>
+      <td style="text-align:left">ASStackLayoutAlignContent</td>
+      <td style="text-align:left">
+        <p>&#xC5EC;&#xB7EC; &#xAC1C;&#xC758; &#xC120;&#xC774;&#xC788;&#xB294; &#xACBD;&#xC6B0;
+          &#xAD50;&#xCC28; &#xCD95;&#xC744; &#xB530;&#xB77C; &#xC120;&#xC758; &#xBC29;&#xD5A5;&#xC744;
+          &#xC815;&#xD569;&#xB2C8;&#xB2E4;.</p>
+        <p>(default: .start)</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">lineSpacing</td>
+      <td style="text-align:left">CGFloat</td>
+      <td style="text-align:left">
+        <p>&#xC5EC;&#xB7EC; &#xC120;&#xAC04;&#xC758; &#xAC04;&#xACA9;&#xC744; &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</p>
+        <p>(default: 0.0)</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">children</td>
+      <td style="text-align:left">Array&lt;ASLayoutElement&gt;</td>
+      <td style="text-align:left">
+        <p>stackLayout&#xC5D0; &#xC313;&#xC774;&#xB294; child layout elements &#xC758;&#xBBF8;&#xD569;&#xB2C8;&#xB2E4;.</p>
+        <p>(default: nil)</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ## 4. ASOverlayLayoutSpec
 
