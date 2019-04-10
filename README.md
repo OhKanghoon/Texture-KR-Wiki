@@ -6,7 +6,7 @@ description: Keeps the most complex iOS user interfaces smooth and responsive.
 
 
 
-![Built at Pinterest](.gitbook/assets/image%20%287%29.png)
+![Built at Pinterest](.gitbook/assets/image%20%288%29.png)
 
 ## **Texture?**
 
