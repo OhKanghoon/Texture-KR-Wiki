@@ -1,5 +1,7 @@
 ---
-description: Texture 사용 및 유지보수 관리하는데 있어서 마주칠 수 있는 여러 예외 문제에 대한 처리방법에 대해서 소개합니다.
+description: >-
+  Texture 사용 및 유지보수 관리하는데 있어서 마주칠 수 있는 여러 예외 문제에 대한 처리방법에 대해서 소개합니다. 보다 더 효율적인
+  방법이 있거나 좋은 노하우가 있다면 컨트리뷰트 해주시면 감사하겠습니다.
 ---
 
 # 민간요법
@@ -68,5 +70,18 @@ pod 'Texture', :git => 'https://github.com/TextureGroup/Texture.git', :branch =>
 github "texturegroup/texture" "p7.0"
 ```
 
-## 
+## 3. UI가 간헐적으로 일부가 잘려서 나와요. 
+
+이런상황이 발생할 수 있는 가장 큰 요인은 **잘못된 setNeedsLayout** 호출입니다. 
+
+가장 이상적인 `setNeedsLayout` 호출가능한 시점은 **measure layout** 또는 **node loaded 이후** 시점이며 비동기 로직으로 인해  measure layout ****또는 node loaded 이전에 동작하여 불가피하게 `setNeedsLayout` 호출해야되는 상황이 발생한다면 아래의 코드와 같이 처리하는 방법이 있습니다. 
+
+```swift
+if self.isNodeLoaded {
+    self.setNeedsLayout()
+} else {
+    self.layoutIfNeeded()
+    self.invalidateCalculatedLayout()
+}
+```
 
