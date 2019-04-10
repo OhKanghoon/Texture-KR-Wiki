@@ -196,8 +196,6 @@ class ExampleNode: ASDisplayNode {
 }
 ```
 
-
-
 ## Automatic Subnode Management \(ASM\)
 
 ASM\(Automatic Subnode Management\)란? layout build과정에서 node를 관리하는 flag이며, layoutSpecThatFits 에서 직접적으로 영향받는 node를 addSubnode하거나 이전 layout에서 제거되는 node를 removeFromSupernode 를 자동으로 처리해주는 것을 의미합니다.

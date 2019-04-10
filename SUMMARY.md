@@ -13,6 +13,7 @@
 * [Node?](newbie-guide/node.md)
 * [LayoutSpec?](newbie-guide/layoutspec.md)
 * [Flex Box](newbie-guide/flex-box.md)
+* [Intelligent Preloading](newbie-guide/intelligent-preloading.md)
 * [Quick Example](newbie-guide/quick-example.md)
 
 ## Nodes
