@@ -219,7 +219,32 @@ ASStackLayoutSpec.init(direction: ASStackLayoutDirection,
       </td>
     </tr>
   </tbody>
-</table>
+</table>### 사용법
+
+* ASStackLayoutSpec elements properties는 [여기](https://app.gitbook.com/@texture-kr/s/wiki/layout-api/layout-element-properties#3-stack-layout-element-properties-asstacklayoutelement)를 참고해주세요.
+* Flexbox 를 활용방법은 [여기](https://app.gitbook.com/@texture-kr/s/wiki/newbie-guide/flex-box)를 참고해주세요. 
+
+```swift
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+
+    childNode1.style.flexShrink = 1.0
+    childNode1.style.flexGrow = 0.0
+    
+    childNode2.style.flexShrink = 1.0
+    childNode2.style.flexGrow = 1.0    
+
+    let stackLayout = ASStackLayoutSpec.init(direction: .horizontal,
+                                             spacing: 20.0,
+                                             justifyContent: .start,
+                                             alignItems: .stretch,
+                                             children: [childNode1, childNode2])
+    // ...
+}
+```
+
+
+
+
 
 ## 4. ASOverlayLayoutSpec
 
