@@ -260,7 +260,7 @@ Stack의 주축 방향을 기준으로 최대 크기로 채웁니다.
 
 하지만 1의 경우 최대높이 또는 고정높이가 정의되어 있지 않기 때문에 부모\(root\)의 높이 만큼 높이가 늘어나게 됩니다. 
 
-![&#xC8FC;&#xCD95; &#xBC29;&#xD5A5;&#xC740; horizontal &#xC774;&#xACE0; &#xB298;&#xC5B4;&#xB098;&#xB294; &#xBC29;&#xD5A5;&#xC740; vertical](../.gitbook/assets/2019-04-10-1.20.42.png)
+![&#xC8FC;&#xCD95; &#xBC29;&#xD5A5;&#xC740; horizontal &#xC774;&#xACE0; &#xB298;&#xC5B4;&#xB098;&#xB294; &#xBC29;&#xD5A5;&#xC740; vertical](../.gitbook/assets/2019-04-10-4.44.16.png)
 
 반대로 주축방향이 horizontal이 아닌 vertical이면 horizontal방향으로 stretching하게 됩니다. 
 
