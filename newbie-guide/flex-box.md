@@ -225,5 +225,90 @@ _앞서 말했듯이 일정한 간격을 유지하는 것을 볼 수 있습니�
 
 spaceBetween이랑 유사하게 보일 수 있으나 가장 큰 차이점은 **자식의 주위에 대해서 동일한 간격**을 유지한 상태로 일정하게 배치합니다. 
 
+### 2. alignItems
+
+Stack상에서 child layout elements이 차지하는 공간의 위치에 대한 정렬을 의미합니다. 
+
+#### start \(ASStackLayouotAlignItemsStart\)
+
+기본값으로 Stack의 주축 방향을 기준으로 시작점에 배치시킵니다.
+
+![&#xC8FC;&#xCD95;&#xBC29;&#xD5A5;&#xC740; horizontal&#xC785;&#xB2C8;&#xB2E4;. child layout element&#xB4E4;&#xC740; 1 -&amp;gt; 2 -&amp;gt; 3 &#xC21C;&#xC73C;&#xB85C; Stack&#xC5D0; &#xC313;&#xC774;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.](../.gitbook/assets/2019-04-10-11.59.09.png)
+
+#### end \(ASStackLayouotAlignItemsEnd\)
+
+Stack의 주축 방향을 기준으로 점에 배치시킵니다.
+
+![](../.gitbook/assets/2019-04-10-1.20.14.png)
+
+#### center \(ASStackLayouotAlignItemsCenter\)
+
+Stack의 주축 방향을 기준으로 가운데에 배치시킵니다. 
+
+![](../.gitbook/assets/2019-04-10-1.20.28.png)
+
+#### stretch \(ASStackLayouotAlignItemsStretch\)
+
+Stack의 주축 방향을 기준으로 최대 크기로 채웁니다.
+
+* **최대 크기 또는 고정크기**가 정의되어 있으면 **최대크기 또는 고정크기 만큼 사이즈**를 결정합니다.  
+* 최대 또는 고정 **크기가 정의 되어 있지않거나 최소 크기만 정의** 되어 있다면 **부모의 사이즈만큼** 채우게 됩니다. 
+
+예를 들어 1,2,3 child layout element가 있고 2, 3은 N x N 의 고정크기를 갖고 1은 width N과 minimum height N값을 가지고 있다고 가정해봅시다.
+
+2, 3은 고정크기를 갖기 때문에 stretch가 적용되더라고 고정크기 만큼 사이즈가 결정됩니다.
+
+하지만 1의 경우 최대높이 또는 고정높이가 정의되어 있지 않기 때문에 부모\(root\)의 높이 만큼 높이가 늘어나게 됩니다. 
+
+![](../.gitbook/assets/2019-04-10-1.20.42.png)
+
+#### baselineFirst \(ASStackLayouotAlignItemsBaselineFirst\)
+
+Stack의 주축 방향을 기준으로 **첫번째 위치한 layout element의 baseline**에 맞추어 배치합니다. 
+
+예를 들어 3개의 사이즈가 서로다른 child layout elements가 있다고 가정하고 alignItems을 start로 정의하면 아래의 이미지와 같이 배치될껍니다.
+
+![alignItems = .start](../.gitbook/assets/2019-04-10-1.21.36.png)
+
+1, 2, 3은 앞서 설명한 alignItem start의 설명과 같이 처리되는 것을 볼 수가 있습니다. 
+
+여기서 baselineFirst로 alignItem을 설정하게 되면 **1번 layout elements의 바닥부분\(baseline\)을 기준**으로 나머지 layout elements이 아래의 사진과 같이 배치되게 됩니다. 
+
+![alignItems = .baselineFirst](../.gitbook/assets/2019-04-10-1.21.49.png)
+
+
+
+#### baselineLast \(ASStackLayouotAlignItemsBaselineLast\)
+
+Stack의 주축 방향을 기준으로 **마지막에 위치한 layout element의 baseline**에 맞추어 배치합니다. 
+
+
+
+#### notSet \(ASStackLayouotAlignItemsNotSet\)
+
+어떠한 설정을 하지않습니다. child layout elements의 각각의 align-self 설정값에 따라 child layout element를 배치합니다. 
+
+예를 들어 1, 2, 3 의 layout element가 있다고 가정했을 때 
+
+1번의 align-self을 start
+
+2번의 align-self을 center 
+
+3번의 align-self을 end로 정의하면 아래의 이미지와 같이 배치됩니다.
+
+```swift
+let node1 = ASDisplayNode()
+let node2 = ASDisplayNode()
+let node3 = ASDisplayNode()
+
+node1.style.alignSelf = .start
+node2.style.alignSelf = .center
+node3.style.alignSelf = .end
+
+// ...
+```
+
+![](../.gitbook/assets/2019-04-10-1.29.35.png)
+
 
 
