@@ -24,7 +24,7 @@ inhibit_all_warnings!
 pod 'Texture'
 ```
 
-## 2. Major version에서 나타난 버그 회피하는 법
+## 2. 2주 간격으로 배포되는 pX.XX Branch 활용하는 
 
 대표적인 사례로 Texture 2.7 출시 당시 많은 Texture 사용하는 유저들이 경험한 이슈로 32-bit simulator build가 되지 않는 현상으로 인해 pod lib를 배포할 수도 없고 CI에 문제가 생기는 문제가 있었습니다. 
 
@@ -38,7 +38,7 @@ pod 'Texture'
 
 * fork해서 처리해서 사용한다.
 * Downgrade한다. \(이전 사용버젼으로 rollback\)
-* 2주 간격에서 배포되는 pX.XX Branch를 사용한다.
+* 2주 간격으로 배포되는 pX.XX Branch를 사용한다.
 
 첫번째 대안인 fork해서 처리하는건 사실상 상당히 고통스럽습니다. \(이하 자세한 내용은 생략하겠습니다.\)
 
