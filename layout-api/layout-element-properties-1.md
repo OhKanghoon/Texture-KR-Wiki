@@ -1,2 +1,0 @@
-# Layout Element Properties
-
