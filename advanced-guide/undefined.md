@@ -14,7 +14,7 @@ AsyncDisplayKit 출시 이후 Pinterest로 메인테이너가 넘어가면서 Te
 
 따라서 [Texture Community Slack](http://texturegroup.org/slack.html)에서 주로 질문들어오거나 [Issue](https://github.com/TextureGroup/Texture/issues)에서 반복되는 내용에 대해서 민간요법을 제시하고자 합니다. 
 
-## 1. Too much Warning! \(CocoaPods\)
+## Too much Warning! \(CocoaPods\)
 
 Texture에는 PINCache, PINRemoteImage 와 같은 생각보다 [많은 dependency](https://github.com/TextureGroup/Texture/blob/master/Texture.podspec)를 가지고 있습니다. dependency 마다 objective-c base고 매번 변경되는 스펙에 따라 warning를 처리를 자주 못해주다 보니 warning이 제법 많이 나타납니다. 
 
@@ -26,7 +26,7 @@ inhibit_all_warnings!
 pod 'Texture'
 ```
 
-## 2. 2주 간격으로 배포되는 pX.XX Branch 활용하는 
+## 2주 간격으로 배포되는 pX.XX Branch 활용하는 
 
 대표적인 사례로 Texture 2.7 출시 당시 많은 Texture 사용하는 유저들이 경험한 이슈로 32-bit simulator build가 되지 않는 현상으로 인해 pod lib를 배포할 수도 없고 CI에 문제가 생기는 문제가 있었습니다. 
 
@@ -70,7 +70,7 @@ pod 'Texture', :git => 'https://github.com/TextureGroup/Texture.git', :branch =>
 github "texturegroup/texture" "p7.0"
 ```
 
-## 3. UI가 간헐적으로 일부가 잘려서 나와요. 
+## UI가 간헐적으로 일부가 잘려서 나와요. 
 
 이런상황이 발생할 수 있는 가장 큰 요인은 **잘못된 setNeedsLayout** 호출입니다. 
 
@@ -83,5 +83,32 @@ if self.isNodeLoaded {
     self.layoutIfNeeded()
     self.invalidateCalculatedLayout()
 }
+```
+
+## Texture 2.8에서 ASVideoNode를 사용할 수가 없어요. \(Compile Error\)
+
+GCC\_PREPROCESSOR 이슈로 Texture 2.8 부터 ASVideoNode를 사용하기 위해선 AS\_USE\_VIDEO를 GCC\_PREPROCESSOR\_DEFINITIONS 에서 선언 해주셔야합니다. `AS_USE_VIDEO = 1`
+
+{% embed url="https://github.com/TextureGroup/Texture/blob/master/Source/ASVideoNode.mm" %}
+
+```text
+//
+//  ASVideoNode.mm
+//  Texture
+//
+//  Copyright (c) Facebook, Inc. and its affiliates.  All rights reserved.
+//  Changes after 4/13/2017 are: Copyright (c) Pinterest, Inc.  All rights reserved.
+//  Licensed under Apache 2.0: http://www.apache.org/licenses/LICENSE-2.0
+//
+
+#import <AsyncDisplayKit/ASVideoNode.h>
+
+#if AS_USE_VIDEO // <----- HERE!
+
+#import <AVFoundation/AVFoundation.h>
+#import <AsyncDisplayKit/ASDisplayNode+FrameworkPrivate.h>
+#import <AsyncDisplayKit/ASDisplayNode+Subclasses.h>
+#import <AsyncDisplayKit/ASDisplayNodeInternal.h>
+#import <AsyncDisplayKit/ASEqualityHelpers.h>
 ```
 
