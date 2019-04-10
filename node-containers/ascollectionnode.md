@@ -1,8 +1,6 @@
 # ASCollectionNode
 
-`ASCollectionNode` 는 UIKit 의 `UICollectionView` 와 동일하며, `UICollectionView` 대신 사용할 수 있다.
-
-`ASCollectionNode` 가 `UICollectionView` 의 필수 메서드를 대체한다.
+`ASCollectionNode` 는 UIKit 의 `UICollectionView` 와 동일하며, `UICollectionView` 대신 사용할 수 있다. `ASCollectionNode` 가 `UICollectionView` 의 필수 메서드를 대체한다.
 
 ```swift
 override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
