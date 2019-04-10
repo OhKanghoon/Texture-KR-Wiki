@@ -12,7 +12,7 @@
 
 * [Node?](newbie-guide/node.md)
 * [LayoutSpec?](newbie-guide/layoutspec.md)
-* [Flex Box 개념잡기](newbie-guide/flex-box.md)
+* [Flex Box](newbie-guide/flex-box.md)
 * [Quick Example](newbie-guide/quick-example.md)
 
 ## Nodes
