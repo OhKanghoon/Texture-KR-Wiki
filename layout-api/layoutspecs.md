@@ -175,7 +175,8 @@ ASStackLayoutSpec.init(direction: ASStackLayoutDirection,
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">alignItems</td>
+      <td style="text-align:left"><a href="https://app.gitbook.com/@texture-kr/s/wiki/newbie-guide/flex-box#2-alignitems">alignItems</a>
+      </td>
       <td style="text-align:left">ASStackLayoutAlignItems</td>
       <td style="text-align:left">
         <p>&#xAD50;&#xCC28; &#xCD95;&#xC744; &#xB530;&#xB77C; &#xC815;&#xB82C;&#xB41C;
