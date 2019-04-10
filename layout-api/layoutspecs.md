@@ -245,6 +245,11 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 
 
 
+### 요점정리
+
+* 적절히 ASStackLayoutSpec elements properties 과 Flexbox properties 활용하여 설계합니다. 
+* 거의 왠만한 Layout은 ASStackLayoutSpec으로 설계 할 수 있습니다. 
+
 
 
 ## 4. ASOverlayLayoutSpec
