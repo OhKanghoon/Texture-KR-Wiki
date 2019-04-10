@@ -37,6 +37,8 @@
 
 `Intelligent preloading` 은 다차원에서도 작용한다.
 
+샘플 코드는 [여기](https://app.gitbook.com/@texture-kr/s/wiki/advanced-guide/debug-tool#range-visualization)를 참고하세요.
+
 ## Interface State Callbacks
 
 사용자가 스크롤할 때 노드는 범위를 통과하여 이동하며, 데이터 로드, 렌더링 등을 통해 적절하게 대응한다. 커스텀 노드 서브클래스는 해당 콜백 메서드를 구현하여 이 메커니즘을 쉽게 이용할 수 있다.
