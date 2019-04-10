@@ -66,9 +66,5 @@ pod 'Texture', :git => 'https://github.com/TextureGroup/Texture.git', :branch =>
 github "texturegroup/texture" "p7.0"
 ```
 
-## 3. ASVideoNode를 이용해서 Video Feed설계시 Frame Drop이 심해요 ㅠㅠ 
-
-
-
-
+## 
 
