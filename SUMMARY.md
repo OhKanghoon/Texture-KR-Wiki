@@ -41,6 +41,9 @@
 
 * [Layout Element Properties](layout-api/layout-element-properties.md)
 * [LayoutSpecs](layout-api/layoutspecs.md)
+* [Layout Element Properties](layout-api/layout-element-properties-1.md)
+* [Layout API Sizing](layout-api/layout-api-sizing.md)
+* [Layout Transition API](layout-api/layout-transition-api.md)
 
 ## Optimizations
 
