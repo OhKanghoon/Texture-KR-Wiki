@@ -32,11 +32,11 @@ func application(_ application: UIApplication,
 
 ## Range Visualization
 
-![](../.gitbook/assets/image%20%2811%29.png)
+![](../.gitbook/assets/image%20%2812%29.png)
 
 우측 하단에 보시면 Table 및 Collection에 대한 플로팅 위젯을 볼 수가 있습니다. 이것이 **ASRangeController 튜닝 매개 변수 시각화 도구**라고 합니다. 
 
-![](../.gitbook/assets/image%20%2818%29.png)
+![](../.gitbook/assets/image%20%2819%29.png)
 
 Texture의 Table과 Collection은 UIKit와 다르게 UITableView와 UICollectionView에서 제공해주는 Prefetching을 사용하지 않고 ASRangeController를 통해서 Preload, Display 영역에 대한 사이즈를 튜닝할 수가 있습니다. 
 
