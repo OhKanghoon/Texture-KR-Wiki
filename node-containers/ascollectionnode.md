@@ -121,3 +121,95 @@ UIKit Cell 은 동일한 ASCollectionNode 내에서 혼합된 경우에도 ASCel
 
 하지만 모든 Cell 을 한꺼번에 변환할 필요 없이 프레임워크를 테스트할 수 있다.[ 여기](http://texturegroup.org/docs/uicollectionviewinterop.html)서 자세한 정보를 찾아보세요.
 
+## ASCellLayoutMode \(&lt;~ 2.8\)
+
+어플리케이션 내에서 Texture를 적용하는데 있어서 융통성을 향상시키기 위해서 제안된 기능입니다.
+
+`ASCellLayuotMode`를 제어함으로서 `ASCollectionNode`가 비동기 레이아웃을 생성하는 동안 `ASCollectionDataSource` 내부적인 기술적 부채문제 및 잠재적인 문제를 디버깅 하거나 해결하는 방향으로 작업이 가능하게 해줍니다. 
+
+
+
+```swift
+let node = ASCollectionNode.init()
+node.cellLayoutMode = .alwaysReloadData 
+```
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:center">Name</th>
+      <th style="text-align:center">Default</th>
+      <th style="text-align:left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center">none</td>
+      <td style="text-align:center">-</td>
+      <td style="text-align:left">&#xC635;&#xC158;&#xC774; &#xC124;&#xC815; &#xB418;&#xC9C0;&#xC54A;&#xACE0;
+        none &#xC678;&#xD55C; &#xBAA8;&#xB4E0; &#xC694;&#xC18C; &#xB300;&#xD574;&#xC11C;
+        default&#xAC12;&#xC73C;&#xB85C; &#xC9C0;&#xC815;&#xB418;&#xC5B4; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</td>
+    </tr>
+    <tr>
+      <td style="text-align:center">syncForSmallContent</td>
+      <td style="text-align:center">-</td>
+      <td style="text-align:left">&#xC0C8;&#xB85C;&#xC6B4; &#xCEE8;&#xD150;&#xCE20;&#xC758; &#xAC2F;&#xC218;&#xAC00;
+        &#xC801;&#xC73C;&#xBA74; ASDataController&#xAC00; &#xBC31;&#xADF8;&#xB77C;&#xC6B4;&#xB4DC;
+        &#xB300;&#xAE30;&#xC5F4;&#xC5D0;&#xC11C; &#xB300;&#xAE30;&#xD558;&#xAC8C;
+        &#xB429;&#xB2C8;&#xB2E4;.</td>
+    </tr>
+    <tr>
+      <td style="text-align:center">alwaysSync</td>
+      <td style="text-align:center">OFF</td>
+      <td style="text-align:left">
+        <p>ASDataController&#xAC00; &#xBC31;&#xADF8;&#xB77C;&#xC6B4;&#xB4DC; &#xB300;&#xAE30;&#xC5F4;&#xC5D0;&#xC11C;
+          &#xB300;&#xAE30;&#xD558;&#xBA74;&#xC11C; CATransaction &#xBC0F; frame draw&#xC774;&#xD6C4;&#xC5D0;
+          hierarchy&#xC0C1; &#xC788;&#xB294; &#xC140;&#xC758; &#xC0C8;&#xB85C;&#xC6B4;
+          &#xCD94;&#xAC00; &#xBC0F; &#xBCC0;&#xD654;&#xAC00; <b>&#xB3D9;&#xAE30;&#xC801;</b>&#xC73C;&#xB85C;
+          &#xC77C;&#xC5B4;&#xB0A9;&#xB2C8;&#xB2E4;.</p>
+        <p><em>alwaysSync &#xB610;&#xB294; alwaysAsync &#xAC00; &#xC124;&#xC815;&#xB418;&#xC9C0; &#xC54A;&#xC744; &#xACBD;&#xC6B0; &#xB370;&#xC774;&#xD130;&#xC18C;&#xC2A4;&#xC0C1; &#xC140;&#xC774; 0&#xAC1C; &#xB610;&#xB294; 1&#xAC1C;&#xC77C; &#xACBD;&#xC6B0; &#xB3D9;&#xAE30;&#xC801;&#xC73C;&#xB85C; &#xAE30;&#xBCF8;&#xB3D9;&#xC791;&#xC744; &#xD558;&#xC9C0;&#xB9CC; 2&#xAC1C; &#xC774;&#xC0C1;&#xC758; &#xACBD;&#xC6B0; &#xBE44;&#xB3D9;&#xAE30;&#xC801;&#xC73C;&#xB85C; &#xB3D9;&#xC791;&#xC744; &#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. </em>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:center">alwaysAsync</td>
+      <td style="text-align:center">OFF</td>
+      <td style="text-align:left">ASDataController&#xAC00; &#xBC31;&#xADF8;&#xB77C;&#xC6B4;&#xB4DC; &#xB300;&#xAE30;&#xC5F4;&#xC5D0;&#xC11C;
+        &#xB300;&#xAE30;&#xD558;&#xBA74;&#xC11C; CATransaction &#xBC0F; frame draw&#xC774;&#xD6C4;&#xC5D0;
+        hierarchy&#xC0C1; &#xC788;&#xB294; &#xC140;&#xC758; &#xC0C8;&#xB85C;&#xC6B4;
+        &#xCD94;&#xAC00; &#xBC0F; &#xBCC0;&#xD654;&#xAC00; <b>&#xBE44;&#xB3D9;&#xAE30;&#xC801;&#xC73C;</b>&#xB85C;
+        &#xC77C;&#xC5B4;&#xB0A9;&#xB2C8;&#xB2E4;.</td>
+    </tr>
+    <tr>
+      <td style="text-align:center">alwaysReloadData</td>
+      <td style="text-align:center">OFF</td>
+      <td style="text-align:left">performBatchUpdates&#xC0AC;&#xC6A9; &#xD558;&#xAE30; &#xBCF4;&#xB2E4;
+        reloadData &#xC0AC;&#xC6A9;&#xC744; &#xC120;&#xD638;&#xD558;&#xB294; &#xC635;&#xC158;&#xC785;&#xB2C8;&#xB2E4;.</td>
+    </tr>
+    <tr>
+      <td style="text-align:center">disableRangeController</td>
+      <td style="text-align:center">OFF</td>
+      <td style="text-align:left">&#xD574;&#xB2F9; &#xD50C;&#xB798;&#xAE30;&#xADF8; &#xD65C;&#xC131;&#xD654;
+        &#xB418;&#xC5B4; &#xC788;&#xC744; &#xACBD;&#xC6B0; &#xC140;&#xC5D0; &#xB300;&#xD574;&#xC11C;
+        &#xBC94;&#xC704; &#xAD00;&#xB9AC;&#xBC29;&#xBC95;&#xC774; &#xC801;&#xC6A9;&#xB418;&#xC9C0;
+        &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. (preload, display, visible)</td>
+    </tr>
+    <tr>
+      <td style="text-align:center">serializeNodeCreation</td>
+      <td style="text-align:center">OFF</td>
+      <td style="text-align:left">&#xC140; &#xC0DD;&#xC131;&#xC2DC; Data Controller &#xB0B4;&#xC5D0;&#xC11C;
+        &#xBCD1;&#xB82C;&#xB85C; &#xC218;&#xD589; &#xB418;&#xC9C0; &#xC54A;&#xB294;
+        &#xACBD;&#xC6B0;&#xC5D0; &#xB300;&#xD55C; &#xC5EC;&#xBDF0;&#xB97C; &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</td>
+    </tr>
+    <tr>
+      <td style="text-align:center">alwaysBatchUpdateSectionReload</td>
+      <td style="text-align:center">OFF</td>
+      <td style="text-align:left">&#xC139;&#xC158;&#xC5D0; &#xB300;&#xD574;&#xC11C; Reload &#xD638;&#xCD9C;&#xC2DC;
+        performBatchUpdate&#xAC00; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xC635;&#xC158;&#xC785;&#xB2C8;&#xB2E4;.
+        &#xC774; &#xB54C; alwaysReloadData &#xAC00; &#xC790;&#xB3D9;&#xC73C;&#xB85C;
+        &#xD65C;&#xC131;&#xD654; &#xB418;&#xACE0; &#xC140; &#xB192;&#xC774;&#xC5D0;
+        &#xB300;&#xD55C; &#xC560;&#xB2C8;&#xBA54;&#xC774;&#xC158;&#xC774; &#xD544;&#xC694;&#xD55C;
+        &#xACBD;&#xC6B0; &#xC720;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</td>
+    </tr>
+  </tbody>
+</table>
