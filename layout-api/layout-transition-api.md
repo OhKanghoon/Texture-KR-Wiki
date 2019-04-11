@@ -61,7 +61,7 @@ self.transitionLayout(withAnimation: Bool,
                       measurementCompletion: () -> Void)
 ```
 
-animateTransitionLayout method가 override된 노드에 transitionLayout method를 호출해주면 됩니다.
+`animateTransitionLayout` method가 override된 노드에 **`transitionLayout`** method를 호출해주면 됩니다.
 
 | Parameter Name | Description |
 | :--- | :--- |
