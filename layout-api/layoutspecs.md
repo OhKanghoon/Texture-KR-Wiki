@@ -365,7 +365,7 @@ layoutPosition이나 size는 ASAbsoluteLayoutSpec이 아닌 children에 해당�
 
 특정 layout element를 가운데로 정렬하며 해당하는 layout element에 **constraintedSize.max**값을 전달해서 size를 계산합니다. 
 
-![](../.gitbook/assets/image%20%2821%29.png)
+![](../.gitbook/assets/image%20%2822%29.png)
 
 ```swift
 ASCenterLayoutSpec.init(centeringOptions: ..., 
