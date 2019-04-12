@@ -38,6 +38,8 @@ let height2 = ASDimension(unit: .fractions, value: 0.5)
 let relativeSize2 = ASLayoutSize(width: width, height: height)
 ```
 
+더 자세한 설명은 [여기](https://texture-kr.gitbook.io/wiki/layout-api/layout-api-sizing)를 참고해주세요.  
+
 ## 2. Basic Layout Element Properties
 
 <table>
