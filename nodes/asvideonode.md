@@ -47,3 +47,40 @@ videoNode(_:willChange:to:)
 
 딜리게이트 메서드는 `ASVideoNode` 헤더 파일을 참조하세요.
 
+
+
+### ASVideoNode로 피드 구현시 유의사항
+
+ASVideoNode내부적으로 AVAsset또는  AVAsset URL이 있는경우 didEnterPreloadState 에서 비동기적으로 미디어 서버로 부터 비디오를 받아오게 됩니다.
+
+```c
+- (void)didEnterPreloadState
+{  
+  // ... 생략 ... //
+
+  NSArray<NSString *> *requestedKeys = @[@"playable"];
+  [asset loadValuesAsynchronouslyForKeys:requestedKeys completionHandler:^{
+    ASPerformBlockOnMainThread(^{
+      if (_delegateFlags.delegateVideoNodeDidFinishInitialLoading) {
+        [self.delegate videoNodeDidFinishInitialLoading:self];
+      }
+      [self prepareToPlayAsset:asset withKeys:requestedKeys];
+    });
+  }];
+}
+```
+
+`visibleState`, `didEnterDisplayState`, `didEnterPreloadState`  각각에 비디오가 최소 3개 ~ 4개 이상 있다고 가정하면 총 최소 9개에서 12개를 호출해옵니다. 여기서 문제점은 실질적으로 비디오를 로딩하는 영역이 `ASVideoNode`가 dealloc또는 asset이 nil처리 되지않는 이상 cancel되지 않기 때문에 피드 스크롤하는데 있어서 프레임드랍이 발생할 수 밖에 없습니다. 
+
+가장 이상적인 방법은 
+
+* preload에서 비동기적으로 미디어를 받아옵니다.
+* didEnterVisibleState에서 play를 시켜줍니다.
+* didExitVisibleState에서 loading이 끝나지 않은 비디오의 동작 대해서 cancel처리 해줍니다. 
+
+가장 잘 해결한 사례로는 Youtube 14.X 버젼 기준의 메인 피드를 예로 들 수 있습니다.
+
+더 자세한 방법은 [여기](https://gist.github.com/GeekTree0101/5956f850cebdaf9c54aefbe9f3bf7b75)를 참고하셔도 좋습니다. 
+
+
+
