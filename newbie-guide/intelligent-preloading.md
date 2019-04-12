@@ -37,7 +37,7 @@
 
 `Intelligent preloading` 은 다차원에서도 작용한다.
 
-샘플 코드는 [여기](https://app.gitbook.com/@texture-kr/s/wiki/advanced-guide/debug-tool#range-visualization)를 참고하세요.
+샘플 코드는 [여기](https://app.gitbook.com/@texture-kr/s/wiki/advanced-guide/debug-tool#undefined-1)를 참고하세요.
 
 ## Interface State Callbacks
 
