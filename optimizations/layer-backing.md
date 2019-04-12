@@ -16,5 +16,11 @@ rootNode.isLayerBacked = true
 
 ![Example.jpg](../.gitbook/assets/2019-04-11-10.13.03.png)
 
+주의사항으로는 **isLayerBacked가 활성화**된 ASControlNode 및 서브 노드들은 **addTarget:을 사용할 수 없습니다.** \(내부적으로 크래시 일어납니다.\) 
+
+하지만 **p7.11 branch** 또는 **2.9** 이후 부터는 사용가능합니다.
+
+{% embed url="https://github.com/TextureGroup/Texture/pull/1396" %}
+
 
 
