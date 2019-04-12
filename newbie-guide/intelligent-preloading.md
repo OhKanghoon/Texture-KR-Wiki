@@ -1,3 +1,10 @@
+---
+description: >-
+  UIKit에서 제공해주는 UITableViewDataSourcePrefetching 및
+  UICollectionViewDataSourcePrefetching 보다 훨씬 정교한 Intelligent Preloading 메커니즘을
+  소개합니다.
+---
+
 # Intelligent Preloading
 
 비동기적으로 동시에 측정되고 렌더링 되는 노드의 능력도 강력하지만, Texture 에서 결정적으로 중요한 것은 Intelligent Preloading 이다.
