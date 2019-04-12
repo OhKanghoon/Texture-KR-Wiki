@@ -49,7 +49,7 @@ videoNode(_:willChange:to:)
 
 
 
-### ASVideoNode로 피드 구현시 유의사항
+## ASVideoNode로 피드 구현시 유의사항
 
 ASVideoNode내부적으로 AVAsset또는  AVAsset URL이 있는경우 didEnterPreloadState 에서 비동기적으로 미디어 서버로 부터 비디오를 받아오게 됩니다.
 
