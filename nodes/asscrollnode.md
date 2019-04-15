@@ -1,7 +1,5 @@
 # ASScrollNode
 
-* [http://texturegroup.org/docs/scroll-node.html](http://texturegroup.org/docs/scroll-node.html)
-
 `ASScrollNode` 는 하위의 뷰가 `UIScrollView` 인 `ASDisplayNode` 입니다. 이 클래스는 자동으로 `ASLayoutSpec` 의 크기를 스크롤 가능한 contentSize 에 맞춰줍니다.
 
 ## automaticallyManagesContentSize
