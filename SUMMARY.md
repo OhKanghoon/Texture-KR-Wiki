@@ -6,7 +6,7 @@
 
 * [국내 Texture 도입사례](intro/texture.md)
 * [유용한 라이브러리 소개](intro/texture-2.md)
-* [유용한 글 모음](intro/undefined.md)
+* [유용한 글 모음](intro/texture-3.md)
 
 ## Newbie Guide
 
