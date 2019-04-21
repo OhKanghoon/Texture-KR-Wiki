@@ -298,15 +298,12 @@ override func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpe
 
     DispatchQueue.main.async { ... } // NO!
     
-    let _ = UIScreen.main.bounds // NO!, constraintedSize 사용.
+    let _ = UIScreen.main.bounds // NO!, -> constraintedSize 사용.
     
-    _some_lock.lock() // NO!, Lock Assertion Crash
+    _some_lock.lock() // NO!, 사유: Lock Assertion Crash
     
-    let node = ASDisplayNode() // Oh! No!!! 
-    let layout = ASInsetLayoutSpec(insets: .zero, child: node) // NO!, NO!, NOOO! 
-    
-    someNode.view // NO! 
-    someNode.layer // NO!
+    someNode.view // NO! 사유: Main-Thread Assertion
+    someNode.layer // NO! 사유: Main-Thread Assertion
     
     // 오로지 LayoutSpec 및 LayoutElement Properties만 사용합시다. 
 }
