@@ -33,6 +33,7 @@
 ## Node Containers
 
 * [ASViewController](node-containers/asviewcontroller.md)
+* [ASNodeController (BETA)](node-containers/asnodecontroller.md)
 * [ASTableNode](node-containers/astablenode.md)
 * [ASCollectionNode](node-containers/ascollectionnode.md)
 * [ASPagerNode](node-containers/aspagernode.md)
