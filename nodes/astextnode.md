@@ -106,7 +106,7 @@ textNode.maximumNumberOfLines = 4
 textNode.attributedText = NSAttributedString(string: someLongString, attributes: attributes)
 ```
 
-`ASTextNode` 는 내부적으로 TextKit 을 사용하여 지정된 최대 라인 수를 산출하는 데 필요한 shrink 를 계산한다. 
+`ASTextNode` 는 내부적으로 TextKit 을 사용하여 지정된 최대 라인 수를 산출하는 데 필요한 shrink 를 계산한다.
 
 하지만 위의 예시에서는 텍스트가 너무 많이 줄어들게 될 것이다. 4줄의 텍스트 대신에, 3줄의 텍스트와 하단의 이상한 간격이 나타날 것이다. 이 문제를 해결하려면 TextNode 에서 `truncationMode` 를 `.byTruncatingTail` 로 설정해야 한다.
 
