@@ -84,7 +84,7 @@ func textNode(_ textNode: ASTextNode, tappedLinkAttribute attribute: String, val
 
 ## 잘못된 줄 간격과 최대 라인 수
 
-`NSParattumStyle` 의 `lineSpacing` 을 사용하면 최대 라인 수를 가진 멀티라인 텍스트에서 문제가 발생할 수 있다.
+`NSParagraphStyle` 의 `lineSpacing` 을 사용하면 최대 라인 수를 가진 멀티라인 텍스트에서 문제가 발생할 수 있다.
 
 예를 들어 다음 코드를 참조하세요.
 
