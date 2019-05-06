@@ -52,6 +52,10 @@ Texture의 이전 이름은 AsyncDisplayKit라 불렸었습니다. Facebook의 �
 
 {% embed url="https://open.kakao.com/o/gwLzjpkb" %}
 
+### Texture Slack
+
+{% embed url="http://texturegroup.org/slack.html" caption="Slack Invite Link" %}
+
 ### Repository
 
 오타 수정 및 내용 추가가 필요하다면 아래 Repository 에 pr 을 날려주세요.
