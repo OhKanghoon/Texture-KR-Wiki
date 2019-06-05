@@ -50,6 +50,10 @@
 * [Layer Backing](optimizations/layer-backing.md)
 * [Corner Rounding](optimizations/corner-rounding.md)
 
+## Threading
+
+* [Threading](threading/threading.md)
+
 ## Advanced guide
 
 * [Debug Tool](advanced-guide/debug-tool.md)
