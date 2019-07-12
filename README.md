@@ -40,11 +40,15 @@ Texture의 이전 이름은 AsyncDisplayKit라 불렸었습니다. Facebook의 �
 
 국내 iOS개발자 및 Texture\(AsyncDisplayKit\) 팬여러분들 Texture-kr gitbook에 오신것을 환영합니다. [컨트리뷰트](https://github.com/OhKanghoon/Texture-KR-Wiki)는 언제든지 환영합니다. 
 
+### Authors
+
+* StyleShare iOS Developer
+  * [https://github.com/OhKanghoon](https://github.com/OhKanghoon)
+* 당근마켓 iOS Developer
+  * [https://github.com/GeekTree0101](https://github.com/GeekTree0101)
+
 ### Contributors
 
-* Vingle iOS Developers
-  * [https://github.com/GeekTree0101](https://github.com/GeekTree0101)
-  * [https://github.com/OhKanghoon](https://github.com/OhKanghoon)
 * [https://github.com/amywork](https://github.com/amywork)
 * [https://github.com/gkdlfm](https://github.com/gkdlfm)
 
