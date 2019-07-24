@@ -112,3 +112,21 @@ GCC\_PREPROCESSOR 이슈로 Texture 2.8 부터 ASVideoNode를 사용하기 위�
 #import <AsyncDisplayKit/ASEqualityHelpers.h>
 ```
 
+### UINavigationBar isTranslucent 가 false인 상태일 때 상단바 에니메이션이 부자연스럽고 회색같은게 비춰지네요.
+
+{% embed url="https://developer.apple.com/documentation/uikit/uiviewcontroller/1621404-extendedlayoutincludesopaquebars" %}
+
+ASViewController 또는 ASNodeController에서 isTranslucent가 false일 때 일어날 수 있는 현상이며 isTranslucent의 Boolean값을 제어하면 기존 UIKit 의 constraints로 설계된 ViewController간의 트렌지션시 문제를 야기할 수 있습니다.
+
+따라서 isTranslucent가 No\(false\)일 경우 다음과 같이 extendedLayoutIncludesOpaqueBars를 true로 지정해줍니다.
+
+```swift
+class Controller: ASViewController<ASDisplayNode> {
+
+  init() {
+    super.init(node: ASDisplayNode())
+    self.extendedLayoutIncludesOpaqueBars = true
+  }
+}
+```
+
