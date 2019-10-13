@@ -7,7 +7,7 @@
 #### ASViewController 사용의 이점
 
 1. **Save Memory** - 화면이 사라진 ASViewController 는 자동으로 가져오는 데이터의 사이즈와 자신의 children 의 display range 를 줄일 것이다. 이것이 대형 어플리케이션에서 메모리 관리를 위한 키 포인트이다.
-2. [**ASVisibility**](http://texturegroup.org/docs/asvisibility.html) **기능** - `ASNavigationController` 또는 `ASTabBarController` 에서 사용할 경우, 자식 뷰컨트롤러들\(ASViewController\)은 뷰 컨트롤러를 표시하기 위해 필요한 정확한 사용자 탭 숫자를 알 있다.
+2. [**ASVisibility**](http://texturegroup.org/docs/asvisibility.html) **기능** - `ASNavigationController` 또는 `ASTabBarController` 에서 사용할 경우, 자식 뷰컨트롤러들\(ASViewController\)은 뷰 컨트롤러를 표시하기 위해 필요한 정확한 사용자 탭 숫자를 알고 있다.
 
 ## 사용
 
