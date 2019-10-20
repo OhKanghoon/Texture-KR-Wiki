@@ -169,7 +169,7 @@ class RepositoryView: UIView {
 #### Texture Layout API의 경우
 
 1. 해당 UI의 layoutSpecThatsFit method로 갑니다. 
-2. 수정해야하는 LayoutSpec  추척 및 파악합니다.
+2. 수정해야하는 LayoutSpec  추적 및 파악합니다.
 3. UI Components 추가합니다. 
 4. 코드리뷰를 받습니다. 
 
