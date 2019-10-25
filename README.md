@@ -62,7 +62,7 @@ Texture의 이전 이름은 AsyncDisplayKit라 불렸었습니다. Facebook의 �
 ### Repository
 
 오타 수정 및 내용 추가가 필요하다면 아래 Repository 에 pr 을 날려주세요.
-* [Repository](https://github.com/OhKanghoon/Texture-KR-Wiki)
+* [Repository](https://github.com/OhKanghoon/Texture-KR-Wiki/pulls)
 
 
 
