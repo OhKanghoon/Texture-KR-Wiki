@@ -53,18 +53,16 @@ Texture의 이전 이름은 AsyncDisplayKit라 불렸었습니다. Facebook의 �
 * [https://github.com/gkdlfm](https://github.com/gkdlfm)
 
 ### Open KakaoTalk
+* [https://open.kakao.com/o/gwLzjpkb](https://open.kakao.com/o/gwLzjpkb)
 
-{% embed url="https://open.kakao.com/o/gwLzjpkb" %}
 
 ### Texture Slack
-
-{% embed url="http://texturegroup.org/slack.html" caption="Slack Invite Link" %}
+* [http://texturegroup.org/slack.html](http://texturegroup.org/slack.html)
 
 ### Repository
 
 오타 수정 및 내용 추가가 필요하다면 아래 Repository 에 pr 을 날려주세요.
-
-{% embed url="https://github.com/OhKanghoon/Texture-KR-Wiki" %}
+* [Repository](https://github.com/OhKanghoon/Texture-KR-Wiki)
 
 
 
