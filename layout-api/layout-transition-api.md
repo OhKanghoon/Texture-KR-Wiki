@@ -30,9 +30,9 @@ class TestNode: ASDisplayNode {
                        options: .curveEaseOut,
                        animations: {
                         self.TARGET_NODE.frame = afterFrame
-        }, completion: { isComplated in
+        }, completion: { isCompleted in
             // 3. ASContextTransitioning을 완료 시킵니다. 
-            context.completeTransition(isComplated)
+            context.completeTransition(isCompleted)
         })
     }
     
@@ -44,14 +44,14 @@ Texture로 개발된 모든 UI는 `animationLayoutTransition` method내에서 �
 
 animation 동작 호출이 시작될 때 `ASContextTransitioning`을 받아오는데 `ASContextTransitioning`에서 제공해주는 methods 다음과 같습니다.
 
-| Name | Return Type | Description |
-| :--- | :--- | :--- |
-| initialFrame\(for: ASDisplayNode\) | CGRect | 특정 노드에 대해서 사전에 계산된 레이아웃 **변경전의 Frame값**을 가져옵니다.  |
-| finalFrame\(for: ASDisplayNode\) | CGRect | 특정 노드에 대해서 사전에 계산된 레이아웃 **변경의 Frame값**을 가져옵니다.  |
-| completeTransition\(\_ didComplate: Bool\) | Void | transition 완료에 대해서 제어합니다.  |
-| isAnimated\(\) | Bool | animate 상태인지에 대해서  반환합니다.  |
-| insertedSubnodes\(\) | Array&lt;ASDisplayNode&gt; | 변경이후에 **추가**될 예정인 노드들을 반환합니다. |
-| removedSubnodes\(\) | Array&lt;ASDisplayNode&gt; | 변경이후에 **제거**될 예정인 노드들을 반환합니다. |
+| Name                                       | Return Type                | Description                                     |
+| :----------------------------------------- | :------------------------- | :---------------------------------------------- |
+| initialFrame\(for: ASDisplayNode\)         | CGRect                     | 특정 노드에 대해서 사전에 계산된 레이아웃 **변경전의 Frame값**을 가져옵니다. |
+| finalFrame\(for: ASDisplayNode\)           | CGRect                     | 특정 노드에 대해서 사전에 계산된 레이아웃 **변경의 Frame값**을 가져옵니다.  |
+| completeTransition\(\_ didComplete: Bool\) | Void                       | transition 완료에 대해서 제어합니다.                       |
+| isAnimated\(\)                             | Bool                       | animate 상태인지에 대해서  반환합니다.                       |
+| insertedSubnodes\(\)                       | Array&lt;ASDisplayNode&gt; | 변경이후에 **추가**될 예정인 노드들을 반환합니다.                   |
+| removedSubnodes\(\)                        | Array&lt;ASDisplayNode&gt; | 변경이후에 **제거**될 예정인 노드들을 반환합니다.                   |
 
 ### 2. 에니메이션 처리를 위해 Transition Layout API를 호출합니다. 
 
@@ -63,11 +63,11 @@ self.transitionLayout(withAnimation: Bool,
 
 `animateTransitionLayout` method가 override된 노드에 **`transitionLayout`** method를 호출해주면 됩니다.
 
-| Parameter Name | Description |
-| :--- | :--- |
-| withAnimation | 필요에 따라 선택사항이지만 false로 지정하더라도 animateTransitionLayout은 동작합니다. 단 animation처리는 되지 않습니다.  |
-| shouldMeasureAsync | 레이아웃을 **비동기**적으로 측정합니다.  |
-| measurementCompletion | **새로운 레이아웃이 계산된 경우**에만 호출되는 블록입니다.  |
+| Parameter Name        | Description                                                                          |
+| :-------------------- | :----------------------------------------------------------------------------------- |
+| withAnimation         | 필요에 따라 선택사항이지만 false로 지정하더라도 animateTransitionLayout은 동작합니다. 단 animation처리는 되지 않습니다. |
+| shouldMeasureAsync    | 레이아웃을 **비동기**적으로 측정합니다.                                                              |
+| measurementCompletion | **새로운 레이아웃이 계산된 경우**에만 호출되는 블록입니다.                                                   |
 
 ## Example
 
@@ -107,9 +107,9 @@ class ProgressBarNode: ASDisplayNode {
                        animations: {
                         self.progressEngageNode.alpha = 1.0
                         self.progressEngageNode.frame = afterFrame
-        }, completion: { isComplated in
+        }, completion: { isCompleted in
             // 3. ASContextTransitioning을 완료 시킵니다. 
-            context.completeTransition(isComplated)
+            context.completeTransition(isCompleted)
         })
     }
     
