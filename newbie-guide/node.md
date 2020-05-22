@@ -95,7 +95,7 @@ class ViewController: ASViewController<ASTableNode> {
 
 ```
 
-[ASViewController에 대해서 더 자세히 알아보기](https://texture-kr.gitbook.io/wiki/~/edit/drafts/-Lan3E8D_zgPv5yksm1R/node-containers/asviewcontroller). 
+[ASViewController에 대해서 더 자세히 알아보기](https://texture-kr.gitbook.io/wiki/node-containers/asviewcontroller). 
 
 ### 2. Texture Node를 기반으로 한  Subclass 만들기
 
@@ -121,7 +121,7 @@ class LikeButtonNode: ASButtonNode {
 }
 ```
 
-[ASDisplayNode에 대해서 더 자세히 알아보기](https://texture-kr.gitbook.io/wiki/~/drafts/-Lan3E8D_zgPv5yksm1R/primary/nodes/asdisplaynode) 
+[ASDisplayNode에 대해서 더 자세히 알아보기](https://texture-kr.gitbook.io/wiki/nodes/asdisplaynode) 
 
 ### 
 
