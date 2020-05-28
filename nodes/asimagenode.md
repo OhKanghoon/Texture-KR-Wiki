@@ -4,7 +4,7 @@
 
 ## 기본 사용법
 
-`ASImageNode` 를 사용하는 것은 `UIImageView` 를 사용하는 것과 동일합니.
+`ASImageNode` 를 사용하는 것은 `UIImageView` 를 사용하는 것과 동일합니다.
 
 ```swift
 let imageNode = ASImageNode()
@@ -23,7 +23,7 @@ imageNode.contentMode = .scaleAspectFill
 
 ## 이미지 자르기
 
-`imageNode` 의 `contentMode` 프로퍼티가 `UIViewContentModeScaleAspectFill` 로 되어있다면, 이것은 자동으로 이미지를 `imageNode` 의 전체 영역을 채우도록 확대시킬 것이고, 이미지의 확대로 인해 bounds 를 벗어나는 부분들은 크롭니다.
+`imageNode` 의 `contentMode` 프로퍼티가 `UIViewContentModeScaleAspectFill` 로 되어있다면, 이것은 자동으로 이미지를 `imageNode` 의 전체 영역을 채우도록 확대시킬 것이고, 이미지의 확대로 인해 bounds 를 벗어나는 부분들은 크롭됩니다.
 
 default 로 확대된 이미지는 뷰의 bounds 에 중앙 정렬될 것입니다. 아래의 고양이 이미지를 보면 얼굴 크롭되었습니다.
 
@@ -49,10 +49,10 @@ animalImageNode.cropRect = CGRect(x: 0, y: 0, width: 0.0, height: 0.0)
 
 ## 강제로 Upscaling 하기
 
-기본적으로 이미지가 설정된 `imageNode` 의 bounds 에 맞지 않을 때 CPU에서 upscale 하 않습니다.
+기본적으로 이미지가 설정된 `imageNode` 의 bounds 에 맞지 않을 때 CPU에서 upscale 하지 않습니다.
 
 이 때 `forceUpscaling` 값을 `true` 로 설정할 수 있습니다.   
-이것은 타겟 `imageNode` 가 이미지보 작을 때 당신의 앱이 더 많은 메모리를 잡아먹게됨을 의미합니다.
+이것은 타겟 `imageNode` 가 이미지보다 작을 때 당신의 앱이 더 많은 메모리를 잡아먹게됨을 의미합니다.
 
 ## Image Scaling 을 감지하기
 
