@@ -6,7 +6,7 @@
 override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
 ```
 
-`cellForItemAt` 은 아래의 두 메서드 중 하나를 선택해 대체할 수 있습다.
+`cellForItemAt` 은 아래의 두 메서드 중 하나를 선택해 대체할 수 있습니다.
 
 ```swift
 override func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode
@@ -33,7 +33,7 @@ Node Block 이 thread-safe 해야 하는건 중요합니다.
 그 중 하나는 데이터 모델이 Node Block 외부에서 접근하도록 하는 것입니다.  
 그러므로, 블록 내부에서 인덱스를 사용해야 할 일은 거의 없습다.
 
-아래의 `nodeBlockForItemAt` 를 확인해보세.
+아래의 `nodeBlockForItemAt` 를 확인해보세요.
 
 ```swift
 func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
@@ -57,7 +57,7 @@ func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt index
 ## UICollectionViewController 를 ASViewController 로 대체하기
 
 Texture 는 `UICollectionViewController` 와 동일하지는 않습니다.  
-대신 ASViewController 의 유연성을 이용해 모든 유형의 UI...ViewController 를 재생성할 수 있습다.
+대신 ASViewController 의 유연성을 이용해 모든 유형의 UI...ViewController 를 재생성할 수 있습니다.
 
 `ASCollectionNode` 를 `ASViewController` 의 -init\(node:\) 을 사용하여 생성합니다.
 
@@ -100,11 +100,11 @@ override func viewDidLoad() {
 
 ## Cell Sizing and Layout
 
-`ASCollectionNode` 와 `ASTableNode` 를 사용하 `ASCellNode` 의 높이를 관리할 필요가 없습다.
+`ASCollectionNode` 와 `ASTableNode` 를 사용하 `ASCellNode` 의 높이를 관리할 필요가 없습니다.
 
-Cell 은 constrained size 에 맞게 커질 것이고, 제공된 UICollectionViewLayout에 의해 배치됩니.
+Cell 은 constrained size 에 맞게 커질 것이고, 제공된 UICollectionViewLayout에 의해 배치됩니다.
 
-또한 ASCollectionNode의 `contrentedSizeForItemAt(:)` 를 사용하여 CollectionNode 에서 사용되는 셀의 사이즈를 제한할 수 있습다.
+또한 ASCollectionNode의 `contrentedSizeForItemAt(:)` 를 사용하여 CollectionNode 에서 사용되는 셀의 사이즈를 제한할 수 있습니다.
 
 ## Examples
 
@@ -119,11 +119,11 @@ ASCollectionNode Cell Layout 의 가장 자세한 예는 CustomCollectionView �
 
 ## UICollectionViewCell 과의 상호 운용성
 
-`ASCollectionNode` 는 기본 `ASCellNode` 와 함께 `UICollectionViewCell` 사용을 지원한다.
+`ASCollectionNode` 는 기본 `ASCellNode` 와 함께 `UICollectionViewCell` 사용을 지원합니다.
 
-UIKit Cell 은 동일한 ASCollectionNode 내에서 혼합된 경우에도 ASCellNode 의 성능 이점 \(예: preloading, async layout, async drawing\) 이 없다.
+다만, UIKit Cell 은 동일한 ASCollectionNode 내에서 혼합된 경우 ASCellNode 의 성능 이점 \(예: preloading, async layout, async drawing\) 이 없습니다.
 
-하지만 모든 Cell 을 한꺼번에 변환할 필요 없이 프레임워크를 테스트할 수 있다.[ 여기](http://texturegroup.org/docs/uicollectionviewinterop.html)서 자세한 정보를 찾아보세요.
+하지만 모든 Cell 을 한꺼번에 변환할 필요 없이 점진적으로 도입하는데 도움을 줍니다.[ 여기](http://texturegroup.org/docs/uicollectionviewinterop.html)서 자세한 정보를 찾아보세요.
 
 ## ASCellLayoutMode \(&lt;~ 2.8\)
 
