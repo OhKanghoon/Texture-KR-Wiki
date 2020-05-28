@@ -1,12 +1,12 @@
 # ASCollectionNode
 
-`ASCollectionNode` 는 UIKit 의 `UICollectionView` 와 동일하며, `UICollectionView` 대신 사용할 수 있다. `ASCollectionNode` 가 `UICollectionView` 의 필수 메서드를 대체한다.
+`ASCollectionNode` 는 UIKit 의 `UICollectionView` 와 동일하며, `UICollectionView` 대신 사용할 수 있다. `ASCollectionNode` 가 `UICollectionView` 의 필수 메서드를 대체합다.
 
 ```swift
 override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
 ```
 
-`cellForItemAt` 은 아래의 두 메서드 중 하나를 선택해 대처할 수 있다.
+`cellForItemAt` 은 아래의 두 메서드 중 하나를 선택해 대체할 수 있습다.
 
 ```swift
 override func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode
@@ -18,7 +18,7 @@ override func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt i
 override func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock
 ```
 
-> collectionNode 가 모든 Cell 을 동시에 준비하고 display 할 수 있도록, `nodeBlockForItemAt` 을 사용하는 것이 좋다.
+> collectionNode 가 모든 Cell 을 동시에 준비하고 보여줄 수 있도록, `nodeBlockForItemAt` 을 사용하는 것이 좋습니다.
 
 NOTE :
 
@@ -29,11 +29,11 @@ NOTE :
 
 ## Node Block Thread Safety Warning
 
-Node Block 이 thread-safe 해야 하는건 중요하다.  
-그 방법 중 하나는 데이터 모델이 Node Block 외부에서 접근가능한지 확인하는 것이다.  
-그러므로, 블록 내부에서 인덱스를 사용해야 할 가능성은 거의 없다.
+Node Block 이 thread-safe 해야 하는건 중요합니다.  
+그 중 하나는 데이터 모델이 Node Block 외부에서 접근하도록 하는 것입니다.  
+그러므로, 블록 내부에서 인덱스를 사용해야 할 일은 거의 없습다.
 
-아래의 `nodeBlockForItemAt` 를 고려해보세요.
+아래의 `nodeBlockForItemAt` 를 확인해보세.
 
 ```swift
 func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
@@ -52,14 +52,14 @@ func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt index
 }
 ```
 
-위의 예시에서 Node Block 을 생성하기 전에 인덱스로 사진 모델에 접근하는 것을 볼 수 있다.
+위의 코드에서 Node Block 을 생성하기 전에 외부에서 인덱스로 사진 모델에 접근하는 것을 확인할 수 있습니다.
 
 ## UICollectionViewController 를 ASViewController 로 대체하기
 
-Texture 는 `UICollectionViewController` 와 같은 기능을 제공하지 않는다.  
-대신 ASViewController 의 유연성을 이용해 모든 유형의 UIViewController 를 재생성할 수 있다.
+Texture 는 `UICollectionViewController` 와 동일하지는 않습니다.  
+대신 ASViewController 의 유연성을 이용해 모든 유형의 UI...ViewController 를 재생성할 수 있습다.
 
-`ASCollectionNode` 를 `ASViewController` 의 -init\(node:\) 을 사용하여 할당한다.
+`ASCollectionNode` 를 `ASViewController` 의 -init\(node:\) 을 사용하여 생성합니다.
 
 ```swift
 init() {
@@ -73,17 +73,21 @@ init() {
 }
 ```
 
-이것은 ASTableNode, ASPagerNode 등 모든 노드에서 잘 작동한다.
+생성자에ASTableNode, ASPagerNode 등 모든 노드를 사용할 수 있니다.
 
 ## ASCollectionView 에 접근하기
 
-`ASCollectionView` 는 `ASCollectionNode` 를 위해 제거되었다.
+`ASCollectionView` 는 `ASCollectionNode` 를 위해 제거되었습니다.
 
-> `UICollectionView` 서브 클래스인 `ASCollectionView` 는 여전히 내부에서 사용되고 있다. 직접 만들어서는 안 되지만 ASCollectionNode의 .view 속성에 접속해 직접 사용할 수 있다. 노드의 뷰 또는 레이어 프로퍼티 각각 -viewDidLoad 또는 -didLoad가 호출된 후에만 접근해야 한다는 점을 잊지 마세요.
+하지만 `UICollectionView(ASCollectionView)` 의 속성을 변경해야하는 경우에는 접근할 수 있어야 합니다.
 
-아래의 `LocationCollectionNodeController` 는 `viewDidLoad(:)` 에서 직접 ASCollectionView 에 접한다.
+> `UICollectionView` 서브 클래스인 `ASCollectionView` 는 여전히 내부에서 사용되고 있습니다. 직접 만들어서는 안 되지만 ASCollectionNode의 .view 속성에 접속해 직접 사용할 수 있습니다. 노드의 뷰 또는 레이어 프로퍼티 각각 -viewDidLoad 또는 -didLoad가 호출된 후에만 접근해야 한다는 점을 잊지 마세요.
+
+아래의 `LocationCollectionNodeController` 는 `viewDidLoad(:)` 에서 직접 ASCollectionView 에 접근합니다.
 
 ```swift
+// LocationCollectionNodeController.swift
+
 override func viewDidLoad() {
   super.viewDidLoad()
 
@@ -96,15 +100,15 @@ override func viewDidLoad() {
 
 ## Cell Sizing and Layout
 
-`ASCollectionNode` 와 `ASTableNode` 는 `ASCellNode` 의 높이를 추적할 필요가 없다.
+`ASCollectionNode` 와 `ASTableNode` 를 사용하 `ASCellNode` 의 높이를 관리할 필요가 없습다.
 
-현재, Cell 은 constrained size 에 맞게 커질 것이고, 제공된 UICollectionViewLayout에 의해 배치될 것이다.
+Cell 은 constrained size 에 맞게 커질 것이고, 제공된 UICollectionViewLayout에 의해 배치됩니.
 
-또한 ASCollectionNode의 `contrentedSizeForItemAt(:)` 를 사용하여 CollectionNode 에서 사용되는 셀을 제한할 수 있다.
+또한 ASCollectionNode의 `contrentedSizeForItemAt(:)` 를 사용하여 CollectionNode 에서 사용되는 셀의 사이즈를 제한할 수 있습다.
 
 ## Examples
 
-ASCollectionNode Cell Layout 의 가장 자세한 예는 CustomCollectionView 앱이다. 이 앱은 ASCollectionNode를 사용하는 Pinterest 스타일의 셀 레이아웃과 사용자 정의 UICollectionViewLayout 을 포함한다.
+ASCollectionNode Cell Layout 의 가장 자세한 예는 CustomCollectionView 앱입다. 이 앱은 ASCollectionNode를 사용하는 Pinterest 스타일의 셀 레이아웃과 사용자 정의 UICollectionViewLayout 을 포함합니다.
 
 **More Sample Apps with ASCollectionNodes**
 
