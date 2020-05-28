@@ -1,6 +1,6 @@
 # ASCollectionNode
 
-`ASCollectionNode` 는 UIKit 의 `UICollectionView` 와 동일하며, `UICollectionView` 대신 사용할 수 있다. `ASCollectionNode` 가 `UICollectionView` 의 필수 메서드를 대체합다.
+`ASCollectionNode` 는 UIKit 의 `UICollectionView` 와 동일하며, `UICollectionView` 대신 사용할 수 있다. `ASCollectionNode` 가 `UICollectionView` 의 필수 메서드를 대체합니다.
 
 ```swift
 override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
@@ -31,7 +31,7 @@ NOTE :
 
 Node Block 이 thread-safe 해야 하는건 중요합니다.  
 그 중 하나는 데이터 모델이 Node Block 외부에서 접근하도록 하는 것입니다.  
-그러므로, 블록 내부에서 인덱스를 사용해야 할 일은 거의 없습다.
+그러므로, 블록 내부에서 인덱스를 사용해야 할 일은 거의 없습니다.
 
 아래의 `nodeBlockForItemAt` 를 확인해보세요.
 
@@ -73,7 +73,7 @@ init() {
 }
 ```
 
-생성자에ASTableNode, ASPagerNode 등 모든 노드를 사용할 수 있니다.
+생성자에ASTableNode, ASPagerNode 등 모든 노드를 사용할 수 있습니다.
 
 ## ASCollectionView 에 접근하기
 
@@ -108,7 +108,7 @@ Cell 은 constrained size 에 맞게 커질 것이고, 제공된 UICollectionVie
 
 ## Examples
 
-ASCollectionNode Cell Layout 의 가장 자세한 예는 CustomCollectionView 앱입다. 이 앱은 ASCollectionNode를 사용하는 Pinterest 스타일의 셀 레이아웃과 사용자 정의 UICollectionViewLayout 을 포함합니다.
+ASCollectionNode Cell Layout 의 가장 자세한 예는 CustomCollectionView 앱 입니다. 이 앱은 ASCollectionNode를 사용하는 Pinterest 스타일의 셀 레이아웃과 사용자 정의 UICollectionViewLayout 을 포함합니다.
 
 **More Sample Apps with ASCollectionNodes**
 
