@@ -10,9 +10,7 @@ Texture는 이러한 모든 로직들과 Frame Drop을 개선하기 위해서 Vi
 
 ![ASDisplayNode &#xC11C;&#xBE0C;&#xB178;&#xB4DC; &#xAD6C;&#xC870;&#xB3C4;](../.gitbook/assets/image%20%2818%29.png)
 
-UIKit와 마찬가지로 UIView를 기준으로 다양한 SubClass\(UIImageView, UIButton etc.\) 가 있듯이, Texture도 마찬가지로 ASDisplayNode를 기준으로 UIKit와 마찬가지로 다양한 SubClass를 제공합니다. 
-
-
+UIKit와 마찬가지로 UIView를 기준으로 다양한 SubClass\(UIImageView, UIButton etc.\) 가 있듯이, Texture도 마찬가지로 ASDisplayNode를 기준으로 UIKit와 마찬가지로 다양한 SubClass를 제공합니다.
 
 ## Texture Nodes
 
@@ -30,7 +28,7 @@ UIKit와 마찬가지로 UIView를 기준으로 다양한 SubClass\(UIImageView,
 | UIButton | ASButtonNode |
 | MKMapView | ASMapNode |
 
-UIKit의 다양한 View Component에서 제공해주는 가장 기본적인 attribute property\(attributedText, cornerRadius etc\)를 Texture에서도 마찬가지로 제공해줍니다. 더 나아가 UIKit에서 제공해주지않는 특수한 편의용 기능들도 제공해줍니다. 예를 들어 UILabel의 터치영역 및 tail truncate attributed string 를 추가하기위해선 보통 [TTTAttributedLabel](https://github.com/TTTAttributedLabel/TTTAttributedLabel)과 같은 라이브러리를 사용합니다. 하지만 Texture의 ASTextNode는 link touch 및 tail truncate attributed string 과 같은 편의용 기능을 제공한다는 점입니다. 
+UIKit의 다양한 View Component에서 제공해주는 가장 기본적인 attribute property\(attributedText, cornerRadius etc\)를 Texture에서도 마찬가지로 제공해줍니다. 더 나아가 UIKit에서 제공해주지않는 특수한 편의용 기능들도 제공해줍니다. 예를 들어 UILabel의 터치영역 및 tail truncate attributed string 를 추가하기위해선 보통 [TTTAttributedLabel](https://github.com/TTTAttributedLabel/TTTAttributedLabel)과 같은 라이브러리를 사용합니다. 하지만 Texture의 ASTextNode는 link touch 및 tail truncate attributed string 과 같은 편의용 기능을 제공한다는 점입니다.
 
 ## Texture Node Containers
 
@@ -43,12 +41,12 @@ UIKit의 다양한 View Component에서 제공해주는 가장 기본적인 attr
 | UINavigationController | ASNavigationController |
 | UITabBarController | ASTabBarController |
 
-####  Node Container 를 사용하여 얻는 점
+#### Node Container 를 사용하여 얻는 점
 
 Node Container 는 Node 의 Intelligent Preloading 을 자동으로 관리한다.  
 Intelligent Preloading 은 모든 Node 의 Layout Measurement, Data Fetching, Decoding, Rendering 이 비동기적으로 수행됨을 의미한다. 이것이 여러가지 장점들 중에서도 Node Container 내에서 Node 를 사용하는 것을 권장하는 이유이다.
 
-> Node Container 없이 Node 를 직접 사용할 수 있지만, 추가적인 호출을 추가하지 않는 한 노드는 UIKit  같이 화면에 나타나는 경우에만 display 한다. 이로 인해 성능이 저하되고, 컨텐츠가 깜박일 수 있다.
+> Node Container 없이 Node 를 직접 사용할 수 있지만, 추가적인 호출을 추가하지 않는 한 노드는 UIKit 같이 화면에 나타나는 경우에만 display 한다. 이로 인해 성능이 저하되고, 컨텐츠가 깜박일 수 있다.
 
 ## 사용법
 
@@ -57,7 +55,7 @@ Intelligent Preloading 은 모든 Node 의 Layout Measurement, Data Fetching, De
 ```swift
 // UIViewController
 class ViewController: UIViewController {
-    
+
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -65,7 +63,7 @@ class ViewController: UIViewController {
 
 // ASViewController with ASDisplayNode (default)
 class ViewController: ASViewController<ASDisplayNode> {
-    
+
     init() {
         super.init(node: ASDisplayNode.init())
     }
@@ -79,7 +77,7 @@ ASViewController는 Generic형태로 ASDisplayNode Subclass를 기반으로 View
 ```swift
 // UITableViewController
 class ViewController: UITableViewController {
-    
+
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -87,15 +85,14 @@ class ViewController: UITableViewController {
 
 // ASViewController with ASTableNode
 class ViewController: ASViewController<ASTableNode> {
-    
+
     init() {
         super.init(node: ASTableNode.init())
     }
 }
-
 ```
 
-[ASViewController에 대해서 더 자세히 알아보기](https://texture-kr.gitbook.io/wiki/node-containers/asviewcontroller). 
+[ASViewController에 대해서 더 자세히 알아보기](https://texture-kr.gitbook.io/wiki/node-containers/asviewcontroller).
 
 ### 2. Texture Node를 기반으로 한  Subclass 만들기
 
@@ -103,7 +100,7 @@ class ViewController: ASViewController<ASTableNode> {
 
 Texture는 여러분들이 일반적으로 생각하시는 Storyboard 및 Xib를 기반으로 UI를 만들지 않습니다. 그렇기 때문에 UI의 각 컴포넌트를 재사용할 수 있게 개발이 가능하며 여러 컴포넌트들을 어셈블리하여 레고조합하듯이 개발합니다.
 
-필요에 따라서 Texture에서 제공해주는 Node를 Subclass 로 만들어서 필요에 따른 요구사항에 맞게 개발합니다. 
+필요에 따라서 Texture에서 제공해주는 Node를 Subclass 로 만들어서 필요에 따른 요구사항에 맞게 개발합니다.
 
 ```swift
 class TalkMessageNode: ASDisplayNode {
@@ -121,9 +118,7 @@ class LikeButtonNode: ASButtonNode {
 }
 ```
 
-[ASDisplayNode에 대해서 더 자세히 알아보기](https://texture-kr.gitbook.io/wiki/nodes/asdisplaynode) 
-
-### 
+[ASDisplayNode에 대해서 더 자세히 알아보기](https://texture-kr.gitbook.io/wiki/nodes/asdisplaynode)
 
 ## Node의 기본 메서드와 Life Cycle
 
@@ -138,25 +133,19 @@ class LikeButtonNode: ASButtonNode {
 
 UIKit와는 다르게 Main Thread가 아닌 Background Thread에서 동작합니다. 하지만 주의 해야할 점은 layer및 view property 접근은 MainThread에서 해야함으로 gesture recognizer와 같은 **main thread**에서 접근이 필요로 하는 기능에 대해선 **didLoad method**에서 처리해주시길 바랍니다.
 
-
-
 #### didLoad:
 
 initialization 이 끝이나고 실질적으로 Node 객체가 load됬음을 의미합니다. 한번만 호출되며, 여기서 주로 Main Thread에서 접근 가능한 Property를 사용할 수 있습니다. \(ex. gesture recognizer나 또는 layer, view property 접근 등등.\)
-
-
 
 #### layoutSpecThatFits:
 
 Texture는 UIKit와 다르게 Xib나 Storyboard위에서 설계하지 않습니다. 즉, Auto-Layout을 사용하지 않습니다.
 
-대신, [Yoga Layout Flex-Box](https://yogalayout.com/) 기반으로 Layout을 설계합니다. 해당 method는 Background Thread에서 동작하며, 레이아웃 설계에 대한 무거운 로직들을 처리하고 개발자 의도에 따라 설계된 레이아웃을 빌드합니다. 
+대신, [Yoga Layout Flex-Box](https://yogalayout.com/) 기반으로 Layout을 설계합니다. 해당 method는 Background Thread에서 동작하며, 레이아웃 설계에 대한 무거운 로직들을 처리하고 개발자 의도에 따라 설계된 레이아웃을 빌드합니다.
 
 주의 해야될점은 여기선 **순수하게 Texture에서 제공해주는 LayoutSpec 및 Layout Elements Properties 만 사용**해야하며 그 이외 Main Thread에서 사용가능한 API나 GCD, Lock과 같이 Layout Building 과정에 방해되는 요소를 사용해서는 안됩니다.
 
 [LayoutSpec에 대해서 자세히 알아보기 ](https://texture-kr.gitbook.io/wiki/newbie-guide/layoutspec)
-
-
 
 #### layout:
 
@@ -168,15 +157,15 @@ layoutSpecThatFits에서 Layout Building이 끝난 이후 Main Thread에서 호�
 
 ```swift
 class ExampleNode: ASDisplayNode {
-   
+
    let imageNode = ASImageNode()
-   
+
    override init() {
       super.init()
       // TODO: Background Thread에서 동작
       self.addSubnode(imageNode)
    }
-   
+
    override func didLoad() {
        super.didLoad()
        // TODO: Main Thread에서 접근 가능한 Property를 사용
@@ -186,7 +175,7 @@ class ExampleNode: ASDisplayNode {
        super.layout()
        // TODO: layout변화에 따른 업데이트가 필요한 추가적인 요소를 처리합니다.
    }
-   
+
    override func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
       // TODO: 순수하게 Texture에서 제공해주는 LayoutSpec 및 Layout Elements Properties 만 사용
       let imgLayout = ASInsetLayoutSpect(insets: .zero, child: imageNode)
@@ -204,23 +193,23 @@ ASM\(Automatic Subnode Management\)란? layout build과정에서 node를 관리�
 
 ```swift
 class ExampleNode: ASDisplayNode {
-   
+
    let buttonNode = ASButtonNode()
    let textNode = ASTextNode()
-   
+
    var isButtonNodeOnly: Bool = false
-   
+
    override init() {
       super.init()
       self.automaticallyManagesSubnodes = true // <- HERE!
    }
-   
+
    override func didLoad() {
       buttonNode.addTarget(self,
                            action: #selector(didTapButton),
                            forControlEvents: .touchUpInside)
    }
-   
+
    @objc func didTapButton() {
       self.isButtonNodeOnly = !self.isButtonNodeOnly
       self.setNeedsLayout() // Layout을 다시 그려줘!
@@ -236,7 +225,7 @@ class ExampleNode: ASDisplayNode {
 }
 ```
 
-위의 코드와 같이 automaticallyManagesSubnodes를 활성화 시켜주면 개발자 의도에 따라 node를 removeFromSupernode or addSubnode를 layout building과정에서 알아서 처리해줍니다. 
+위의 코드와 같이 automaticallyManagesSubnodes를 활성화 시켜주면 개발자 의도에 따라 node를 removeFromSupernode or addSubnode를 layout building과정에서 알아서 처리해줍니다.
 
 _didTapButton에서 setNeedsLayout를 호출해주는 이유는 layout 를 다시 rendering하기 위함입니다._
 

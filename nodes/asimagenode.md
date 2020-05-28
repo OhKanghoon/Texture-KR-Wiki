@@ -23,13 +23,13 @@ imageNode.contentMode = .scaleAspectFill
 
 ## 이미지 자르기
 
-`imageNode` 의 `contentMode` 프로퍼티가 `UIViewContentModeScaleAspectFill` 로 되어있다면, 이것은 자동적으로 이미지를 `imageNode` 의 전체 영역을 채우도록 확대시킬 것이고, 이미지의 확대로 인해 bounds 를 벗어나는 부분들은 크롭될 것입니다.
+`imageNode` 의 `contentMode` 프로퍼티가 `UIViewContentModeScaleAspectFill` 로 되어있다면, 이것은 자동으로 이미지를 `imageNode` 의 전체 영역을 채우도록 확대시킬 것이고, 이미지의 확대로 인해 bounds 를 벗어나는 부분들은 크롭니다.
 
-default 로 확대된 이미지는 뷰의 bound 에 중앙 정렬될 것입니다. 아래 보이는 고양이 이미지를 보세요. 그의 얼굴이 default 로 크롭되었습니다.
+default 로 확대된 이미지는 뷰의 bounds 에 중앙 정렬될 것입니다. 아래의 고양이 이미지를 보면 얼굴 크롭되었습니다.
 
 ![Truncation Example](../.gitbook/assets/catsbutt.png)
 
-이상하죠! 이것을 수정하려면, `cropRect` 프로퍼티를 설정해서 이미지를 움직이세요. default 값은 `CGRectMake(0.5, 0.5, 0.0, 0.0)` 입니다.
+이상하죠! 이것을 수정하려면, `cropRect` 프로퍼티를 설정해서 이미지를 움직이세요. default 값은 `CGRect(x: 0.5, y: 0.5, width: 0.0, height: 0.0)` 입니다.
 
 rectangle 은 소스가 되는 이미지의 가로와 세로값의 백분율을 사용하는 "unit rectangle" 로 되어 있습니다.
 
@@ -49,16 +49,16 @@ animalImageNode.cropRect = CGRect(x: 0, y: 0, width: 0.0, height: 0.0)
 
 ## 강제로 Upscaling 하기
 
-기본적으로 이미지가 너무 작아서 설정된 `imageNode` 의 bounds 에 맞지 않을 때 CPU에서 upscale 되지 않는다.
+기본적으로 이미지가 설정된 `imageNode` 의 bounds 에 맞지 않을 때 CPU에서 upscale 하 않습니다.
 
 이 때 `forceUpscaling` 값을 `true` 로 설정할 수 있습니다.   
-이것은 타겟 이미지뷰보다 이미지가 작을 때 당신의 앱이 더 많은 메모리를 잡아먹게됨을 의미합니다.
+이것은 타겟 `imageNode` 가 이미지보 작을 때 당신의 앱이 더 많은 메모리를 잡아먹게됨을 의미합니다.
 
 ## Image Scaling 을 감지하기
 
-[pixel scaling tool](http://texturegroup.org/docs/debug-tool-pixel-scaling.html) 을 사용하면 당신의 앱이 사용하고 있는 각각의 이미지들이 얼만큼 scale up 또는 down 되었는지 체크할 수 있습니다.
+[pixel scaling tool](http://texturegroup.org/docs/debug-tool-pixel-scaling.html) 을 사용하면 앱이 사용하고 있는 각각의 이미지들이 얼만큼 scale up 또는 down 되었는지 체크할 수 있습니다.
 
-만약 이미지가 너무 크다면, 당신은 과도한 이미지 데이터를 렌더링하는 리스크를 감수해야 하고, 이미지가 너무 작다면 저화질의 이미지를 upscaling 하는 데 시간을 들이게 됩니다.
+만약 이미지가 너무 크다면, 과도한 이미지 데이터를 렌더링하는 리스크를 감수해야 하고, 이미지가 너무 작다면 저화질의 이미지를 upscaling 하는 데 시간을 들이게 됩니다.
 
 API를 컨트롤 할 수 있다면, 이런 과정들을 피할 수 있도록 알맞은 스케일의 이미지를 받는 것을 고려해보세요.
 
