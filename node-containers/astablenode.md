@@ -27,7 +27,7 @@ func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath)
 `ASCellNodeBlock` 은 백그라운드 쓰레드에서 `ASCellNode` 를 생성할 수 있는 블록입니다.
 
 NOTE
-- ASCellNode는 ASTableNode, ASCollectionNode, ASPagerNode 에서 모두 사용할 수 있습다.
+- ASCellNode는 ASTableNode, ASCollectionNode, ASPagerNode 에서 모두 사용할 수 있습니다.
 - ASTableNode 는 Cell 을 재사용하지 않습니다.
 - nodeBlock 방식을 선호합니다.
 - nodeBlock 은 thread-safe 해야 합니다.
