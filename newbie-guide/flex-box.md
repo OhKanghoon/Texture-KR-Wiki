@@ -6,7 +6,7 @@ description: 기존 iOS개발자 및 Newbie들이 Texture를 접근할 때 가�
 
 ## Flex Grow & Shrink
 
-**flex-grow**란? 레이아웃의 **증가 너비 비율**을 지정합니다. 이와 반대로 f**lex-shrink**는 레이아웃의 **감소 너비 비율**을 지정합니다.
+**flex-grow**란? 레이아웃의 **증가 너비 비율**을 지정합니다. 이와 반대로 **flex-shrink**는 레이아웃의 **감소 너비 비율**을 지정합니다.
 
 둘 다 공간에 대해서 비율을 지정하는 프로퍼티이지만 다른 점은 
 
@@ -50,7 +50,7 @@ Texture를 사용하는 개발자들을 위해서 좀 더 친숙하게 Texture L
 
 ![](../.gitbook/assets/undefined.png)
 
-저희는 위의 사진과 같은 image view와 text view를 horizontal 하게 [stackLayout](https://texture-kr.gitbook.io/wiki/layout-api/layoutspecs#3-asstacklayoutspec)으로 배치 할껍니다. 
+저희는 위의 사진과 같은 image view와 text view를 horizontal 하게 [stackLayout](https://texture-kr.gitbook.io/wiki/layout-api/layoutspecs#3-asstacklayoutspec)으로 배치할 겁니다.
 
 이미지는 1.0 ratioLayout 으로 배치되어 있으며 [width](https://texture-kr.gitbook.io/wiki/layout-api/layout-element-properties#2-basic-layout-element-properties)값은 50pt로 지정했습니다. 
 

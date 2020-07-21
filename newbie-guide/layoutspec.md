@@ -98,7 +98,7 @@ _constraints관계는 top, bottom, left, right, leading, trailing 및 inset, mar
 
 **Autolayout을 코드**로 작성했을 경우는 Xib 및 Storyboard에 비해 모듈화하기도 쉽고 체계적으로 쓸 수는 있으나 변화요소에 대한 추가작업에 대해서는 여전히 UI 컴포넌트 간의 **constraints관계**를 파악해야합니다.
 
-하지만 **Texture Layout API**의 경우는 다른점이 다양한 **LayoutSpec**이라는 것이 제공됩니다. **선언적이고 명시적인 LayoutSpec**을 사용함으로서 자신 또는 다른 개발자입장에서 봤을 어떠한 형태로 **레이아웃**이 **설계**되었는지 **추론**하기 용이할 뿐더러, 새로운 컴포넌트를 추가하는데 있어서도 **영향을 받는 LayoutSpec에서 코드를 수정**하기면 되기 때문에 contraints관계 파악하는 거보다 상대적으로 빠르고 쉽습니다.
+하지만 **Texture Layout API**의 경우는 다른점이 다양한 **LayoutSpec**이라는 것이 제공됩니다. **선언적이고 명시적인 LayoutSpec**을 사용함으로서 자신 또는 다른 개발자입장에서 봤을 어떠한 형태로 **레이아웃**이 **설계**되었는지 **추론**하기 용이할 뿐더러, 새로운 컴포넌트를 추가하는데 있어서도 **영향을 받는 LayoutSpec에서 코드를 수정**하면 되기 때문에 contraints관계 파악하는 거보다 상대적으로 빠르고 쉽습니다.
 
 ![](../.gitbook/assets/2019-03-30-7.36.13.png)
 
