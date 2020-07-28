@@ -57,5 +57,5 @@
 ## Advanced guide
 
 * [Debug Tool](advanced-guide/debug-tool.md)
-* [민간요법](advanced-guide/undefined.md)
+* [Tips](advanced-guide/tips.md)
 
