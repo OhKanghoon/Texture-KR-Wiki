@@ -43,7 +43,7 @@ Texture 는 UIKit 의 다양한 View Component 에서 제공하는 가장 기본
 | UINavigationController | ASNavigationController |
 | UITabBarController | ASTabBarController |
 
-#### Node Container 를 사용하는 이
+#### Node Container 를 사용하는 이유
 
 Node Container 는 Node 의 Intelligent Preloading 을 자동으로 관리합니다. 
 
