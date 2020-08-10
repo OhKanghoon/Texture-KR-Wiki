@@ -28,9 +28,9 @@ UIKit 에 UIView 를 기준으로 다양한 SubClass\(UIImageView, UIButton etc.
 | UIButton | ASButtonNode |
 | MKMapView | ASMapNode |
 
-Texture 는 UIKit 의 다양한 View Component 에서 제공하는 가장 기본적인 attribute property\(attributedText, cornerRadius etc\) 를 동일하게 제공합니다. 더 나아가 UIKit 에서 제공하지 않는 특수한 편의기능들도 제공합니다. 
+Texture 는 UIKit 의 다양한 View Component 에서 제공하는 가장 기본적인 attribute property\(attributedText, cornerRadius etc\) 를 동일하게 제공합니다. 더 나아가 UIKit 에서 제공하지 않는 특수한 편의기능들도 제공합니다.
 
-예를 들어 UILabel 의 터치영역을 지정하거나 tail truncate attributed string 를 추가하기 위해 보통 [TTTAttributedLabel](https://github.com/TTTAttributedLabel/TTTAttributedLabel) 과 같은 라이브러리를 사용합니다. 하지만 Texture 의 ASTextNode 는     hitTestSlop, link touch, tail truncate attributed string 등의 기능을 추가로 제공합니다.
+예를 들어 UILabel 의 터치영역을 지정하거나 tail truncate attributed string 를 추가하기 위해 보통 [TTTAttributedLabel](https://github.com/TTTAttributedLabel/TTTAttributedLabel) 과 같은 라이브러리를 사용합니다. 하지만 Texture 의 ASTextNode 는 hitTestSlop, link touch, tail truncate attributed string 등의 기능을 추가로 제공합니다.
 
 ## Texture Node Containers
 
@@ -45,7 +45,7 @@ Texture 는 UIKit 의 다양한 View Component 에서 제공하는 가장 기본
 
 #### Node Container 를 사용하는 이유
 
-Node Container 는 Node 의 Intelligent Preloading 을 자동으로 관리합니다. 
+Node Container 는 Node 의 Intelligent Preloading 을 자동으로 관리합니다.
 
 > Intelligent Preloading 은 모든 Node 의 Layout Measurement, Data Fetching, Decoding, Rendering 이 비동기적으로 수행됨을 의미합니다.
 
@@ -144,7 +144,7 @@ initialization 이 끝이나고 실질적으로 Node 객체가 load 됐음을 �
 
 ### layoutSpecThatFits:
 
-Texture는 UIKit  다르게 Auto-Layout 을 사용하지 않습니다.
+Texture는 UIKit 다르게 Auto-Layout 을 사용하지 않습니다.
 
 대신, [Yoga Layout Flex-Box](https://yogalayout.com/) 기반으로 Layout 을 설계합니다. 해당 method 는 Background Thread 에서 동작하며, 레이아웃 설계에 대한 무거운 로직들을 처리하고 개발자 의도에 따라 설계된 레이아웃을 빌드합니다.
 
