@@ -184,7 +184,9 @@ let relativeSize2 = ASLayoutSize(width: width, height: height)
         &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</td>
     </tr>
   </tbody>
-</table>## 3. Stack Layout Element Properties \(ASStackLayoutElement\)
+</table>
+
+## 3. Stack Layout Element Properties \(ASStackLayoutElement\)
 
 | Name | Type | Default Value | Description |
 | :--- | :--- | :--- | :--- |
@@ -222,3 +224,4 @@ let relativeSize2 = ASLayoutSize(width: width, height: height)
     </tr>
   </tbody>
 </table>
+

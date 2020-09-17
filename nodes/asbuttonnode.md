@@ -39,3 +39,11 @@ buttonNode.contentHorizontalAlignment = .middle
 
 > 현재 LayoutSpecThatFits\(:\) 를 사용하지 않으면 이 프로퍼티 작동하지 않는다.
 
+## tintColor 설정
+
+ASButtonNode 에서 tintColor 값을 변경해도 이미지의 컬러가 변하지 않습니다. 아래의 코드를 사용해서 이미지의 컬러를 변경해주세요.
+
+```swift
+buttonNode.imageNode.imageModificationBlock = ASImageNodeTintColorModificationBlock(.black)
+```
+

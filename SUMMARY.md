@@ -4,9 +4,9 @@
 
 ## Intro
 
-* [국내 Texture 도입사례](intro/texture.md)
-* [유용한 라이브러리 소개](intro/texture-2.md)
-* [유용한 글 모음](intro/texture-3.md)
+* [국내 Texture 도입사례](intro/korea-example.md)
+* [유용한 라이브러리 소개](intro/texture-library.md)
+* [유용한 글 모음](intro/texture-posts.md)
 
 ## Newbie Guide
 
@@ -57,5 +57,5 @@
 ## Advanced guide
 
 * [Debug Tool](advanced-guide/debug-tool.md)
-* [민간요법](advanced-guide/undefined.md)
+* [Tips](advanced-guide/tips.md)
 
