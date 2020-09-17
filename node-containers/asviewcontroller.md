@@ -26,3 +26,15 @@ init() {
 }
 ```
 
+## ASDKViewController? 🤔
+
+`ASDKViewController`는 Texture 3.0부터 생겼습니다. 정확히 말하자면 Xcode 12에서의 `AuthenticationServices`와의 [충돌을 피하기 위해](https://github.com/TextureGroup/Texture/pull/1876) `ASViewController`가 `AS_EXTERN`와 함께 이름만 변경되었습니다.
+
+기존의 `ASViewController`와 사용법은 같습니다.
+```swift
+override init() {
+  super.init(node: ASTableNode())
+
+  navigationItem.title = "ASDK"
+}
+```
