@@ -34,8 +34,8 @@ Node 를 생성할 때 UIView 도 사용할 수 있다. \( 생성자의 viewBloc
 
 ```swift
 let node = ASDisplayNode(viewBlock: { () -> UIView in
-    let view = UIView()
-    return view
+  let view = UIView()
+  return view
 })
 ```
 
@@ -72,10 +72,12 @@ final class TestView : UIView {
 ```swift
 final class TestNode: ASDisplayNode {
 
-  static override func draw(_ bounds: CGRect,
-                            withParameters parameters: Any?,
-                            isCancelled isCancelledBlock: () -> Bool,
-                            isRasterizing: Bool) {
+  static override func draw(
+    _ bounds: CGRect,
+    withParameters parameters: Any?,
+    isCancelled isCancelledBlock: () -> Bool,
+    isRasterizing: Bool
+  ) {
     // Example
     let context = UIGraphicsGetCurrentContext()
     context?.saveGState()
