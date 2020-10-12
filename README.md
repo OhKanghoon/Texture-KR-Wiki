@@ -42,7 +42,7 @@ Texture의 이전 이름은 AsyncDisplayKit라 불렸었습니다. Facebook의 �
 
 ### Authors
 
-* StyleShare iOS Developer
+* 당근마 iOS Developer
   * [https://github.com/OhKanghoon](https://github.com/OhKanghoon)
 * 당근마켓 iOS Developer
   * [https://github.com/GeekTree0101](https://github.com/GeekTree0101)
