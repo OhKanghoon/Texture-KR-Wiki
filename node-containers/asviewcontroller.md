@@ -1,4 +1,8 @@
-# ASViewController
+---
+description: '[주의] 3.0 이상부터 더 이상 제공되지 않습니다.'
+---
+
+# ASViewController \(DEPRECATED\)
 
 `ASViewController` 는 ASDisplayNode 계을 관리하기 위한 몇가지 기능들을 추가한 `UIViewController` 의 서브 클래스이다.
 
@@ -26,15 +30,3 @@ init() {
 }
 ```
 
-## ASDKViewController? 🤔
-
-`ASDKViewController`는 Texture 3.0부터 생겼습니다. 정확히 말하자면 Xcode 12에서의 `AuthenticationServices`와의 [충돌을 피하기 위해](https://github.com/TextureGroup/Texture/pull/1876) `ASViewController`가 `AS_EXTERN`와 함께 이름만 변경되었습니다.
-
-기존의 `ASViewController`와 사용법은 같습니다.
-```swift
-override init() {
-  super.init(node: ASTableNode())
-
-  navigationItem.title = "ASDK"
-}
-```

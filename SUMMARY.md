@@ -32,7 +32,8 @@
 
 ## Node Containers
 
-* [ASViewController](node-containers/asviewcontroller.md)
+* [ASDKViewController](node-containers/asdkviewcontroller.md)
+* [ASViewController \(DEPRECATED\)](node-containers/asviewcontroller.md)
 * [ASNodeController \(Beta\)](node-containers/asnodecontroller.md)
 * [ASTableNode](node-containers/astablenode.md)
 * [ASCollectionNode](node-containers/ascollectionnode.md)
