@@ -56,5 +56,37 @@ node.automaticallyRelayoutOnSafeAreaChanges = true
 let safeAreaInsets: UIEdgeInsets = self.node.safeAreaInsets
 ```
 
+## drawRect:
 
+```swift
+final class TestView : UIView {
+
+  override func draw(_ rect: CGRect) {
+    // somthing
+  }
+}
+```
+
+기존 UIView에서 제공되는 draw:와 같이 ASDisplayNode에서 Core Graphics 및 UIKit과 같은 기술을 사용하여 뷰의 내용을 그리기 위해서는 아래의 static draw method를 재정의\(override\)하고 드로잉 코드를 추가할 수 있습니다.
+
+```swift
+final class TestNode: ASDisplayNode {
+
+  static override func draw(_ bounds: CGRect,
+                            withParameters parameters: Any?,
+                            isCancelled isCancelledBlock: () -> Bool,
+                            isRasterizing: Bool) {
+    // Example
+    let context = UIGraphicsGetCurrentContext()
+    context?.saveGState()
+
+    let path = UIBezierPath(ovalIn: CGRect(x:0, y:0, width:100, height:100))
+    UIColor.carrot500.setFill()
+    path.fill()
+
+    context?.restoreGState()
+  }
+
+}
+```
 
