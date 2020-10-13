@@ -60,3 +60,7 @@
 * [Debug Tool](advanced-guide/debug-tool.md)
 * [Tips](advanced-guide/tips.md)
 
+## Cookbook
+
+* [How to contribute?](cookbook/how-to-contribute.md)
+
