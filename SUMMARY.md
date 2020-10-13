@@ -62,5 +62,5 @@
 
 ## Cookbook
 
-* [How to contribute?](cookbook/how-to-contribute.md)
+* [Intro](cookbook/how-to-contribute.md)
 
