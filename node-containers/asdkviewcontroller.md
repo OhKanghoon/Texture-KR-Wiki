@@ -8,7 +8,7 @@ description: 3.0 이상부터 제공됩니다.
 
 `ASDKViewController`는 Texture 3.0부터 생겼습니다. 정확히 말하자면 Xcode 12에서의 `AuthenticationServices`와의 [충돌을 피하기 위해](https://github.com/TextureGroup/Texture/pull/1876) `ASViewController`가 `AS_EXTERN`와 함께 이름만 변경되었습니다.
 
-`ASDKViewController` 는 `UINavigationController`, `UITabBarController` , `UISplitViewController` 를 포함한 모든 UIViewController 대신 사용할 수 있습다.
+`ASDKViewController` 는 `UINavigationController`, `UITabBarController` , `UISplitViewController` 를 포함한 모든 UIViewController 대신 사용할 수 있습니다.
 
 ### ASDKViewController 사용의 이점
 
