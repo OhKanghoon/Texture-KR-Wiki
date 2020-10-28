@@ -6,7 +6,7 @@
 
 ## 기본 사용법
 
-가장 쉽게 `ASVideoNode`를 사용하는 방법은 `AVAsset` 을 할당하는 것입니다.
+가장 쉽게 `ASVideoNode`를 사용하는 방법은 `AVAsset` 을 할당하는 것 입니다.
 
 ```swift
 let videoNode = ASVideoNode()
@@ -19,7 +19,7 @@ videoNode.asset = asset
 
 간단한 `BOOL` 값으로 VideoNode 가 여러가지 이벤트에 반응할 수 있도록 설정할 수 있습니다.
 
-Visible Range 에 진입하게 되었을 때 비디오를 자동으로 재생하게 하고 싶다면, `shouldAutoplay` 프로퍼티를 `true` 로 설정하면 된다. `shouldAutoRepeat` 프로퍼티를 `true` 로 설정하면 비디오가 무한 반복 재생되고, `muted` 를 `true` 로 설정하면 비디오의 소리가 꺼진다.
+Visible Range 에 진입하게 되었을 때 비디오를 자동으로 재생하게 하고 싶다면, `shouldAutoplay` 프로퍼티를 `true` 로 설정하면 됩니다. `shouldAutoRepeat` 프로퍼티를 `true` 로 설정하면 비디오가 무한 반복 재생되고, `muted` 를 `true` 로 설정하면 비디오의 소리가 꺼집니다.
 
 만약 비디오를 무음으로 한 번 자동 재생하게 하고 싶다면 아래와 같이 하면 됩니다.
 
