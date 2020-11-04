@@ -64,6 +64,6 @@ API를 컨트롤 할 수 있다면, 이런 과정들을 피할 수 있도록 알
 
 ## Image Decoding의 비동기를 동기로 변경하기
 
-`UIImageView`와는 다르게 기본적으로 이미지 디코딩이 비동기여서 각각 다른 시점에 로드 되는 모습을 확인할 수 있습니다.  이미지 디코딩을 동기로 바꾸어 한번에 불러오기 위해서는 노드의 속성 중 하나인 `displaysAsynchronously` 값을 `false` 로 설정하면 됩니다.
+`UIImageView`와는 다르게 기본적으로 이미지 디코딩이 비동기여서 각각 다른 시점에 로드 되는 모습을 확인할 수 있습니다. 이미지 디코딩을 동기로 바꾸어 한번에 불러오기 위해서는 노드의 속성 중 하나인 `displaysAsynchronously` 값을 `false` 로 설정하면 됩니다.
 
 참고: `CAlayer`의 `drawsAsynchronously` 와는 관련이 없습니다.
