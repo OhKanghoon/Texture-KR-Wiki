@@ -402,7 +402,7 @@ class GrandMotherNode: ASDisplayNode {
 좀 더 자세히 보면 다음과 같습니다.
 
 ```swift
-// ASM을 사용합니다. (정신건강에 좋습다.)
+// ASM을 사용합니다. (정신건강에 좋습니다.)
 motherNode.automaticallyManageSubnodes = true
 
 // - retain cycle에 주의합니다. (weak self)
