@@ -1,6 +1,6 @@
 # ASVideoNode
 
-`ASVideoNode`는 편리하면서도 향상된 성능으로 앱에서 비디오를  보여줄 수 있게 합니다.
+`ASVideoNode`는 편리하면서도 향상된 성능으로 앱에서 비디오를 보여줄 수 있게 합니다.
 
 > NOTE: `ASVideoNode`를 앱에서 사용하게 되면, `AVFoundation`를 link 해야 합니다. 왜냐하면 내부에서 `AVPlayerLayer` 와 `AVFoundation` 클래스들을 사용하고 있기 때문입니다.
 
@@ -38,7 +38,7 @@ VideoNode 는 `ASNetworkImageNode` 를 상속받고 있기 때문에 `URL` 프�
 
 ## ASVideoNode Delegate
 
-비디오에서 일어나는 일들에 반응할 수 있도록 하기 위해 여러가지 딜리게이트 메서드들이 제공됩니다.   
+비디오에서 일어나는 일들에 반응할 수 있도록 하기 위해 여러가지 딜리게이트 메서드들이 제공됩니다.  
 예를 들어 플레이어의 상태값 변화에 반응하고 싶다면 아래 메서드를 사용하세요.
 
 ```swift
@@ -47,11 +47,9 @@ videoNode(_:willChange:to:)
 
 딜리게이트 메서드는 `ASVideoNode` 헤더 파일을 참조하세요.
 
-
-
 ## ASVideoNode로 피드 구현시 유의사항
 
-ASVideoNode내부적으로 AVAsset또는  AVAsset URL이 있는경우 didEnterPreloadState 에서 비동기적으로 미디어 서버로 부터 비디오를 받아오게 됩니다.
+ASVideoNode내부적으로 AVAsset또는 AVAsset URL이 있는경우 didEnterPreloadState 에서 비동기적으로 미디어 서버로 부터 비디오를 받아오게 됩니다.
 
 ```c
 - (void)didEnterPreloadState
@@ -70,9 +68,9 @@ ASVideoNode내부적으로 AVAsset또는  AVAsset URL이 있는경우 didEnterPr
 }
 ```
 
-`visibleState`, `didEnterDisplayState`, `didEnterPreloadState`  각각에 비디오가 최소 3개 ~ 4개 이상 있다고 가정하면 총 최소 9개에서 12개를 호출해옵니다. 여기서 문제점은 실질적으로 비디오를 로딩하는 영역이 `ASVideoNode`가 dealloc또는 asset이 nil처리 되지않는 이상 cancel되지 않기 때문에 피드 스크롤하는데 있어서 프레임드랍이 발생할 수 밖에 없습니다. 
+`visibleState`, `didEnterDisplayState`, `didEnterPreloadState` 각각에 비디오가 최소 3개 ~ 4개 이상 있다고 가정하면 총 최소 9개에서 12개를 호출해옵니다. 여기서 문제점은 실질적으로 비디오를 로딩하는 영역이 `ASVideoNode`가 dealloc또는 asset이 nil처리 되지않는 이상 cancel되지 않기 때문에 피드 스크롤하는데 있어서 프레임드랍이 발생할 수 밖에 없습니다.
 
-가장 이상적인 방법은 
+가장 이상적인 방법은
 
 * preload에서 비동기적으로 미디어를 받아옵니다.
 * didEnterVisibleState에서 play를 시켜줍니다.
@@ -80,7 +78,5 @@ ASVideoNode내부적으로 AVAsset또는  AVAsset URL이 있는경우 didEnterPr
 
 가장 잘 해결한 사례로는 Youtube 14.X 버젼 기준의 메인 피드를 예로 들 수 있습니다.
 
-더 자세한 방법은 [여기](https://gist.github.com/GeekTree0101/5956f850cebdaf9c54aefbe9f3bf7b75)를 참고하셔도 좋습니다. 
-
-
+더 자세한 방법은 [여기](https://gist.github.com/GeekTree0101/5956f850cebdaf9c54aefbe9f3bf7b75)를 참고하셔도 좋습니다.
 

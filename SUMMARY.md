@@ -58,6 +58,7 @@
 ## Advanced guide
 
 * [Debug Tool](advanced-guide/debug-tool.md)
+* [Accessibility](advanced-guide/accessibility.md)
 * [Tips](advanced-guide/tips.md)
 
 ## Cookbook

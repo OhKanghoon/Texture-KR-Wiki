@@ -51,7 +51,7 @@ animalImageNode.cropRect = CGRect(x: 0, y: 0, width: 0.0, height: 0.0)
 
 기본적으로 이미지가 설정된 `imageNode` 의 bounds 에 맞지 않을 때 CPU에서 upscale 하지 않습니다.
 
-이 때 `forceUpscaling` 값을 `true` 로 설정할 수 있습니다.   
+이 때 `forceUpscaling` 값을 `true` 로 설정할 수 있습니다.  
 이것은 타겟 `imageNode` 가 이미지보다 작을 때 당신의 앱이 더 많은 메모리를 잡아먹게됨을 의미합니다.
 
 ## Image Scaling 을 감지하기
@@ -67,3 +67,4 @@ API를 컨트롤 할 수 있다면, 이런 과정들을 피할 수 있도록 알
 `UIImageView`와는 다르게 기본적으로 이미지 디코딩이 비동기여서 각각 다른 시점에 로드 되는 모습을 확인할 수 있습니다. 이미지 디코딩을 동기로 바꾸어 한번에 불러오기 위해서는 노드의 속성 중 하나인 `displaysAsynchronously` 값을 `false` 로 설정하면 됩니다.
 
 참고: `CAlayer`의 `drawsAsynchronously` 와는 관련이 없습니다.
+

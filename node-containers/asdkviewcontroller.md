@@ -30,9 +30,7 @@ final class ExampleViewController: ASDKViewController<ASTableNode> {
     super.init(node: ASTableNode())
     self.navigationItem.title = "ASDK"
   }
-  
+
 }
 ```
-
-## 
 
