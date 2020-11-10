@@ -133,7 +133,7 @@ final class ProfileInfoNode: ASDisplayNode {
 
 * backgroundNode\(ASDisplayNode\) 기본적으로 `isAccessibilityElement`가  disabled\(false\)상태입니다. 직접 `accessibilityLabel`를 넣고 enable함으로서 \[A\] 이미지와 같이 포커스를 줄 수 있습니다.
 * ASButtonNode나 ASTextNode등 읽거나 클릭할 수 있는 Node에 내용물이 있는 경우 Texture 내부적으로 accesibility를 활성화합니다. 즉, `setAttributedText`나 `text`를 넣음과 동시에 `accessibilityLabel`이나 `traits`등이 기본값으로 지정됩니다.
-* accessibilityElements index 0부터 시작해서 순차적으로 포커싱을 해줍니다. \(주로 순서를 지정합니다.\)
+* `accessibilityElements` index 0부터 시작해서 순차적으로 포커싱을 해줍니다. \(주로 순서를 지정합니다.\)
 
 
 
@@ -152,7 +152,7 @@ final class ProfileInfoNode: ASDisplayNode {
 @property BOOL isAccessibilityContainer;
 ```
 
-부모에 isAccessibilityContainer를 활성화하는 경우 accessibility과 활성화된 자식노드들을 하나로 모아서 포커싱과 동시에 읽어줍니다.
+부모에 `isAccessibilityContainer`를 활성화하는 경우 accessibility과 활성화된 자식노드들을 하나로 모아서 포커싱과 동시에 읽어줍니다.
 
 #### 예
 
