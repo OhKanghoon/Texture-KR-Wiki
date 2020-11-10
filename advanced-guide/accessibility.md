@@ -194,7 +194,26 @@ final class ProfileInfoNode: ASDisplayNode {
 "데이비드 매너온도 36.3  재거래희망률 ~~~ 매너평가하기 모아보기"
 ```
 
+### isAccessibilityElement toggle을 통한 포커싱 ON/OFF
 
+특별히 어떤 행위에 따라서 특정 A노드의 accessibilityElement 를 활성/비활성화 하고 싶다면 다음과 같이 할 수 있습니다.
+
+```swift
+final class TestNode: ASDisplayNode { 
+  
+  let childNode = ASDisplayNode()
+  
+  override init() {
+    super.init()
+    self.accessibilityElements = [self.childNode]  
+  }
+
+  func toggle() {
+    self.childNode.accessibilityElement = false // 비활
+    self.childNode.accessibilityElement = true // 활
+  }
+}
+```
 
 ## 도움되는 사이트
 
