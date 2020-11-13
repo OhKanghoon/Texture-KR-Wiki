@@ -29,7 +29,7 @@ Node Container 와 함께 사용하면 node 의 프로퍼티는 background threa
 
 ## View Wrapping
 
-Node 를 생성할 때 UIView 도 사용할 수 있습다. \( 생성자의 viewBlock 에 반환 \)  
+Node 를 생성할 때 UIView 도 사용할 수 있습니다. \( 생성자의 viewBlock 에 반환 \)  
 이 경우 Node 의  Display 단계가 동시에 발생합니다. 왜냐하면 Node 가 UIView 가 아닌 \_ASDisplayView 를 Wrapping 하고 있을 때만 비동기 적으로 Display 되기 때문입니다.
 
 ```swift
