@@ -17,7 +17,7 @@ imageNode.contentMode = .scaleAspectFill
 
 이미지 모양에 영향을 주는 대부분의 작업들은 Main Thread 의 큰 리소스를 차지하고 있었습니다. 당연히 우리는 이러한 작업들을 Background Thread 로 옮기고 싶습니다.
 
-`imageNode` 에 `imageModificationBlock` 을 할당함으로써, 별도의 호출없이 `imageNode` 의 이미지들에 비동기적으로 일어나야 하는 transformation\(rounding, boder 넣기, 또는 패턴 overlay 등과 같은 이미지 효과\) 의 집합을 정의할 수 있습니다.
+`imageNode` 에 `imageModificationBlock` 을 할당함으로써, 별도의 호출없이 `imageNode` 의 이미지들에 비동기적으로 일어나야 하는 transformation\(rounding, border 넣기, 또는 패턴 overlay 등과 같은 이미지 효과\) 의 집합을 정의할 수 있습니다.
 
 이것에 대해 더 알고싶다면, [Image Modification Blocks](http://texturegroup.org/docs/image-modification-block.html) 를 참고하세요.
 
