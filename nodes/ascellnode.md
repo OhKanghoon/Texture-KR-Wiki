@@ -18,7 +18,7 @@ ASCellNode 를 subclassing 하는 건 ASDisplayNode 를 subclassing 하는 것�
 
 #### ASViewController 를 사용한 Initializing
 
-ViewController 의 view 를 cell 로 사용할 수 있습다.  
+ViewController 의 view 를 cell 로 사용할 수 있습니다.  
 예를 들면 `ASTableNode` 를 사용하고 있는 ViewController 를 `ASPagerNode` 의 페이지로 사용하려면, `ASCellNode(viewControllerBlock:)` 를 사용하면 됩니다.
 
 ```swift
@@ -39,7 +39,7 @@ func pagerNode(_ pagerNode: ASPagerNode, nodeAt index: Int) -> ASCellNode {
 
 #### UIView 혹은 CALayer 를 사용한 initializing
 
-이미 `UIView` 혹은 `CALayer` 서브 클래스를 가지고 있다면, 바로 Cell 로 사용할 수 있습다.
+이미 `UIView` 혹은 `CALayer` 서브 클래스를 가지고 있다면, 바로 Cell 로 사용할 수 있습니다.
 
 ```swift
 func pagerNode(_ pagerNode: ASPagerNode, nodeAt index: Int) -> ASCellNode {
@@ -79,5 +79,5 @@ node.neverShowPlaceholders = true
  `ASCellNode` 도 동일한 프로퍼티 들을 가지고 있습니다.
 
 > UIKit 의 `UITableViewCell` 은 `ASCellNode` 를 subview 로 포함하고 있습니다.  
-> `ASLayoutSpec` 을 정의하는 방법 따라 레이아웃이 `UITableViewCell.accessoryView` 와 겹쳐서 보이지 않을 수 있습다. 레이아웃이 `UITableViewCell` 의 특정 프로퍼티 겹치지 않도록 해야 합니다.
+> `ASLayoutSpec` 을 정의하는 방법 따라 레이아웃이 `UITableViewCell.accessoryView` 와 겹쳐서 보이지 않을 수 있습니다. 레이아웃이 `UITableViewCell` 의 특정 프로퍼티 겹치지 않도록 해야 합니다.
 
