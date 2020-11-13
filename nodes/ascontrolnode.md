@@ -64,7 +64,7 @@ let node = ASControlNode()
 node.hitTestSlop = .init(top: -100.0, left: -100.0, bottom: -100.0, right: -100.0)
 ```
 
-#### 터치영역 줄이
+#### 터치영역 줄이기
 
 ```swift
 let node = ASControlNode()
