@@ -37,7 +37,7 @@ buttonNode.contentVerticalAlignment = .top
 buttonNode.contentHorizontalAlignment = .middle
 ```
 
-> 현재 LayoutSpecThatFits\(:\) 를 사용하지 않으면 이 프로퍼티가 정 작동하지 않습니다.
+> 현재 LayoutSpecThatFits\(:\) 를 사용하지 않으면 이 프로퍼티가 정상 작동하지 않습니다.
 
 ## tintColor 설정
 
