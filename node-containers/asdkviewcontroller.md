@@ -13,7 +13,7 @@ description: 3.0 이상부터 제공됩니다.
 ### ASDKViewController 사용의 이점
 
 1. **Save Memory** - 화면이 사라진 ASDKViewController 는 자동으로 가져오는 데이터의 사이즈와 자신의 children 의 display range 를 줄여줍니다. 이것은 대형 어플리케이션에서 메모리 관리를 위한 키 포인트입니다.
-2. [**ASVisibility**](http://texturegroup.org/docs/asvisibility.html) **기능** - `ASNavigationController` 또는 `ASTabBarController` 에서 사용할 경우, 자식 뷰 컨트롤러 들\(ASViewController\)은 뷰 컨트롤러를 표시하기 위해 필요한 정확한 사용자 탭 숫자를 알 수 있습니다.
+2. [**ASVisibility**](http://texturegroup.org/docs/asvisibility.html) **기능** - `ASNavigationController` 또는 `ASTabBarController` 에서 사용할 경우, 자식 뷰 컨트롤러 들\(ASDKViewController\)은 뷰 컨트롤러를 표시하기 위해 필요한 정확한 사용자 탭 숫자를 알 수 있습니다.
 
 ## 사용
 
