@@ -64,12 +64,11 @@ Texture 는 `UITableViewController` 와 같은 기능을 제공하지 않습니�
 `ASTableNode` 를 `ASViewController` 의 -init\(node:\) 을 사용하여 생성합니다.
 
 ```swift
-class ViewController: ASViewController<ASTableNode> {
-    init() {
-        let tableNode = ASTableNode(style: .plain)
-
-        super.init(node: tableNode)
-    }
+final class ViewController: ASViewController<ASTableNode> {
+  init() {
+    let tableNode = ASTableNode(style: .plain)
+    super.init(node: tableNode)
+  }
 }
 ```
 
@@ -79,15 +78,15 @@ class ViewController: ASViewController<ASTableNode> {
 
 > UITableView 의 서브 클래스인 ASTableView 는 여전히 ASTableNode 에서 내부적으로 사용되고 있습니다. 직접 생성해서는 안 되지만 ASTableNode의 .view 프로퍼티로 직접 사용할 수 있습니다. 노드의 뷰 또는 레이어 프로퍼티 각각 -viewDidLoad 또는 -didLoad가 호출된 후에만 접근해야 한다는 점을 잊지 마세요.
 
-예를 들어 테이블의 separator style 를 설정한다면 viewDidLoad\(:\) 에서 아래 예와 같이 TableNode 의 view 에 접근하면 됩니다.
+예를 들어 테이블의 separator style 를 설정한다면 viewDidLoad\(:\) 에서 아래 예와 같이 ASTableNode 의 view 에 접근하면 됩니다.
 
 ```swift
 override func viewDidLoad() {
   super.viewDidLoad()
 
-  tableNode.view.allowsSelection = false
-  tableNode.view.separatorStyle = .none
-  tableNode.view.leadingScreensForBatching = 3.0  // default is 2.0
+  self.tableNode.view.allowsSelection = false
+  self.tableNode.view.separatorStyle = .none
+  self.tableNode.view.leadingScreensForBatching = 3.0  // default is 2.0
 }
 ```
 
@@ -105,7 +104,7 @@ override func viewDidLoad() {
 >
 > 이것은 모두 'tableNode' 의 Cell 이 항상 'tableNode' 의 전체 너비를 채울 수 있지만, 그 높이는 유연해서 자동으로 늘어나는 self-sizing cell 이 된다는 것을 의미합니다.
 
-만약 `ASCellNode` 에서 `setNeedsLayout()` 를 호출하면, 그것은 자동으로 다른 레이아웃 패스를 수행하게 되고, 계산된 사이즈가 바뀌면, tableNode 가 스스로 업데이트 합니다.
+`ASCellNode` 에서 `setNeedsLayout()` 를 호출하면 레이아웃을 변경하고, 계산된 사이즈가 바뀌었다면 tableNode 가 스스로 높이를 업데이트 합니다.
 
 이것은 일반적으로 reload row / item 을 호출해야 하는 UIKit 과 다릅니다. 이로 인해 수 많은 코드를 절약할 수 있습니다.
 
