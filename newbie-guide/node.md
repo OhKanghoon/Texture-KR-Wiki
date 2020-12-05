@@ -179,7 +179,7 @@ class ExampleNode: ASDisplayNode {
 
    override func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
       // TODO: 순수하게 Texture에서 제공해주는 LayoutSpec 및 Layout Elements Properties 만 사용
-      let imgLayout = ASInsetLayoutSpect(insets: .zero, child: imageNode)
+      let imgLayout = ASInsetLayoutSpec(insets: .zero, child: imageNode)
       imgLayout.style.height = .init(unit: .points, value: 500.0)
       return imgLayout
    }
