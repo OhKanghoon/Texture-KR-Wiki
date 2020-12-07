@@ -15,74 +15,87 @@
 #### Autolayout을 코드로 작성해서 설계했을 경우
 
 ```swift
-class RepositoryView: UIView {
+final class RepositoryView: UIView {
 
-    let profileView = UIImageView()
-    let usernameLabel = UILabel()
-    let descLabel = UILabel()
+  let profileView = UIImageView()
+  let usernameLabel = UILabel()
+  let descLabel = UILabel()
 
-    // ... 생략 ...
+  // ... 생략 ...
 
-    func makeRepositoryConstraints() {
-        usernameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: ...)
-        usernameLabel.bottomAnchor.constraint(equalTo: ..., constant: ...)
-        usernameLabel.leadingAnchor.constraint(equalTo: ..., constant: ...)
-        usernameLabel.trailingAnchor.constraint(equalTo: ..., constant: ...)
+  func makeRepositoryConstraints() {
+    usernameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: ...)
+    usernameLabel.bottomAnchor.constraint(equalTo: ..., constant: ...)
+    usernameLabel.leadingAnchor.constraint(equalTo: ..., constant: ...)
+    usernameLabel.trailingAnchor.constraint(equalTo: ..., constant: ...)
 
-        descLabel.topAnchor.constraint(equalTo: ..., constant: ...)
-        descLabel.bottomAnchor.constraint(equalTo: ..., constant: ...)
-        descLabel.leadingAnchor.constraint(equalTo: ..., constant: ...)
-        descLabel.trailingAnchor.constraint(equalTo: ..., constant: ...)
+    descLabel.topAnchor.constraint(equalTo: ..., constant: ...)
+    descLabel.bottomAnchor.constraint(equalTo: ..., constant: ...)
+    descLabel.leadingAnchor.constraint(equalTo: ..., constant: ...)
+    descLabel.trailingAnchor.constraint(equalTo: ..., constant: ...)
 
-        // 생략.
-    }
+    // 생략.
+  }
 
-    func snapKitBaseMakeRepositoryConstraints() {
-        profileView.snp.makeConstraints({
-            $0.top.bottom.leading.equalToSuperview().inset(5.0)
-            $0.trailing.equalTo(usernameLabel.snp.leading).inset(5.0)
-            $0.trailing.equalTo(descLabel.snp.leading).inset(5.0)
-        })
-        usernameLabel.snp.makeConstraints({
+  func snapKitBaseMakeRepositoryConstraints() {
+    profileView.snp.makeConstraints({
+      $0.top.bottom.leading.equalToSuperview().inset(5.0)
+      $0.trailing.equalTo(usernameLabel.snp.leading).inset(5.0)
+      $0.trailing.equalTo(descLabel.snp.leading).inset(5.0)
+    })
+    usernameLabel.snp.makeConstraints({
 
-            // 생략.
-        })
-        descLabel.snp.makeConstraints({
+      // 생략.
+    })
+    descLabel.snp.makeConstraints({
 
-            // 생략.
-        })
-    }
+      // 생략.
+    })
+  }
 }
 ```
 
 #### Texture Layout API를 이용하여 설계 했을 경우
 
 ```swift
-class RepositoryNode: ASDisplayNode {
+final class RepositoryNode: ASDisplayNode {
 
-   let profileNode = ASNetworkImageNode()
-   let usernameNode = ASTextNode()
-   let descNode = ASTextNode()
+  let profileNode = ASNetworkImageNode()
+  let usernameNode = ASTextNode()
+  let descNode = ASTextNode()
 
-   // ... 생략 ...
+  // ... 생략 ...
 
-   func repositoryLayoutSpec() -> ASLayoutSpec {
-       let infoLayout =
-       ASStackLayoutSpec(direction: .vertical,
-                          spacing: 5.0,
-                          justifyContent: .start,
-                          alignItems: .stretch,
-                          children: [usernameNode, descNode])
+  func repositoryLayoutSpec() -> ASLayoutSpec {
+    let infoLayout =
+      ASStackLayoutSpec(
+        direction: .vertical,
+        spacing: 5.0,
+        justifyContent: .start,
+        alignItems: .stretch,
+        children: [
+          self.usernameNode,
+          self.descNode
+        ]
+      )
 
-       let profileWithInfoLayout = 
-       ASStackLayoutSpec(direction: .horizontal,
-                         spacing: 5.0,
-                         justifyContent: .start,
-                         alignItems: .stretch,
-                         children: [profileNode, infoLayout])
+    let profileWithInfoLayout =
+      ASStackLayoutSpec(
+        direction: .horizontal,
+        spacing: 5.0,
+        justifyContent: .start,
+        alignItems: .stretch,
+        children: [
+          self.profileNode,
+          self.infoLayout
+        ]
+      )
 
-       return ASInsetLayoutSpec(insets: UIEdgeInsets, child: profileWithInfoLayout)
-   }
+    return ASInsetLayoutSpec(
+      insets: UIEdgeInsets,
+      child: profileWithInfoLayout
+    )
+  }
 }
 ```
 
@@ -119,49 +132,50 @@ _constraints관계는 top, bottom, left, right, leading, trailing 및 inset, mar
 4. 동료로 부터 코드리뷰를 받습니다. \(동료 역시 리뷰시 constraints관계를 파악해야합니다. \) 
 
 ```swift
-class RepositoryView: UIView {
-
-    let profileView = UIImageView()
-    let usernameLabel = UILabel()
-    let descLabel = UILabel()
-
-    let informationLabel = UILabel()
-    // ... 생략 ...
-
-    func makeRepositoryConstraints() {
-        usernameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: ...)
-        usernameLabel.bottomAnchor.constraint(equalTo: ..., constant: ...)
-        usernameLabel.leadingAnchor.constraint(equalTo: ..., constant: ...)
-        usernameLabel.trailingAnchor.constraint(equalTo: ..., constant: ...)
-
-        descLabel.topAnchor.constraint(equalTo: ..., constant: ...)
-        descLabel.bottomAnchor.constraint(equalTo: ..., constant: ...)
-        descLabel.leadingAnchor.constraint(equalTo: ..., constant: ...)
-        descLabel.trailingAnchor.constraint(equalTo: ..., constant: ...)
-
-        // 1. constraints관계 파악
-        // 2. constraints 추가 및 수정  
-    }
-
-    func snapKitBaseMakeRepositoryConstraints() {
-        profileView.snp.makeConstraints({
-            $0.top.bottom.leading.equalToSuperview().inset(5.0)
-            $0.trailing.equalTo(usernameLabel.snp.leading).inset(5.0)
-            $0.trailing.equalTo(descLabel.snp.leading).inset(5.0)
-        })
-        usernameLabel.snp.makeConstraints({
-
-            // 생략.
-        })
-        descLabel.snp.makeConstraints({
-
-            // 생략.
-        })
-
-        // 1. constraints관계 파악
-        // 2. constraints 추가 및 수
-    }
+final class RepositoryView: UIView {
+  
+  let profileView = UIImageView()
+  let usernameLabel = UILabel()
+  let descLabel = UILabel()
+  
+  let informationLabel = UILabel()
+  // ... 생략 ...
+  
+  func makeRepositoryConstraints() {
+    usernameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: ...)
+    usernameLabel.bottomAnchor.constraint(equalTo: ..., constant: ...)
+    usernameLabel.leadingAnchor.constraint(equalTo: ..., constant: ...)
+    usernameLabel.trailingAnchor.constraint(equalTo: ..., constant: ...)
+    
+    descLabel.topAnchor.constraint(equalTo: ..., constant: ...)
+    descLabel.bottomAnchor.constraint(equalTo: ..., constant: ...)
+    descLabel.leadingAnchor.constraint(equalTo: ..., constant: ...)
+    descLabel.trailingAnchor.constraint(equalTo: ..., constant: ...)
+    
+    // 1. constraints관계 파악
+    // 2. constraints 추가 및 수정
+  }
+  
+  func snapKitBaseMakeRepositoryConstraints() {
+    profileView.snp.makeConstraints({
+      $0.top.bottom.leading.equalToSuperview().inset(5.0)
+      $0.trailing.equalTo(usernameLabel.snp.leading).inset(5.0)
+      $0.trailing.equalTo(descLabel.snp.leading).inset(5.0)
+    })
+    usernameLabel.snp.makeConstraints({
+      
+      // 생략.
+    })
+    descLabel.snp.makeConstraints({
+      
+      // 생략.
+    })
+    
+    // 1. constraints관계 파악
+    // 2. constraints 추가 및 수
+  }
 }
+
 ```
 
 #### Texture Layout API의 경우
@@ -172,35 +186,49 @@ class RepositoryView: UIView {
 4. 코드리뷰를 받습니다. 
 
 ```swift
-class RepositoryNode: ASDisplayNode {
+final class RepositoryNode: ASDisplayNode {
 
-   let profileNode = ASNetworkImageNode()
-   let usernameNode = ASTextNode()
-   let descNode = ASTextNode()
+  let profileNode = ASNetworkImageNode()
+  let usernameNode = ASTextNode()
+  let descNode = ASTextNode()
 
-   let infomationNode = ASTextNode()    
-   // ... 생략 ...
+  let infomationNode = ASTextNode()
+  // ... 생략 ...
 
-   func repositoryLayoutSpec() -> ASLayoutSpec {
+  func repositoryLayoutSpec() -> ASLayoutSpec {
 
-       // 1. 수정해야하는 LayoutSpec 추적 및 파악 
-       let infoLayout =
-       ASStackLayoutSpec(direction: .vertical,
-                          spacing: 5.0,
-                          justifyContent: .start,
-                          alignItems: .stretch,
-                          children: [usernameNode, descNode, infomationNode])
-        // 2. 컴포넌트 추가,ASStackLayoutSpec -> children -> infomationNode 추가. 
+    // 1. 수정해야하는 LayoutSpec 추적 및 파악
+    let infoLayout =
+      ASStackLayoutSpec(
+        direction: .vertical,
+        spacing: 5.0,
+        justifyContent: .start,
+        alignItems: .stretch,
+        children: [
+          self.usernameNode,
+          self.descNode,
+          self.infomationNode
+        ]
+      )
+    // 2. 컴포넌트 추가,ASStackLayoutSpec -> children -> infomationNode 추가.
 
-       let profileWithInfoLayout = 
-       ASStackLayoutSpec(direction: .horizontal,
-                         spacing: 5.0,
-                         justifyContent: .start,
-                         alignItems: .stretch,
-                         children: [profileNode, infoLayout])
+    let profileWithInfoLayout =
+      ASStackLayoutSpec(
+        direction: .horizontal,
+        spacing: 5.0,
+        justifyContent: .start,
+        alignItems: .stretch,
+        children: [
+          self.profileNode,
+          self.infoLayout
+        ]
+      )
 
-       return ASInsetLayoutSpec(insets: UIEdgeInsets, child: profileWithInfoLayout)
-   }
+    return ASInsetLayoutSpec(
+      insets: UIEdgeInsets,
+      child: profileWithInfoLayout
+    )
+  }
 }
 ```
 
@@ -236,51 +264,73 @@ Texture가 Auto-Layout으로 설계된 레이아웃보다 랜더링하는데 있
 #### 나쁜 예
 
 ```swift
-ovrride func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
-
-       let infoLayout =
-       ASStackLayoutSpec(direction: .vertical,
-                          spacing: 5.0,
-                          justifyContent: .start,
-                          alignItems: .stretch,
-                          children: [usernameNode, descNode])
-
-       let profileWithInfoLayout = 
-       ASStackLayoutSpec(direction: .horizontal,
-                         spacing: 5.0,
-                         justifyContent: .start,
-                         alignItems: .stretch,
-                         children: [profileNode, infoLayout])
-
-       return ASInsetLayoutSpec(insets: UIEdgeInsets, child: profileWithInfoLayout)
-}
+  ovrride func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
+    let infoLayout = ASStackLayoutSpec(
+      direction: .vertical,
+      spacing: 5.0,
+      justifyContent: .start,
+      alignItems: .stretch,
+      children: [
+        self.usernameNode,
+        self.descNode
+      ]
+    )
+    
+    let profileWithInfoLayout = ASStackLayoutSpec(
+      direction: .horizontal,
+      spacing: 5.0,
+      justifyContent: .start,
+      alignItems: .stretch,
+      children: [
+        self.profileNode,
+        self.infoLayout
+      ]
+    )
+    
+    return ASInsetLayoutSpec(
+      insets: UIEdgeInsets,
+      child: profileWithInfoLayout
+    )
+  }
 ```
 
 #### 좋은 예
 
 ```swift
-ovrride func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
+  ovrride func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
+    let infoLayout = self.infoAreaLayoutSpec()
 
-       let infoLayout = self.infoAreaLayoutSpec()
+    let profileWithInfoLayout =
+      ASStackLayoutSpec(
+        direction: .horizontal,
+        spacing: 5.0,
+        justifyContent: .start,
+        alignItems: .stretch,
+        children: [
+          self.profileNode,
+          self.infoLayout
+        ]
+      )
 
-       let profileWithInfoLayout = 
-       ASStackLayoutSpec(direction: .horizontal,
-                         spacing: 5.0,
-                         justifyContent: .start,
-                         alignItems: .stretch,
-                         children: [profileNode, infoLayout])
+    return ASInsetLayoutSpec(
+      insets: UIEdgeInsets,
+      child: profileWithInfoLayout
+    )
+  }
 
-       return ASInsetLayoutSpec(insets: UIEdgeInsets, child: profileWithInfoLayout)
-}
-
-// 분리!, 나중에 info영역에 새로운 컴포넌트가 추가된다면 해당 메서드에 집중할 수 있습니다. 
-func infoAreaLayoutSpec() -> ASLayoutSpec {
-    return ASStackLayoutSpec(direction: .vertical,
-                             spacing: 5.0,
-                             justifyContent: .start,
-                             alignItems: .stretch,
-                             children: [usernameNode, descNode])
-}
+  // 분리!, 나중에 info영역에 새로운 컴포넌트가 추가된다면 해당 메서드에 집중할 수 있습니다.
+  func infoAreaLayoutSpec() -> ASLayoutSpec {
+    return ASStackLayoutSpec(
+      direction: .vertical,
+      spacing: 5.0,
+      justifyContent: .start,
+      alignItems: .stretch,
+      children: [
+        self.usernameNode,
+        self.descNode
+      ]
+    )
+  }
 ```
 
 ### 2. LayoutSpec 및 Layout Element Properties만 사용해주세요.
@@ -293,17 +343,16 @@ Thread에 영향을 주는 요소는 넣지 않는게 좋습니다. \(주된 Cra
 
 ```swift
 override func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
+  DispatchQueue.main.async { ... } // NO!
 
-    DispatchQueue.main.async { ... } // NO!
+  let _ = UIScreen.main.bounds // NO!, -> constraintedSize 사용.
 
-    let _ = UIScreen.main.bounds // NO!, -> constraintedSize 사용.
+  _some_lock.lock() // NO!, 사유: Lock Assertion Crash
 
-    _some_lock.lock() // NO!, 사유: Lock Assertion Crash
+  someNode.view // NO! 사유: Main-Thread Assertion
+  someNode.layer // NO! 사유: Main-Thread Assertion
 
-    someNode.view // NO! 사유: Main-Thread Assertion
-    someNode.layer // NO! 사유: Main-Thread Assertion
-
-    // 오로지 LayoutSpec 및 LayoutElement Properties만 사용합시다. 
+  // 오로지 LayoutSpec 및 LayoutElement Properties만 사용합시다.
 }
 ```
 
@@ -311,11 +360,13 @@ override func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpe
 
 ```swift
 override func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
-       let layout = ASStackLayoutSpec(direction: .horizontal,
-                                      spacing: 5.0,
-                                      justifyContent: .start,
-                                      alignItems: .stretch,
-                                      children: [node1, node2, ... , node10])
+  let layout = ASStackLayoutSpec(
+    direction: .horizontal,
+    spacing: 5.0,
+    justifyContent: .start,
+    alignItems: .stretch,
+    children: [node1, node2, ... , node10]
+  )
 }
 ```
 
@@ -323,23 +374,25 @@ override func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpe
 
 ```swift
 override func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
-       var children: [ASLayoutElement] = [node1, node2]
+  var children: [ASLayoutElement] = [node1, node2]
 
-       if hasNode3 {
-           children.append(node3)
-       }
+  if hasNode3 {
+    children.append(node3)
+  }
 
-       if hasSomeLayout { 
-           let layout = ASLayoutSpec(...)
-           // ASLayoutSpec -> ASLayoutElement로 형변환됩니다.
-           children.append(layout)
-       }
+  if hasSomeLayout {
+    let layout = ASLayoutSpec(...)
+    // ASLayoutSpec -> ASLayoutElement로 형변환됩니다.
+    children.append(layout)
+  }
 
-       let layout = ASStackLayoutSpec(direction: .horizontal,
-                                      spacing: 5.0,
-                                      justifyContent: .start,
-                                      alignItems: .stretch,
-                                      children: children)
+  let layout = ASStackLayoutSpec(
+    direction: .horizontal,
+    spacing: 5.0,
+    justifyContent: .start,
+    alignItems: .stretch,
+    children: children
+  )
 }
 ```
 
@@ -377,25 +430,25 @@ Node의 layoutSpec을 설계하는 방법은 크게 두가지가 있습니다.
 #### 예시
 
 ```swift
-class GrandMotherNode: ASDisplayNode {
+final class GrandMotherNode: ASDisplayNode {
+  let motherNode = ASDisplayNode()
+  let childNode = ASDisplayNode()
 
-   let motherNode = ASDisplayNode()
-   let childNode = ASDisplayNode()
+  override init() {
+    super.init()
+    self.motherNode.automaticallyManageSubnodes = true
+    self.motherNode.layoutSpecBlock = { [weak self] (node, constraintedSize) -> ASLayoutSpec in
+      return self?.motherLayoutSpec(constraintedSize) ?? ASLayoutSpec()
+    }
+  }
 
-   init() {
-       motherNode.automaticallyManageSubnodes = true
-       motherNode.layoutSpecBlock = { [weak self] (node, constraintedSize) -> ASLayoutSpec in 
-            return self?.motherLayoutSpec(constraintedSize) ?? ASLayoutSpec()
-       }
-   }
+  func motherLayoutSpec(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
+    return ASInsetLayoutSpec(insets: .zero, child: self.childNode)
+  }
 
-   func motherLayoutSpec(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
-       return ASInsetLayoutSpec(insets: .zero, child: childNode)
-   }
-
-   override func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
-      return ASInsetLayoutSpec(insets: .zero, child: motherNode)
-   }
+  override func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
+    return ASInsetLayoutSpec(insets: .zero, child: self.motherNode)
+  }
 }
 ```
 
