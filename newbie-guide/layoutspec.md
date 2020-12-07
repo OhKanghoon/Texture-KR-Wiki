@@ -264,7 +264,7 @@ Texture가 Auto-Layout으로 설계된 레이아웃보다 랜더링하는데 있
 #### 나쁜 예
 
 ```swift
-  ovrride func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
+  override func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
     let infoLayout = ASStackLayoutSpec(
       direction: .vertical,
       spacing: 5.0,
@@ -297,7 +297,7 @@ Texture가 Auto-Layout으로 설계된 레이아웃보다 랜더링하는데 있
 #### 좋은 예
 
 ```swift
-  ovrride func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
+  override func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
     let infoLayout = self.infoAreaLayoutSpec()
 
     let profileWithInfoLayout =
