@@ -462,7 +462,7 @@ motherNode.automaticallyManageSubnodes = true
 // - 매개변수는 해당 노드(motherNode)와 constrainedSize(ASSizeRange)를 받습니다. 
 // - ASLayoutSpec을 리턴합니다. 
 motherNode.layoutSpecBlock = { [weak self] (node, constraintedSize) -> ASLayoutSpec in 
-    return self?.motherLayoutSpec(constraintedSize) ?? ASLayoutSpec()
+  return self?.motherLayoutSpec(constraintedSize) ?? ASLayoutSpec()
 }
 ```
 
