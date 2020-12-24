@@ -21,7 +21,7 @@ UIKit 에 UIView 를 기준으로 다양한 SubClass\(UIImageView, UIButton etc.
 | UITableViewCell / UICollectionViewCell | ASCellNode |
 | UILabel | ASTextNode |
 | UITextView | ASEditableTextNode |
-| UIImage | ASImageNode |
+| UIImageView | ASImageNode |
 | AVPlayerLayer | ASVideoNode |
 | UIMoviePlayer | ASVideoPlayerNode |
 | UIControl | ASControlNode |
