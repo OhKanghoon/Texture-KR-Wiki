@@ -15,59 +15,84 @@ description: 싱글 및 리스트형태의 스크린을 예시로 하였습니�
 ViewController의 부모노드에 들어갈 자식 노드를 정의해서 사용하는 방법입니다. 비즈니스 로직이나 명세에 따라서 복잡도가 증가할수록 Massive 해질 수도 있습니다. 
 
 ```swift
-class TestNodeController: ASViewController<ASDisplayNode> {
+final class TestNodeController: ASDKViewController<ASDisplayNode> {
 
-    let imageNode: ASImageNode = {
-        let node = ASImageNode()
-        node.image = UIImage(named: "image")
-        node.borderColor = UIColor.gray.cgColor
-        node.borderWidth = 1.0
-        node.cornerRadius = 15.0
-        node.contentMode = .scaleAspectFit
-        return node
-    }()
-    
-    let titleNode: ASTextNode = {
-        let node = ASTextNode()
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .center
-        node.attributedText =
-            NSAttributedString(string: "Welcome to Texture-KR",
-                               attributes: [.font: UIFont.boldSystemFont(ofSize: 15.0),
-                                            .foregroundColor: UIColor.gray,
-                                            .paragraphStyle: paragraphStyle])
-        return node
-    }()
-    
-    init() {
-        super.init(node: ASDisplayNode.init())
-        self.node.backgroundColor = .white
-        self.node.automaticallyManagesSubnodes = true
-        self.node.automaticallyRelayoutOnSafeAreaChanges = true
-        self.node.layoutSpecBlock = { [weak self] (node, constraintedSize) -> ASLayoutSpec in
-            return self?.layoutSpecThatFits(constraintedSize) ?? ASLayoutSpec()
-        }
+  // MARK: UI
+  
+  private let imageNode: ASImageNode = {
+    let node = ASImageNode()
+    node.image = UIImage(named: "image")
+    node.borderColor = UIColor.gray.cgColor
+    node.borderWidth = 1.0
+    node.cornerRadius = 15.0
+    node.contentMode = .scaleAspectFit
+    return node
+  }()
+
+  private let titleNode: ASTextNode = {
+    let node = ASTextNode()
+    let paragraphStyle = NSMutableParagraphStyle()
+    paragraphStyle.alignment = .center
+    node.attributedText = NSAttributedString(
+      string: "Welcome to Texture-KR",
+      attributes: [
+        .font: UIFont.boldSystemFont(ofSize: 15.0),
+        .foregroundColor: UIColor.gray,
+        .paragraphStyle: paragraphStyle
+      ]
+    )
+    return node
+  }()
+  
+  
+  // MARK: Initializing
+
+  override init() {
+    super.init(node: ASDisplayNode())
+    self.node.backgroundColor = .white
+    self.node.automaticallyManagesSubnodes = true
+    self.node.automaticallyRelayoutOnSafeAreaChanges = true
+    self.node.layoutSpecBlock = { [weak self] (node, constraintedSize) -> ASLayoutSpec in
+      return self?.layoutSpecThatFits(constraintedSize) ?? ASLayoutSpec()
     }
-    
-    private func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
-        let imageRatioLayout = ASRatioLayoutSpec(ratio: 1.0, child: imageNode)
-        imageRatioLayout.style.flexShrink = 1.0
-        let containerLayout = ASStackLayoutSpec(direction: .vertical,
-                                            spacing: 10.0,
-                                            justifyContent: .center,
-                                            alignItems: .center,
-                                            children: [imageRatioLayout, titleNode])
-        
-        var containerInsets: UIEdgeInsets = self.node.safeAreaInsets
-        containerInsets.left += 15.0
-        containerInsets.right += 15.0
-        containerInsets.top = containerInsets.bottom
-        return ASInsetLayoutSpec(insets: containerInsets, child: containerLayout)
+  }
+
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  
+  // MARK: Layout
+
+  private func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
+    var containerInsets: UIEdgeInsets = self.node.safeAreaInsets
+    containerInsets.left += 15.0
+    containerInsets.right += 15.0
+    containerInsets.top = containerInsets.bottom
+    return ASInsetLayoutSpec(
+      insets: containerInsets,
+      child: self.contentLayoutSpec()
+    )
+  }
+
+  private func contentLayoutSpec() -> ASLayoutSpec {
+    return ASStackLayoutSpec(
+      direction: .vertical,
+      spacing: 10.0,
+      justifyContent: .center,
+      alignItems: .center,
+      children: [
+        self.imageLayoutSpec(),
+        self.titleNode
+      ]
+    )
+  }
+
+  private func imageLayoutSpec() -> ASLayoutSpec {
+    return ASRatioLayoutSpec(ratio: 1.0, child: self.imageNode).styled {
+      $0.flexShrink = 1.0
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+  }
 }
 ```
 
@@ -80,71 +105,104 @@ class TestNodeController: ASViewController<ASDisplayNode> {
 #### TestNode.swift
 
 ```swift
-class TestNode: ASDisplayNode {
-    
-    let imageNode: ASImageNode = {
-        let node = ASImageNode()
-        node.image = UIImage(named: "image")
-        node.borderColor = UIColor.gray.cgColor
-        node.borderWidth = 1.0
-        node.cornerRadius = 15.0
-        node.contentMode = .scaleAspectFit
-        return node
-    }()
-    
-    let titleNode: ASTextNode = {
-        let node = ASTextNode()
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .center
-        node.attributedText =
-            NSAttributedString(string: "Welcome to Texture-KR",
-                               attributes: [.font: UIFont.boldSystemFont(ofSize: 15.0),
-                                            .foregroundColor: UIColor.gray,
-                                            .paragraphStyle: paragraphStyle])
-        return node
-    }()
-    
-    override init() {
-        super.init()
-        self.automaticallyManagesSubnodes = true
-        self.automaticallyRelayoutOnSafeAreaChanges = true
-    }
-    
-    override func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
-        let imageRatioLayout = ASRatioLayoutSpec(ratio: 1.0, child: imageNode)
-        imageRatioLayout.style.flexShrink = 1.0
-        let containerLayout = ASStackLayoutSpec(direction: .vertical,
-                                 spacing: 10.0,
-                                 justifyContent: .center,
-                                 alignItems: .center,
-                                 children: [imageRatioLayout, titleNode])
-        
-        var containerInsets: UIEdgeInsets = self.safeAreaInsets
-        containerInsets.left += 15.0
-        containerInsets.right += 15.0
-        containerInsets.top = containerInsets.bottom
-        
-        return ASInsetLayoutSpec(insets: containerInsets, child: containerLayout)
-    }
-}
+final class TestNode: ASDisplayNode {
 
+  // MARK: UI
+  
+  private let imageNode: ASImageNode = {
+    let node = ASImageNode()
+    node.image = UIImage(named: "image")
+    node.borderColor = UIColor.gray.cgColor
+    node.borderWidth = 1.0
+    node.cornerRadius = 15.0
+    node.contentMode = .scaleAspectFit
+    return node
+  }()
+
+  private let titleNode: ASTextNode = {
+    let node = ASTextNode()
+    let paragraphStyle = NSMutableParagraphStyle()
+    paragraphStyle.alignment = .center
+    node.attributedText = NSAttributedString(
+      string: "Welcome to Texture-KR",
+      attributes: [
+        .font: UIFont.boldSystemFont(ofSize: 15.0),
+        .foregroundColor: UIColor.gray,
+        .paragraphStyle: paragraphStyle
+      ]
+    )
+    return node
+  }()
+  
+  
+  // MARK: Initializing
+
+  override init() {
+    super.init()
+    self.automaticallyManagesSubnodes = true
+    self.automaticallyRelayoutOnSafeAreaChanges = true
+  }
+  
+  
+  // MARK: Node Life Cycle
+
+  override func layout() {
+    super.layout()
+    self.imageNode.cornerRadius = 15.0
+  }
+  
+  
+  // MARK: Layout
+
+  override func layoutSpecThatFits(_ constraintedSize: ASSizeRange) -> ASLayoutSpec {
+    var containerInsets: UIEdgeInsets = self.safeAreaInsets
+    containerInsets.left += 15.0
+    containerInsets.right += 15.0
+    containerInsets.top = containerInsets.bottom
+
+    return ASInsetLayoutSpec(
+      insets: containerInsets,
+      child: self.contentLayoutSpec()
+    )
+  }
+
+  private func contentLayoutSpec() -> ASLayoutSpec {
+    return ASStackLayoutSpec(
+      direction: .vertical,
+      spacing: 10.0,
+      justifyContent: .center,
+      alignItems: .center,
+      children: [
+        self.imageLayoutSpec(),
+        self.titleNode
+      ]
+    )
+  }
+
+  private func imageLayoutSpec() -> ASLayoutSpec {
+    return ASRatioLayoutSpec(ratio: 1.0, child: self.imageNode).styled {
+      $0.flexShrink = 1.0
+    }
+  }
+}
 ```
 
 #### TestNodeController.swift
 
 ```swift
-class TestNodeController: ASViewController<TestNode> {
+final class TestNodeController: ASDKViewController<TestNode> {
 
-    init() {
-        super.init(node: TestNode.init())
-        self.node.backgroundColor = .white
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+  // MARK: Initializing
+  
+  override init() {
+    super.init(node: TestNode())
+    self.node.backgroundColor = .white
+  }
+
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
 }
-
 ```
 
 ## 2. List Screen Example 
@@ -162,96 +220,130 @@ class TestNodeController: ASViewController<TestNode> {
 #### TestCellNode.swift
 
 ```swift
-class TestCellNode: ASCellNode {
-    
-    let imageNode: ASImageNode = {
-        let node = ASImageNode()
-        node.image = UIImage(named: "image")
-        node.borderColor = UIColor.gray.cgColor
-        node.borderWidth = 1.0
-        node.cornerRadius = 15.0
-        node.contentMode = .scaleAspectFit
-        return node
-    }()
-    
-    let titleNode: ASTextNode = {
-        let node = ASTextNode()
-        node.maximumNumberOfLines = 1
-        return node
-    }()
-    
-    init(item: String) {
-        super.init()
-        self.automaticallyManagesSubnodes = true
-        self.selectionStyle = .none
-        self.backgroundColor = .white
-        self.titleNode.attributedText =
-            NSAttributedString(string: item,
-                               attributes: [.font: UIFont.boldSystemFont(ofSize: 15.0),
-                                            .foregroundColor: UIColor.gray])
-    }
-    
-    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        let imageRatioLayout = ASRatioLayoutSpec(ratio: 1.0, child: imageNode)
-        imageRatioLayout.style.flexBasis =  ASDimension(unit: .fraction, value: 0.3)
-        titleNode.style.flexBasis =  ASDimension(unit: .fraction, value: 0.7)
-       
-        let containerLayout = ASStackLayoutSpec(direction: .horizontal,
-                                                spacing: 10.0,
-                                                justifyContent: .start,
-                                                alignItems: .stretch,
-                                                children: [imageRatioLayout, titleNode])
-        
-        var containerInsets: UIEdgeInsets = .zero
-        containerInsets.left = 15.0
-        containerInsets.right = 15.0
-        containerInsets.top = 15.0
-        containerInsets.bottom = 15.0
-        return ASInsetLayoutSpec(insets: containerInsets, child: containerLayout)
-    }
-}
+final class TestCellNode: ASCellNode {
 
+  // MARK: UI
+
+  private let imageNode: ASImageNode = {
+    let node = ASImageNode()
+    node.image = UIImage(named: "image")
+    node.borderColor = UIColor.gray.cgColor
+    node.borderWidth = 1.0
+    node.contentMode = .scaleAspectFit
+    return node
+  }()
+
+  private let titleNode: ASTextNode = {
+    let node = ASTextNode()
+    node.maximumNumberOfLines = 1
+    return node
+  }()
+
+
+  // MARK: Initializing
+
+  init(item: String) {
+    super.init()
+    self.automaticallyManagesSubnodes = true
+    self.selectionStyle = .none
+    self.backgroundColor = .white
+    self.titleNode.attributedText = NSAttributedString(
+      string: item,
+      attributes: [
+        .font: UIFont.boldSystemFont(ofSize: 15.0),
+        .foregroundColor: UIColor.gray
+      ]
+    )
+  }
+
+
+  // MARK: Node Life Cycle
+
+  override func layout() {
+    super.layout()
+    self.imageNode.cornerRadius = 15.0
+  }
+
+
+  // MARK: Layout
+
+  override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+    return ASInsetLayoutSpec(
+      insets: UIEdgeInsets(top: 15.0, left: 15.0, bottom: 15.0, right: 15.0),
+      child: self.contentLayoutSpec()
+    )
+  }
+
+  private func contentLayoutSpec() -> ASLayoutSpec {
+    return ASStackLayoutSpec(
+      direction: .horizontal,
+      spacing: 10.0,
+      justifyContent: .start,
+      alignItems: .stretch,
+      children: [
+        self.imageLayoutSpec().styled {
+          $0.flexBasis =  ASDimension(unit: .fraction, value: 0.3)
+        },
+        self.titleNode.styled {
+          $0.flexBasis =  ASDimension(unit: .fraction, value: 0.7)
+        }
+      ]
+    )
+  }
+
+  private func imageLayoutSpec() -> ASLayoutSpec {
+    return ASRatioLayoutSpec(ratio: 1.0, child: self.imageNode)
+  }
+}
 ```
 
 #### TestNodeController.swift
 
 ```swift
-class TestNodeController: ASViewController<ASTableNode> {
-    
-    var items: [String] = ["Welcome to Texture-KR",
-                           "Welcome to Texture-KR",
-                           "Welcome to Texture-KR, long test!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"]
+final class TestNodeController: ASDKViewController<ASTableNode> {
 
-    init() {
-        super.init(node: ASTableNode.init(style: .plain))
-        self.node.backgroundColor = .white
-        self.node.delegate = self
-        self.node.dataSource = self
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+  // MARK: Properties
+
+  var items: [String] = [
+    "Welcome to Texture-KR",
+    "Welcome to Texture-KR",
+    "Welcome to Texture-KR, long test!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+  ]
+
+
+  // MARK: Initializing
+
+  override init() {
+    super.init(node: ASTableNode(style: .plain))
+    self.node.backgroundColor = .white
+    self.node.dataSource = self
+  }
+
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
 }
 
-extension TestNodeController: ASTableDelegate, ASTableDataSource {
-    
-    func numberOfSections(in tableNode: ASTableNode) -> Int {
-        return 1
-    }
-    
-    func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
-        return items.count
-    }
-    
-    func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
-        return {
-            let item = self.items[indexPath.row]
-            return TestCellNode(item: item)
-        }
-    }
-}
 
+// MARK: -  ASTableDataSource
+
+extension TestNodeController: ASTableDataSource {
+
+  func numberOfSections(in tableNode: ASTableNode) -> Int {
+    return 1
+  }
+
+  func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
+    return items.count
+  }
+
+  func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
+    let item = self.items[indexPath.row]
+    return {
+      return TestCellNode(item: item)
+    }
+  }
+}
 ```
 
 
