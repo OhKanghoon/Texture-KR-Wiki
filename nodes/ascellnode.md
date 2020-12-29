@@ -1,11 +1,11 @@
 # ASCellNode
 
-`ASCellNode` 는 Texture 에서 쓰이는 Cell 입니다.   
+`ASCellNode` 는 Texture 에서 쓰이는 Cell 입니다.  
 UIKit 의 다양한 Cell \(UITableViewCell, UICollectionViewCell\) 과 다르게 `ASCellNode` 는 `ASTableNode`, `ASCollectionNode`, `ASPagerNode` 에서 공통적으로 사용할 수 있습니다.
 
 ## 구현 방법 3가지
 
-#### Subclassing
+### Subclassing
 
 ASCellNode 를 subclassing 하는 건 ASDisplayNode 를 subclassing 하는 것과 유사합니다.
 
@@ -16,7 +16,7 @@ ASCellNode 를 subclassing 하는 건 ASDisplayNode 를 subclassing 하는 것�
 * didLoad : 메인 쓰레드에서 호출된다. gesture recognizer 추가하기에 적절
 * layout : 메인 쓰레드에서 호출된다. super.layout\(\) 이후에 레이아웃이 완료되고, 여기서 필요한 추가 수정을 할 수 있습니다.
 
-#### ASViewController 를 사용한 Initializing
+### ASViewController 를 사용한 Initializing
 
 ViewController 의 view 를 cell 로 사용할 수 있습니다.  
 예를 들면 `ASTableNode` 를 사용하고 있는 ViewController 를 `ASPagerNode` 의 페이지로 사용하려면, `ASCellNode(viewControllerBlock:)` 를 사용하면 됩니다.
@@ -24,33 +24,33 @@ ViewController 의 view 를 cell 로 사용할 수 있습니다.
 ```swift
 func pagerNode(_ pagerNode: ASPagerNode, nodeAt index: Int) -> ASCellNode {
     let animals = allAnimals[index]
-    
+
     let node = ASCellNode(viewControllerBlock: { () -> UIViewController in
         return AnimalTableNodeController(animals: animals)
     }, didLoad: nil)
-    
+
     node.style.preferredSize = pagerNode.bounds.size
-    
+
     return node
 }
 ```
 
 그리고 이건 어떤 스크롤 가능한 컨테이너 노드와 `UIViewController` 서브 클래스에도 적용됩다.
 
-#### UIView 혹은 CALayer 를 사용한 initializing
+### UIView 혹은 CALayer 를 사용한 initializing
 
 이미 `UIView` 혹은 `CALayer` 서브 클래스를 가지고 있다면, 바로 Cell 로 사용할 수 있습니다.
 
 ```swift
 func pagerNode(_ pagerNode: ASPagerNode, nodeAt index: Int) -> ASCellNode {
     let animal = animals[index]
-    
+
     let node = ASCellNode { () -> UIView in
         return SomeAnimalView(animal: animal)
     }
 
     node.style.preferredSize = pagerNode.bounds.size
-    
+
     return node
 }
 ```
@@ -68,15 +68,15 @@ Placeholder 를 원하지 않는다면 `ASCellNode` 의 `neverShowPlaceholders` 
 node.neverShowPlaceholders = true
 ```
 
-이 프로퍼티를 true 주면, Main thread 는 Cell 의  Display 가 완료되기 전까지 block 됩니다.  
+이 프로퍼티를 true 주면, Main thread 는 Cell 의 Display 가 완료되기 전까지 block 됩니다.  
 이것은 UIKit 과 유사하지만, Texture 는 Scroll 을 훨씬 빠르게 만들어 줍니다.
 
-> 이 옵션을 사용한다고 해서 Texture 의 성능상 이점이 모두 사라지는 것은 아닙니다. 일반적으로 Cell  preloading 중이기 때문에 block 되는 시간은 매우 짧습니다. `rangeTuningParameters` 가 0으로 설정되어 있더라도 UIKit 보다 월등합니다. Main thread 가 대기 중일 때 , SubNode 의 display 가 동시에 실행됩니다.
+> 이 옵션을 사용한다고 해서 Texture 의 성능상 이점이 모두 사라지는 것은 아닙니다. 일반적으로 Cell preloading 중이기 때문에 block 되는 시간은 매우 짧습니다. `rangeTuningParameters` 가 0으로 설정되어 있더라도 UIKit 보다 월등합니다. Main thread 가 대기 중일 때 , SubNode 의 display 가 동시에 실행됩니다.
 
 ## UITableViewCell 의 특정 프로퍼티
 
 `UITableViewCell` 은 `selectionStyle`, `accessoryType`, `seperatorInset` 등의 프로퍼티를 가지고 있습니다.  
- `ASCellNode` 도 동일한 프로퍼티 들을 가지고 있습니다.
+`ASCellNode` 도 동일한 프로퍼티 들을 가지고 있습니다.
 
 > UIKit 의 `UITableViewCell` 은 `ASCellNode` 를 subview 로 포함하고 있습니다.  
 > `ASLayoutSpec` 을 정의하는 방법 따라 레이아웃이 `UITableViewCell.accessoryView` 와 겹쳐서 보이지 않을 수 있습니다. 레이아웃이 `UITableViewCell` 의 특정 프로퍼티 겹치지 않도록 해야 합니다.

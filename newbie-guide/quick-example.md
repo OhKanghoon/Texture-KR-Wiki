@@ -153,9 +153,9 @@ class TestNodeController: ASViewController<TestNode> {
 
 
 
-![List &#xD615;&#xD0DC;&#xC758; Screen &#xC608;&#xC2DC;](../.gitbook/assets/2019-04-04-3.21.13%20%281%29.png)
+![List &#xD615;&#xD0DC;&#xC758; Screen &#xC608;&#xC2DC;](../.gitbook/assets/2019-04-04-3.21.13%20%281%29%20%281%29.png)
 
-![LayoutSpec &#xAD6C;&#xC870;](../.gitbook/assets/2019-04-04-3.29.45%20%282%29.png)
+![LayoutSpec &#xAD6C;&#xC870;](../.gitbook/assets/2019-04-04-3.29.45%20%283%29%20%282%29.png)
 
 ![imageView&#xC640; textView&#xAC04;&#xC758; fraction &#xC815;&#xC758; &#xC608;&#xC2DC; ](../.gitbook/assets/2019-04-04-3.29.50.png)
 

@@ -2,7 +2,7 @@
 
 ![](../.gitbook/assets/2019-04-12-11.43.44.png)
 
-ASDisplayNode의 subClass이며, 사용자 인터렉션이 가능한 Node입니다. 
+ASDisplayNode의 subClass이며, 사용자 인터렉션이 가능한 Node입니다.
 
 Texture에서 제공되는 `ASButtonNode`, `ASTextNode`, `ASMapNode`, `ASImageNode` 등이 `ASControlNode`를 상속받고 있으며, 기본적으로 제공되는 ASControlNode subclass node이외 custom하게 터치가 가능한 Node를 만들 때 유용합니다.
 
@@ -33,30 +33,28 @@ typedef NS_OPTIONS(NSUInteger, ASControlNodeEvent)
   ASControlNodeEventValueChanged      = 1 << 12,
   /** A system event when the Play/Pause button on the Apple TV remote is pressed. */
   ASControlNodeEventPrimaryActionTriggered = 1 << 13,
-    
+
   /** All events, including system events. */
   ASControlNodeEventAllEvents         = 0xFFFFFFFF
 };
 ```
 
-#### addTarget
+### addTarget
 
-UIControl과 마찬가지로 `addTarget`에 대한 사용법은 동일합니다. 
+UIControl과 마찬가지로 `addTarget`에 대한 사용법은 동일합니다.
 
 ```swift
 let node = ASControlNode()
 node.addTarget(target: self, action: #selector(TODO:), for: .touchUpInside)
 ```
 
-
-
-### Hit Test Slop
+## Hit Test Slop
 
 터치영역을 조절하는 방식으로 두가지가 있습니다. UIKit와 동일하게 `hitTest:withEvent:`method를 override하는 방식과 `hitTestSlop` property를 접근해서 UIEdgeInsets을 negative or positive 값을 적절히 지정하는 방식이 있습니다.
 
-_hitTestSlop property접근을 활용한 조절을 권장합니다._ 
+_hitTestSlop property접근을 활용한 조절을 권장합니다._
 
-#### 터치영역 늘리기
+### 터치영역 늘리기
 
 ```swift
 let node = ASControlNode()
@@ -64,7 +62,7 @@ let node = ASControlNode()
 node.hitTestSlop = .init(top: -100.0, left: -100.0, bottom: -100.0, right: -100.0)
 ```
 
-#### 터치영역 줄이기
+### 터치영역 줄이기
 
 ```swift
 let node = ASControlNode()
@@ -72,5 +70,5 @@ let node = ASControlNode()
 node.hitTestSlop = .init(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
 ```
 
-조절한 Hit Test Slop을 Visualization하는 방법은 [여기](https://texture-kr.gitbook.io/wiki/advanced-guide/debug-tool#hit-test-visualization)를 참고해주세요. 
+조절한 Hit Test Slop을 Visualization하는 방법은 [여기](https://texture-kr.gitbook.io/wiki/advanced-guide/debug-tool#hit-test-visualization)를 참고해주세요.
 

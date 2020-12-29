@@ -20,7 +20,7 @@ description: >-
 
 노드를 스크롤 혹은 페이징 인터페이스 에 추가할 때 보통 다음 범위 중 하나에 있습니다. 이는 스크롤 뷰가 스크롤될 때 Interface State 가 이들을 통과할 때 업데이트 된다는걸 의미합니다.
 
-![A node will be in one of following ranges:](../.gitbook/assets/image%20%286%29.png)
+![A node will be in one of following ranges:](../.gitbook/assets/image%20%286%29%20%281%29.png)
 
 | **Interface State** | **Description** |
 | :--- | :--- |
@@ -42,42 +42,49 @@ description: >-
 
 위의 사진을 보면 사용자는 아래로 스크롤 하고 있습니다. 보다시피 선행 방향의 범위의 사이즈는 사용자가 이동 중인 컨텐츠\(후행방향\)보다 많이 큽니다. 사용자가 방향을 변경할 경우, 메모리 사용량을 최적으로 유지하기 위해 선행 과 후행이 동적으로 교환될 것입니다. 이렇게 하면 변화하는 사용자의 스크롤 방향에 반응할 걱정 없이 선행 및 후행 사이를 정할 수 있습니다.
 
-`Intelligent preloading` 은 다차원에서도 작용합니다.
+`Intelligent preloading` 은 다차원에서도 작용니다.
 
-샘플 코드는 [여기](https://app.gitbook.com/@texture-kr/s/wiki/advanced-guide/debug-tool#undefined-1)를 참고하세요.
+샘플 코드는 [여기](https://texture-kr.gitbook.io/wiki/advanced-guide/debug-tool#range-visualization)를 참고하세요.
 
 ## Interface State Callbacks
 
-사용자가 스크롤할 때 노드는 범위를 통과하여 이동하며, 데이터 로드, 렌더링 등을 통해 적절하게 대응한다. 커스텀 노드 서브클래스는 해당 콜백 메서드를 구현하여 이 메커니즘을 쉽게 이용할 수 있습니다.
+사용자가 스크롤할 때 노드는 범위를 통과하여 이동하며, 데이터 로드, 렌더링 등을 통해 적절하게 대응합니다. 커스텀 노드는 해당 메서드를 구현하여 이 메커니즘을 쉽게 이용할 수 있습니다.
 
-추가적으로 아래에 해당하는 State에 대한 override method는 **메인스레드**에서 처리됩니다.
+추가로 상태에 대한 아래의 override method 는 **메인스레드**에서 처리됩니다.
 
 #### Visible Range
 
-```text
--didEnterVisibleState
--didExitVisibleState
+```swift
+override func didEnterVisibleState() {
+  super.didEnterVisibleState()
+}
+
+override func didExitVisibleState() {
+  super.didExitVisibleState()
+}
 ```
 
-#### Preload Range
+#### Display Range
 
-```text
--didEnterDisplayState
--didExitDisplayState
+```swift
+override func didEnterDisplayState() {
+  super.didEnterDisplayState()
+}
+
+override func didExitDisplayState() {
+  super.didExitDisplayState()
+}
 ```
 
 #### **Preload Range**
 
-```text
--didEnterPreloadState
--didExitPreloadState
-```
-
-super 를 call 하는건 잊지마세요 😉
-
 ```swift
 override func didEnterPreloadState() {
-    super.didEnterPreloadState() // <-- HERE! 😉
+  super.didEnterPreloadState()
+}
+
+override func didExitPreloadState() {
+  super.didExitPreloadState()
 }
 ```
 

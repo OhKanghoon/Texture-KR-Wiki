@@ -175,7 +175,7 @@ layout상에서 좌측\(start\)을 기준으로 children elements를 배치합�
 
 #### end \(ASStackLayoutJustifyContentEnd\)
 
-![horizontal stack layout &#xAE30;&#xC900;](../.gitbook/assets/2019-04-08-1.16.15.png)
+![horizontal stack layout &#xAE30;&#xC900;](../.gitbook/assets/2019-04-08-1.16.15%20%282%29.png)
 
 layout상에서 start와 반대로 우측\(end\)을 기준으로 children elements를 배치합니다.
 

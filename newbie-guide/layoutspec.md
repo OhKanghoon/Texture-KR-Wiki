@@ -133,29 +133,29 @@ _constraints관계는 top, bottom, left, right, leading, trailing 및 inset, mar
 
 ```swift
 final class RepositoryView: UIView {
-  
+
   let profileView = UIImageView()
   let usernameLabel = UILabel()
   let descLabel = UILabel()
-  
+
   let informationLabel = UILabel()
   // ... 생략 ...
-  
+
   func makeRepositoryConstraints() {
     usernameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: ...)
     usernameLabel.bottomAnchor.constraint(equalTo: ..., constant: ...)
     usernameLabel.leadingAnchor.constraint(equalTo: ..., constant: ...)
     usernameLabel.trailingAnchor.constraint(equalTo: ..., constant: ...)
-    
+
     descLabel.topAnchor.constraint(equalTo: ..., constant: ...)
     descLabel.bottomAnchor.constraint(equalTo: ..., constant: ...)
     descLabel.leadingAnchor.constraint(equalTo: ..., constant: ...)
     descLabel.trailingAnchor.constraint(equalTo: ..., constant: ...)
-    
+
     // 1. constraints관계 파악
     // 2. constraints 추가 및 수정
   }
-  
+
   func snapKitBaseMakeRepositoryConstraints() {
     profileView.snp.makeConstraints({
       $0.top.bottom.leading.equalToSuperview().inset(5.0)
@@ -163,19 +163,18 @@ final class RepositoryView: UIView {
       $0.trailing.equalTo(descLabel.snp.leading).inset(5.0)
     })
     usernameLabel.snp.makeConstraints({
-      
+
       // 생략.
     })
     descLabel.snp.makeConstraints({
-      
+
       // 생략.
     })
-    
+
     // 1. constraints관계 파악
     // 2. constraints 추가 및 수
   }
 }
-
 ```
 
 #### Texture Layout API의 경우
@@ -275,7 +274,7 @@ Texture가 Auto-Layout으로 설계된 레이아웃보다 랜더링하는데 있
         self.descNode
       ]
     )
-    
+
     let profileWithInfoLayout = ASStackLayoutSpec(
       direction: .horizontal,
       spacing: 5.0,
@@ -286,7 +285,7 @@ Texture가 Auto-Layout으로 설계된 레이아웃보다 랜더링하는데 있
         self.infoLayout
       ]
     )
-    
+
     return ASInsetLayoutSpec(
       insets: UIEdgeInsets,
       child: profileWithInfoLayout
