@@ -165,7 +165,7 @@ ASStackLayoutSpec.init(direction: ASStackLayoutDirection,
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><a href="https://app.gitbook.com/@texture-kr/s/wiki/newbie-guide/flex-box#1-justifycontent">justifyContent</a>
+      <td style="text-align:left"><a href="https://texture-kr.gitbook.io/wiki/newbie-guide/flex-box#1-justifycontent">justifyContent</a>
       </td>
       <td style="text-align:left">ASStackLayoutJustifyContent</td>
       <td style="text-align:left">
@@ -175,7 +175,7 @@ ASStackLayoutSpec.init(direction: ASStackLayoutDirection,
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><a href="https://app.gitbook.com/@texture-kr/s/wiki/newbie-guide/flex-box#2-alignitems">alignItems</a>
+      <td style="text-align:left"><a href="https://texture-kr.gitbook.io/wiki/newbie-guide/flex-box#2-alignitems">alignItems</a>
       </td>
       <td style="text-align:left">ASStackLayoutAlignItems</td>
       <td style="text-align:left">
