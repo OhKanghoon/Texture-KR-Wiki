@@ -16,7 +16,7 @@ let dimension = ASDimension(unit: ASDimensionUnit, value: CGFloat)
 let percentage1 = ASDimensionMake("50%")
 let percentage2 = ASDimension(unit: .fraction, value: 0.5)
 
-let point1 = ASDimensionMake("100pt")
+let point1 = ASDimensionMake("100.0")
 let point2 = ASDimension(unit: .points, value: 100.0)
 ```
 
@@ -24,7 +24,7 @@ let point2 = ASDimension(unit: .points, value: 100.0)
 
 ### 사용법 
 
-\`\`[`ASStackLayoutSpec`](https://texture-kr.gitbook.io/wiki/layout-api/layoutspecs#3-asstacklayoutspec)에서 각 child element layout의 **flexBasis**에 대한 속성을 정의할 때 유용하기 때문에 예시를 준비했습니다.
+[`ASStackLayoutSpec`](https://texture-kr.gitbook.io/wiki/layout-api/layoutspecs#3-asstacklayoutspec)에서 각 child element layout의 **flexBasis**에 대한 속성을 정의할 때 유용하기 때문에 예시를 준비했습니다.
 
 ![](../.gitbook/assets/image%20%2824%29.png)
 
@@ -46,18 +46,20 @@ stackLayout.children = [self.categoryLayout, self.detailInfoLayout]
 ## ASLayoutSize
 
 ```swift
-ASLayoutSize.init(width: ASDimension, height: ASDimension)
+ASLayoutSize(width: ASDimension, height: ASDimension)
 ```
 
 `ASLayoutSize`는 `CGSize`와 유사하지만 **width와 height** 에 대해서 `CGFloat`로 point로 처리하는 방법과 **백분율** 값으로 나타내는 방식이 있습니다.
 
 ```swift
-let size1 = ASLayoutSize.init(width: .init(unit: .points, value: 100.0),
-                              height: .init(unit: .points, value: 100.0))
+let size1 = ASLayoutSize(
+  width: ASDimension(unit: .points, value: 100.0),
+  height: ASDimension(unit: .points, value: 100.0)
+)
 
 let size2 = ASLayoutSize()
-size2.width = .init(unit: .points, value: 100.0)
-size2.height = .init(unit: .fraction, value: 0.5) // 50%
+size2.width = ASDimension(unit: .points, value: 100.0)
+size2.height = ASDimension(unit: .fraction, value: 0.5) // 50%
 ```
 
 ### 사용법
@@ -66,8 +68,8 @@ size2.height = .init(unit: .fraction, value: 0.5) // 50%
 let imageNode = ASNetworkImageNode()
 
 let imageLayoutSize = ASLayoutSize()
-imageLayoutSize.width = .init(unit: .points, value: 100.0)
-imageLayoutSize.height = .init(unit: .fraction, value: 0.5) // 50%
+imageLayoutSize.width = ASDimension(unit: .points, value: 100.0)
+imageLayoutSize.height = ASDimension(unit: .fraction, value: 0.5) // 50%
 
 imageNode.style.preferredLayoutSize = imageLayoutSize
 ```
@@ -76,11 +78,11 @@ imageNode.style.preferredLayoutSize = imageLayoutSize
 
 ```swift
 let imageNode = ASNetworkImageNode()
-imageNode.style.preferredSize = .init(width: 500.0, height: 500.0)
+imageNode.style.preferredSize = CGSize(width: 500.0, height: 500.0)
 
 let imageNode2 = ASNetworkImageNode()
-imageNode2.style.minSize = .init(width: 100.0, height: 100.0)
-imageNode2.style.maxSize = .init(width: 500.0, height: 500.0)
+imageNode2.style.minSize = CGSize(width: 100.0, height: 100.0)
+imageNode2.style.maxSize = CGSize(width: 500.0, height: 500.0)
 ```
 
 
@@ -93,11 +95,13 @@ imageNode2.style.maxSize = .init(width: 500.0, height: 500.0)
 
 ```swift
 let sizeRange = ASSizeRange()
-sizeRange.min = CGSize.init(width: 100.0, height: 100.0)
-sizeRange.max = CGSize.init(width: 200.0, height: 100.0)
+sizeRange.min = CGSize(width: 100.0, height: 100.0)
+sizeRange.max = CGSize(width: 200.0, height: 100.0)
 
-let sizeRange2 = ASSizeRange(min: CGSize.zero, 
-                             max: CGSize.init(width: 10.0, height: 10.0)))
+let sizeRange2 = ASSizeRange(
+  min: CGSize.zero, 
+  max: CGSize.init(width: 10.0, height: 10.0)
+)
 ```
 
 대표적으로 사용되는 사례로는 `layoutSpecThatFits:` 을 예로 들 수가 있습니다. 
@@ -105,6 +109,3 @@ let sizeRange2 = ASSizeRange(min: CGSize.zero,
 ```swift
 func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 ```
-
-
-
