@@ -31,7 +31,7 @@ _Wrapping되는 child element에 preferredSize를 적용하더라도 의미가 �
 override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
   return ASWrapperLayoutSpec(
     layoutElement: self.childNode1.styled {
-      $0.preferredSize = .init(width: 100.0, height:100.0) // 의미없음
+      $0.preferredSize = CGSize(width: 100.0, height:100.0) // 의미없음
     }
   )
 }
@@ -244,7 +244,7 @@ ASStackLayoutSpec(
 
 ```swift
 override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-  let stackLayout = ASStackLayoutSpec.init(
+  let stackLayout = ASStackLayoutSpec(
     direction: .horizontal,
     spacing: 20.0,
     justifyContent: .start,
@@ -274,7 +274,7 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 명칭 그대로 Overlay 해주는 LayoutSpec으로써, 특정 Overlay 대상 노드를 특정 child 노드위에 Overlay시키는 LayoutSpec입니다.
 
 ```swift
-ASOverlayLayoutSpec.init(child: ASLayoutElement, overlay: ASLayoutElement)
+ASOverlayLayoutSpec(child: ASLayoutElement, overlay: ASLayoutElement)
 ```
 
 최상단에 **overlay되는 대상은 overlay:** 에서 매개변수로 받으며 child: 에서 **overlay되는 대상을 자식으로 가지는 layout element**를 받습니다.
@@ -316,7 +316,7 @@ ASBackgroundLayoutSpec은 ASOverlayLayoutSpec과 비슷해보지만 큰 차이�
 
 ```swift
 override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-  let layout = ASBackgroundLayoutSpec.init(child: redNode, background: blueNode)
+  let layout = ASBackgroundLayoutSpec(child: redNode, background: blueNode)
 
   // ...
 }
@@ -334,8 +334,8 @@ flexible하지 않으며 정의된 사이즈형태로 유지되며 layoutPositio
 제공되는 API는 기본형태와 sizing option 형태 두가지로 나눠집니다.
 
 ```swift
-ASAbsoluteLayoutSpec.init(children: [ASLayoutElement]) // default
-ASAbsoluteLayoutSpec.init(sizing: ASAbsoluteLayoutSpecSizing, children: [ASLayoutElement])
+ASAbsoluteLayoutSpec(children: [ASLayoutElement]) // default
+ASAbsoluteLayoutSpec(sizing: ASAbsoluteLayoutSpecSizing, children: [ASLayoutElement])
 ```
 
 여기서 눈여겨볼 점은 sizing options입니다.
@@ -350,9 +350,9 @@ ASAbsoluteLayoutSpec.init(sizing: ASAbsoluteLayoutSpecSizing, children: [ASLayou
 ```swift
 override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
   // layoutPosition 및 size를 설정합니다.
-  childNode1.style.layoutPosition = .init(x: 100.0, y: 100.0)
-  childNode1.style.preferredSize = .init(width: 100.0, height: 100.0)
-  return ASAbsoluteLayoutSpec.init(sizing: .default, children: [childNode1])
+  childNode1.style.layoutPosition = CGPoint(x: 100.0, y: 100.0)
+  childNode1.style.preferredSize = CGSize(width: 100.0, height: 100.0)
+  return ASAbsoluteLayoutSpec(sizing: .default, children: [childNode1])
 }
 ```
 
@@ -503,7 +503,7 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 
 ```swift
 override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-  let insets: UIEdgeInset = .init(top: 0.0, left: 0.0, bottom: 20.0, right: 20.0)
+  let insets = UIEdgeInset(top: 0.0, left: 0.0, bottom: 20.0, right: 20.0)
   let insetLayout = ASInsetLayoutSpec(insets: insets, child: self.childNode1)
 
   let rightBottomLayout = ASRelativeLayoutSpec(
@@ -553,7 +553,7 @@ _ASNetworkImageNode나 ASVideoNode를 사용할 땐, 미디어 리소스에 대�
 
 ```swift
 override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-  let ratioLayout = ASRatioLayoutSpec.init(ratio: 0.5, child: self.childNode1)
+  let ratioLayout = ASRatioLayoutSpec(ratio: 0.5, child: self.childNode1)
 
   // ...
 }
@@ -595,7 +595,7 @@ default값은 CGPoint.zero \(zero position\) 이며 아래와 같이 corner에 �
 
 만약 corner에 해당하는 layout element를 child안으로 이동시키고자 한다면, 임의로 corner element 사이즈 절반 만큼 offset에 부여하면 됩니다.
 
-![location: bottomRight, offset: CGPoint.init(x: -20.0, y: -20.0)](../.gitbook/assets/2019-04-09-6.11.53.png)
+![location: bottomRight, offset: CGPoint(x: -20.0, y: -20.0)](../.gitbook/assets/2019-04-09-6.11.53.png)
 
 정리하자면 **negative offset**을 지정하면 값의 크기에 따라 **안쪽방향**으로 position을 배치하게되고,
 
@@ -618,7 +618,7 @@ override function layoutSpecThatFits (_ constrainedSize : ASSizeRange) -> ASLayo
     corner: changePhotoNode,
     location: .bottomRight
   )
-  cornerLayout.offset = CGPoint (x : 3.0, y : 3.0)
+  cornerLayout.offset = CGPoint(x : 3.0, y : 3.0)
 
   // ...
 }
