@@ -225,8 +225,8 @@ ASStackLayoutSpec.init(direction: ASStackLayoutDirection,
 
 ### 사용법
 
-* ASStackLayoutSpec elements properties는 [여기](https://app.gitbook.com/@texture-kr/s/wiki/layout-api/layout-element-properties#3-stack-layout-element-properties-asstacklayoutelement)를 참고해주세요.
-* Flexbox 를 활용방법은 [여기](https://app.gitbook.com/@texture-kr/s/wiki/newbie-guide/flex-box)를 참고해주세요. 
+* ASStackLayoutSpec elements properties는 [여기](https://texture-kr.gitbook.io/wiki/layout-api/layout-element-properties#3-stack-layout-element-properties-asstacklayoutelement)를 참고해주세요.
+* Flexbox 를 활용방법은 [여기](https://texture-kr.gitbook.io/wiki/newbie-guide/flex-box)를 참고해주세요. 
 
 ```swift
 override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {

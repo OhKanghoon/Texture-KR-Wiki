@@ -24,7 +24,7 @@ let point2 = ASDimension(unit: .points, value: 100.0)
 
 ### 사용법 
 
-\`\`[`ASStackLayoutSpec`](https://app.gitbook.com/@texture-kr/s/wiki/layout-api/layoutspecs#3-asstacklayoutspec)에서 각 child element layout의 **flexBasis**에 대한 속성을 정의할 때 유용하기 때문에 예시를 준비했습니다.
+\`\`[`ASStackLayoutSpec`](https://texture-kr.gitbook.io/wiki/layout-api/layoutspecs#3-asstacklayoutspec)에서 각 child element layout의 **flexBasis**에 대한 속성을 정의할 때 유용하기 때문에 예시를 준비했습니다.
 
 ![](../.gitbook/assets/image%20%2824%29.png)
 
