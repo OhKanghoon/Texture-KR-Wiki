@@ -417,7 +417,7 @@ horizontal 및 vertical 에 대한 정렬기준옵션입니다. **none, start, c
 override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
   let centerLayout = ASCenterLayoutSpec(
     centeringOptions: .XY,
-    sizingOptions: .minimumXY
+    sizingOptions: .minimumXY,
     child: self.childNode1
   )
 
