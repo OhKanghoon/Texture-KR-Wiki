@@ -54,12 +54,12 @@ func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt index
 
 위의 코드에서 Node Block 을 생성하기 전에 외부에서 인덱스로 사진 모델에 접근하는 것을 확인할 수 있습니다.
 
-## UICollectionViewController 를 ASViewController 로 대체하기
+## UICollectionViewController 를 ASDKViewController 로 대체하기
 
 Texture 는 `UICollectionViewController` 와 동일하지는 않습니다.  
-대신 ASViewController 의 유연성을 이용해 모든 유형의 UI...ViewController 를 재생성할 수 있습니다.
+대신 ASDKViewController 의 유연성을 이용해 모든 유형의 UI...ViewController 를 재생성할 수 있습니다.
 
-`ASCollectionNode` 를 `ASViewController` 의 -init\(node:\) 을 사용하여 생성합니다.
+`ASCollectionNode` 를 `ASDKViewController` 의 -init\(node:\) 을 사용하여 생성합니다.
 
 ```swift
 init() {
