@@ -64,7 +64,7 @@ class ViewController: UIViewController {
     }
 }
 
-// ASViewController with ASDisplayNode (default)
+// ASDKViewController with ASDisplayNode (default)
 class ViewController: ASDKViewController<ASDisplayNode> {
 
     override init() {
@@ -86,7 +86,7 @@ class ViewController: UITableViewController {
     }
 }
 
-// ASViewController with ASTableNode
+// ASDKViewController with ASTableNode
 class ViewController: ASDKViewController<ASTableNode> {
 
     override init() {
@@ -95,7 +95,7 @@ class ViewController: ASDKViewController<ASTableNode> {
 }
 ```
 
-[ASViewController에 대해서 더 자세히 알아보기](https://texture-kr.gitbook.io/wiki/node-containers/asviewcontroller).
+[ASDKViewController 대해서 더 자세히 알아보기](https://texture-kr.gitbook.io/wiki/node-containers/asdkviewcontroller).
 
 ### 2. Texture Node를 기반으로 한  Subclass 만들기
 
