@@ -16,7 +16,7 @@ ASCellNode 를 subclassing 하는 건 ASDisplayNode 를 subclassing 하는 것�
 * didLoad : 메인 쓰레드에서 호출된다. gesture recognizer 추가하기에 적절
 * layout : 메인 쓰레드에서 호출된다. super.layout\(\) 이후에 레이아웃이 완료되고, 여기서 필요한 추가 수정을 할 수 있습니다.
 
-### ASViewController 를 사용한 Initializing
+### ASDKViewController 를 사용한 Initializing
 
 ViewController 의 view 를 cell 로 사용할 수 있습니다.  
 예를 들면 `ASTableNode` 를 사용하고 있는 ViewController 를 `ASPagerNode` 의 페이지로 사용하려면, `ASCellNode(viewControllerBlock:)` 를 사용하면 됩니다.

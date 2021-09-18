@@ -56,15 +56,15 @@ func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath)
 
 위의 예시에서 Node Block 을 만들기 전에 인덱스를 사용하여 사진 모델에 접근하는 방법을 확인할 수 있습니다.
 
-## UITableViewController 를 ASViewController 로 대체하기
+## UITableViewController 를 ASDKViewController 로 대체하기
 
 Texture 는 `UITableViewController` 와 같은 기능을 제공하지 않습니다.  
-대신 `ASTableNode` 로 생성한 `ASViewController` 를 사용하세요.
+대신 `ASTableNode` 로 생성한 `ASDKViewController` 를 사용하세요.
 
-`ASTableNode` 를 `ASViewController` 의 -init\(node:\) 을 사용하여 생성합니다.
+`ASTableNode` 를 `ASDKViewController` 의 -init\(node:\) 을 사용하여 생성합니다.
 
 ```swift
-final class ViewController: ASViewController<ASTableNode> {
+final class ViewController: ASDKViewController<ASTableNode> {
   init() {
     let tableNode = ASTableNode(style: .plain)
     super.init(node: tableNode)
