@@ -307,12 +307,12 @@ Texture가 Auto-Layout으로 설계된 레이아웃보다 랜더링하는데 있
         alignItems: .stretch,
         children: [
           self.profileNode,
-          self.infoLayout
+          infoLayout
         ]
       )
 
     return ASInsetLayoutSpec(
-      insets: UIEdgeInsets,
+      insets: UIEdgeInsets.zero,
       child: profileWithInfoLayout
     )
   }
